@@ -1,0 +1,389 @@
+---
+import NavigationLayout from '../../layouts/NavigationLayout.astro';
+import { albums, getAlbumBySlug, getNextAlbum, getPrevAlbum } from '../../data/albums.js';
+
+export async function getStaticPaths() {
+  return albums.map(album => ({
+    params: { slug: album.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const album = getAlbumBySlug(slug);
+const nextAlbum = getNextAlbum(slug);
+const prevAlbum = getPrevAlbum(slug);
+
+if (!album) {
+  return Astro.redirect('/listen');
+}
+
+// Build Bandcamp embed URL
+const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/size=large/bgcol=000000/linkcol=8b7355/tracklist=true/artwork=none/transparent=true/`;
+---
+
+<NavigationLayout title={`${album.title} - VEILBURNER`}>
+  <div class="album-page">
+    <div class="container">
+      <!-- Navigation Arrows -->
+      <div class="album-nav">
+        {prevAlbum ? (
+          <a href={`/listen/${prevAlbum.slug}`} class="album-nav__arrow album-nav__arrow--prev" title={prevAlbum.title}>
+            <span class="album-nav__chevron">‹</span>
+            <span class="album-nav__title">{prevAlbum.title}</span>
+          </a>
+        ) : (
+          <div class="album-nav__arrow album-nav__arrow--hidden"></div>
+        )}
+
+        <div class="album-nav__center">
+          <h1 class="album-page__title">{album.title}</h1>
+          <p class="album-page__year">{album.year}</p>
+        </div>
+
+        {nextAlbum ? (
+          <a href={`/listen/${nextAlbum.slug}`} class="album-nav__arrow album-nav__arrow--next" title={nextAlbum.title}>
+            <span class="album-nav__title">{nextAlbum.title}</span>
+            <span class="album-nav__chevron">›</span>
+          </a>
+        ) : (
+          <div class="album-nav__arrow album-nav__arrow--hidden"></div>
+        )}
+      </div>
+
+      <!-- Album Content -->
+      <div class="album-content">
+        <!-- Album Art -->
+        <div class="album-art">
+          <img src={album.cover} alt={`${album.title} album cover`} />
+        </div>
+
+        <!-- Bandcamp Player -->
+        <div class="album-player">
+          <iframe
+            style="border: 0; width: 350px; height: 470px;"
+            src={embedUrl}
+            seamless
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Description -->
+      {album.description && (
+        <div class="album-description">
+          <h2 class="album-section__title">About This Album</h2>
+          <p class="album-description__text">{album.description}</p>
+        </div>
+      )}
+
+      <!-- Credits -->
+      <div class="album-credits">
+        <h2 class="album-section__title">Credits</h2>
+        <dl class="credits-list">
+          <div class="credits-list__item">
+            <dt class="credits-list__label">Personnel</dt>
+            <dd class="credits-list__value">{album.credits.personnel}</dd>
+          </div>
+          <div class="credits-list__item">
+            <dt class="credits-list__label">Production</dt>
+            <dd class="credits-list__value">{album.credits.production}</dd>
+          </div>
+          <div class="credits-list__item">
+            <dt class="credits-list__label">Artwork</dt>
+            <dd class="credits-list__value">{album.credits.artwork}</dd>
+          </div>
+          <div class="credits-list__item">
+            <dt class="credits-list__label">Label</dt>
+            <dd class="credits-list__value">{album.credits.label}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Lyrics (Expandable Placeholder) -->
+      <div class="album-lyrics">
+        <details class="lyrics-details">
+          <summary class="lyrics-details__summary">Lyrics</summary>
+          <div class="lyrics-details__content">
+            <p class="lyrics-placeholder">[Lyrics to be added]</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</NavigationLayout>
+
+<style lang="scss">
+  .album-page {
+    padding: 4rem 1.5rem;
+    min-height: 100vh;
+
+    &__title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    &__year {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      text-align: center;
+      color: #8b7355;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  // Navigation Arrows
+  .album-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    &__center {
+      text-align: center;
+    }
+
+    &__arrow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b7355;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+
+      &--prev {
+        justify-content: flex-start;
+      }
+
+      &--next {
+        justify-content: flex-end;
+      }
+
+      &--hidden {
+        visibility: hidden;
+
+        @media (max-width: 968px) {
+          display: none;
+        }
+      }
+
+      &:hover {
+        color: #5a3a2a;
+      }
+
+      @media (max-width: 968px) {
+        justify-content: center !important;
+      }
+    }
+
+    &__chevron {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    &__title {
+      display: none;
+
+      @media (min-width: 969px) {
+        display: block;
+        max-width: 200px;
+      }
+
+      .album-nav__arrow:hover & {
+        display: block;
+        position: absolute;
+        background: #1a1a1a;
+        padding: 0.5rem 1rem;
+        border: 1px solid #5a3a2a;
+        white-space: nowrap;
+        z-index: 10;
+        font-size: 0.875rem;
+
+        @media (max-width: 968px) {
+          position: static;
+          background: transparent;
+          border: none;
+          padding: 0;
+        }
+      }
+
+      .album-nav__arrow--prev:hover & {
+        left: 3rem;
+      }
+
+      .album-nav__arrow--next:hover & {
+        right: 3rem;
+      }
+    }
+  }
+
+  // Album Content (Art + Player)
+  .album-content {
+    display: grid;
+    grid-template-columns: 700px 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: start;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 550px 1fr;
+    }
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .album-art {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 3px solid #8B0000;
+      clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+    }
+  }
+
+  .album-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    iframe {
+      background: transparent;
+    }
+
+    @media (max-width: 968px) {
+      iframe {
+        width: 100% !important;
+        max-width: 350px;
+      }
+    }
+  }
+
+  // Section Titles
+  .album-section__title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: #8b7355;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Description
+  .album-description {
+    margin-bottom: 4rem;
+
+    &__text {
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #cccccc;
+      padding: 2rem;
+      border: 2px solid #5a3a2a;
+      border-left: 6px solid #5a3a2a;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+      background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+    }
+  }
+
+  // Credits
+  .album-credits {
+    margin-bottom: 4rem;
+  }
+
+  .credits-list {
+    font-family: 'Courier New', monospace;
+    display: grid;
+    gap: 1.5rem;
+
+    &__item {
+      padding: 1.5rem;
+      border: 2px solid #5a3a2a;
+      border-left: 6px solid #5a3a2a;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+      background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+    }
+
+    &__label {
+      font-size: 0.8rem;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    &__value {
+      font-size: 1rem;
+      color: #e8e8e8;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  // Lyrics
+  .album-lyrics {
+    margin-bottom: 4rem;
+  }
+
+  .lyrics-details {
+    border: 2px solid #5a3a2a;
+    border-left: 6px solid #5a3a2a;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+    background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+
+    &__summary {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      padding: 1.5rem;
+      cursor: pointer;
+      list-style: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8b7355;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #5a3a2a;
+      }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    &__content {
+      padding: 0 1.5rem 1.5rem;
+    }
+  }
+
+  .lyrics-placeholder {
+    font-family: 'Courier New', monospace;
+    color: #666666;
+    font-size: 1rem;
+    font-style: italic;
+  }
+</style>

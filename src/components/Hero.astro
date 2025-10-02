@@ -1,0 +1,25 @@
+---
+// This would come from props in real use
+const tagline = "AVANT-GARDE BLACK/DEATH METAL";
+const heroImage = "/images/live-1.jpg";
+const logoImage = "/images/logo-entire-red-no-bg.png";
+---
+
+<section class="hero">
+  <!-- Background Image with Parallax -->
+  <div
+    class="hero__background"
+    style={`background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(139,0,0,0.3)), url('${heroImage}');`}
+  >
+  </div>
+
+  <!-- Content -->
+  <div class="hero__content">
+    <div class="hero__logo">
+      <img src={logoImage} alt="Veilburner" />
+    </div>
+    <p class="hero__tagline">
+      {tagline}
+    </p>
+  </div>
+</section>

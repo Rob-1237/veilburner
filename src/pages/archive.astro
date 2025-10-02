@@ -1,0 +1,90 @@
+---
+import NavigationLayout from '../layouts/NavigationLayout.astro';
+---
+
+<NavigationLayout title="VEILBURNER - Archive">
+  <section class="archive-page">
+    <div class="container">
+      <h1 class="archive-page__title">ARCHIVE</h1>
+
+      <!-- Reviews Section -->
+      <section class="archive-section">
+        <h2 class="archive-section__title">REVIEWS</h2>
+        <div class="archive-section__content">
+          <p class="archive-placeholder">Review content will be added here.</p>
+        </div>
+      </section>
+
+      <!-- Interviews Section -->
+      <section class="archive-section">
+        <h2 class="archive-section__title">INTERVIEWS</h2>
+        <div class="archive-section__content">
+          <p class="archive-placeholder">Interview links will be added here.</p>
+        </div>
+      </section>
+
+      <!-- Media Section -->
+      <section class="archive-section">
+        <h2 class="archive-section__title">MEDIA</h2>
+        <div class="archive-section__content">
+          <p class="archive-placeholder">Media embeds will be added here.</p>
+        </div>
+      </section>
+    </div>
+  </section>
+</NavigationLayout>
+
+<style lang="scss">
+  .archive-page {
+    padding: 6rem 1.5rem 3rem;
+    min-height: 100vh;
+
+    &__title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 4rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .archive-section {
+    margin-bottom: 6rem;
+
+    &__title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      color: #8b7355; // Bone
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    &__content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  }
+
+  .archive-placeholder {
+    font-family: 'Courier New', monospace;
+    color: #666666;
+    font-size: 1rem;
+    padding: 2rem;
+    border: 2px solid #5a3a2a;
+    border-left: 6px solid #5a3a2a;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+    background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+  }
+</style>

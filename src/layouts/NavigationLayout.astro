@@ -1,0 +1,201 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Unofficial fan site" } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+// Determine active page
+const isHome = currentPath === '/';
+const isListen = currentPath.startsWith('/listen');
+const isArchive = currentPath.startsWith('/archive');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <ViewTransitions />
+</head>
+<body>
+  <!-- Navigation Dots -->
+  <nav class="nav-dots" aria-label="Main navigation">
+    <a
+      href="/"
+      class:list={["nav-dots__dot", { "nav-dots__dot--active": isHome }]}
+      aria-label="Home"
+      aria-current={isHome ? "page" : undefined}
+    >
+      <span class="sr-only">Home</span>
+    </a>
+    <a
+      href="/listen"
+      class:list={["nav-dots__dot", { "nav-dots__dot--active": isListen }]}
+      aria-label="Listen"
+      aria-current={isListen ? "page" : undefined}
+    >
+      <span class="sr-only">Listen</span>
+    </a>
+    <a
+      href="/archive"
+      class:list={["nav-dots__dot", { "nav-dots__dot--active": isArchive }]}
+      aria-label="Archive"
+      aria-current={isArchive ? "page" : undefined}
+    >
+      <span class="sr-only">Archive</span>
+    </a>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="page-content">
+    <slot />
+  </main>
+
+  <!-- Fixed Footer -->
+  <footer class="site-footer">
+    <p>Unofficial fan site. Not affiliated with Veilburner or Transcending Obscurity Records.</p>
+    <p>&copy; Garfish Digital</p>
+  </footer>
+
+  <script>
+    // Disable scroll during transition
+    document.addEventListener('astro:before-preparation', () => {
+      document.body.style.overflow = 'hidden';
+    });
+
+    document.addEventListener('astro:after-swap', () => {
+      // Scroll to top
+      window.scrollTo(0, 0);
+      // Re-enable scroll after transition completes
+      setTimeout(() => {
+        document.body.style.overflow = '';
+      }, 750); // Match transition duration
+    });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.scss';
+</style>
+
+<style lang="scss">
+  // Screen reader only class
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  // Navigation Dots
+  .nav-dots {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    @media (max-width: 768px) {
+      top: auto;
+      bottom: 30px;
+      right: 50%;
+      transform: translateX(50%);
+      flex-direction: row;
+    }
+  }
+
+  .nav-dots__dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(139, 0, 0, 0.35); // Inactive: blood
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+
+    &:hover {
+      background: #5a3a2a; // Hover: rust
+    }
+
+    &--active {
+      background: #8b7355; // Active: bone
+    }
+  }
+
+  // Page Content Area
+  .page-content {
+    min-height: calc(100vh - 120px); // Account for footer space
+    padding-bottom: 120px; // Ensure content doesn't hide under footer
+  }
+
+  // Fixed Footer
+  .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9998; // Below nav dots, above content
+    padding: 2rem 0;
+    text-align: center;
+    color: #666666;
+    border-top: 1px solid #1a1a1a;
+    background: #000000;
+
+    p {
+      margin-top: 0.5rem;
+    }
+  }
+</style>
+
+<style is:global>
+  /* View Transitions - Slide with Crossfade */
+  @keyframes slideFromRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  ::view-transition-old(root) {
+    animation: fadeOut 750ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  ::view-transition-new(root) {
+    animation: slideFromRight 750ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+</style>

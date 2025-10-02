@@ -1,0 +1,37 @@
+---
+// Contact information
+const contact = {
+  email: "burningtheveil@gmail.com",
+  bandcamp: "https://veilburner.bandcamp.com/",
+  bandcampAlt: "https://veilburnerband.bandcamp.com/"
+};
+---
+
+<section class="contact">
+  <div class="container">
+    <h2 class="contact__title">CONTACT</h2>
+
+    <div class="contact__content">
+      <div class="contact__item">
+        <span class="contact__label">Email</span>
+        <a href={`mailto:${contact.email}`} class="contact__link">
+          {contact.email}
+        </a>
+      </div>
+
+      <div class="contact__item">
+        <span class="contact__label">Bandcamp</span>
+        <a href={contact.bandcamp} class="contact__link" target="_blank" rel="noopener noreferrer">
+          veilburner.bandcamp.com
+        </a>
+      </div>
+
+      <div class="contact__item">
+        <span class="contact__label">Bandcamp (Alt)</span>
+        <a href={contact.bandcampAlt} class="contact__link" target="_blank" rel="noopener noreferrer">
+          veilburnerband.bandcamp.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

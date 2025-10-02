@@ -1,0 +1,52 @@
+---
+// In real app, this would come from data/band-info.json or CMS
+const bandInfo = {
+  bio: "Veilburner is a two-man extreme metal project that emerged from the underground with a sound that defies conventional categorization. Their brutal assault of avant-garde blackened death metal has carved a unique path through the extreme music landscape.\n\nComprised of Mephisto Deleterio (David Moody) and Chrisom Infernium (Chris Sheppard), the duo has released eight full-length albums since 2014. Their uncompromising approach to songwriting and refusal to adhere to genre conventions has earned them a dedicated cult following among fans of extreme metal.\n\nTheir music explores themes of occult mysticism, cosmic horror, and esoteric philosophy, delivered through dissonant riffs, atmospheric passages, and visceral vocal performances that push the boundaries of extreme metal into unorthodoxly terrifying territory.",
+  formed: "2014",
+  location: "Pennsylvania, USA",
+  genre: "Avant-Garde Black/Death Metal",
+  label: "Transcending Obscurity Records",
+  image: "/images/both-members-9.jpg"
+};
+---
+
+<section class="about">
+  <div class="container">
+    <h2 class="about__title">ABOUT</h2>
+
+    <div class="about__content">
+      <div class="about__image-wrapper">
+        <div class="about__image">
+          <img src={bandInfo.image} alt="Band photo" />
+        </div>
+      </div>
+
+      <div class="about__text">
+        <div class="about__bio">
+          {bandInfo.bio.split('\n\n').map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+
+        <div class="about__details">
+          <div class="about__detail">
+            <span class="about__detail-label">Formed</span>
+            <span class="about__detail-value">{bandInfo.formed}</span>
+          </div>
+          <div class="about__detail">
+            <span class="about__detail-label">Location</span>
+            <span class="about__detail-value">{bandInfo.location}</span>
+          </div>
+          <div class="about__detail">
+            <span class="about__detail-label">Genre</span>
+            <span class="about__detail-value">{bandInfo.genre}</span>
+          </div>
+          <div class="about__detail">
+            <span class="about__detail-label">Label</span>
+            <span class="about__detail-value">{bandInfo.label}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
