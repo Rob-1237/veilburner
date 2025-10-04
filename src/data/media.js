@@ -21,7 +21,7 @@ export const media = {
       link: "https://www.youtube.com/watch?v=Zo9WZbfp9bA"
     }
   ],
-  videos: [
+  videoMisc: [
     {
       title: "Veilburner - The Duality of Decapitation and Wisdom Part I",
       videoId: "XjwAeU1jMig",
@@ -31,8 +31,13 @@ export const media = {
   reels: [
     {
       title: "Veilburner: Metal You Might Like #metal #beastmetalreview #blackmetal",
-      videoId: "frrVnKG1IUY",
+      videoSrc: "/videos/veilburner-reel-1.mp4",
       link: "https://www.youtube.com/shorts/frrVnKG1IUY"
+    },
+    {
+      title: "Veilburner #abattoirnoir #masktestvideo #entities #blackmetal",
+      videoSrc: "/videos/veilburner-reel-2.mp4",
+      link: "https://www.facebook.com/reel/601553250275501"
     }
   ]
 };

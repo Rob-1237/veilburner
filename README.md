@@ -102,183 +102,12 @@ This is a fantastic foundation for your business plan!
 
 ============
 
-PODCAST LINK:
-https://www.youtube.com/watch?v=HZSJUQ6p4xY
 
 MERCH LINK:
 https://tometal.com/?s=veilburner
 
 
-Archive Page
-
-  URL Structure
-
-  /archive
-
-  Single page, organized by content type.
-
-  ---
-  Page Layout Strategy
-
-  Visual Concept: "The Archive Chamber"
-
-  Think: Occult library, documentation of ritual practices.
-
-  ┌─────────────────────────────────────┐
-  │   ARCHIVE                            │
-  │   ━━━━━━━                            │
-  │                                      │
-  │   REVIEWS                            │
-  │   ┌──────────────────────────────┐  │
-  │   │ "Quote from review..."       │  │
-  │   │ — Publication, Date      [+] │  │
-  │   └──────────────────────────────┘  │
-  │   ┌──────────────────────────────┐  │
-  │   │ "Another quote..."           │  │
-  │   │ — Publication, Date      [+] │  │
-  │   └──────────────────────────────┘  │
-  │                                      │
-  │   INTERVIEWS                         │
-  │   • Publication Name — Date → Link   │
-  │   • Publication Name — Date → Link   │
-  │                                      │
-  │   MEDIA                              │
-  │   ┌──────────────────────────────┐  │
-  │   │                              │  │
-  │   │   YouTube Podcast Embed      │  │
-  │   │   (Dark theme)               │  │
-  │   │                              │  │
-  │   └──────────────────────────────┘  │
-  │                                      │
-  │   [Back to Main]                     │
-  └─────────────────────────────────────┘
-
-  ---
-  Reviews Section: Expandable Quote Design
-
-  Collapsed State:
-
-  ┌────────────────────────────────────────┐
-  │ "Short pull quote (1-2 sentences)..."  │
-  │                                        │
-  │ — Metal Archives, 2024             [+] │
-  └────────────────────────────────────────┘
-
-  Expanded State:
-
-  ┌────────────────────────────────────────┐
-  │ "Full review excerpt goes here. This   │
-  │ can be multiple paragraphs. We want to │
-  │ preserve the full context of what the  │
-  │ reviewer said about the album."        │
-  │                                        │
-  │ Album: VLBRNR                          │
-  │ Rating: 85/100                         │
-  │ — Metal Archives, 2024             [−] │
-  │ [Read Full Review →]                   │
-  └────────────────────────────────────────┘
-
-  Interaction:
-
-  - Click anywhere on card → Expand
-  - Click [−] or anywhere again → Collapse
-  - Smooth height transition (0.4s ease)
-  - Only one expanded at a time (accordion style)
-
-  Visual Treatment:
-
-  - Monospace font for quote ('Courier New' or similar)
-  - Blockquote style with left border (rust)
-  - Attribution in small caps
-  - [+]/[−] indicator (bone color)
-  - Angular clip-path on corners
-
-  ---
-  Data Structure for Reviews
-
-  // src/data/reviews.js
-  export const reviews = [
-    {
-      quote: "Short 1-2 sentence pull quote here",
-      fullText: "Full review excerpt, multiple paragraphs if needed...",
-      publication: "Metal Archives",
-      date: "2024",
-      album: "VLBRNR", // Optional
-      rating: "85/100", // Optional
-      link: "https://..." // Link to full review
-    },
-    // ... more reviews
-  ];
-
-  ___
-  Interviews Section
-
-  Simple list design:
-  INTERVIEWS
-
-  • The Metal Archives — 2024 → [Link]
-  • Invisible Oranges — 2023 → [Link]
-  • Decibel Magazine — 2022 → [Link]
-
-  Visual treatment:
-  - Simple text list
-  - Rust-colored bullet points
-  - Hover: Bone color
-  - External link icon (optional)
-
-  No expansion needed - just links out to interviews
-
-  ---
-  Media Section (YouTube Embed)
-
-  YouTube Embed Options:
-
-  YouTube provides iframe embeds with these parameters:
-
-  | Parameter      | Options                      | Recommendation        |
-  |----------------|------------------------------|-----------------------|
-  | Theme          | dark / light                 | dark                  |
-  | Controls       | 0 (hide) / 1 (show)          | 1 (show controls)     |
-  | Modestbranding | 0 / 1 (minimal YT logo)      | 1                     |
-  | Rel            | 0 (no related) / 1 (related) | 0 (no related videos) |
-  | Autoplay       | 0 / 1                        | 0 (user initiates)    |
-
-  Example Embed:
-
-  <iframe 
-    width="800" 
-    height="450" 
-    src="https://www.youtube.com/embed/HZSJUQ6p4xY?theme=dark&modestbranding=1&rel=0" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen
-  >
-  </iframe>
-
-  Visual Treatment:
-
-  - Large embed (800px wide, scales down on mobile)
-  - Angular clip-path border (rust-colored)
-  - Title above embed: "PODCAST: [Title from video]"
-  - Monospace font for title
-  
-
----
-  Technical Questions for You:
-
-  1. Review content: How many reviews do you want featured? (3-5 recommended)
-  2. Interview links: How many? Do you have list ready or use placeholders?
-  4. Expansion behavior: One expanded at a time (accordion) or multiple open allowed?
-  5. YouTube title: Show video title above embed, or just "PODCAST"?
-
-  My Answers:
-
-  1. Reviews located so far are listed below.
-  2. Interview links are listed below
-  4. Expansion behavior: We will expand at a time (accordion)
-  5. YouTube title: We want to show the video title above embed
-
-  ---
+============
 
   -Article Reviews:\
   *- The Void Journal: https://www.thevoidjournal.com/2024/11/14/veilburner-premiere-their-new-album-the-duality-of-decapitation-and-wisdom/?fbclid=IwY2xjawNLOiZleHRuA2FlbQIxMQABHgJYvuKgg380vNaF0ZIb-xA6IUqlt3DJMhrHJ-W35vON5ZEemKwBAj3Nfaeg_aem_Uqwvm8l81ERHCLbX_LmVDw\
@@ -298,4 +127,49 @@ Archive Page
   *- Veilburner: Metal You Might Like #metal #beastmetalreview #blackmetal: https://www.youtube.com/shorts/frrVnKG1IUY
 ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
+==========
+
+"Answers to clarifying questions:"
+
+  *1. Interviews Section (Written):
+  *-These need to use the accordion/expandable format like Reviews.
+  *-Please refer the updated @ARTICLE_RESEARCH.md file (a great deal more was added from lines 96-263). 
+
+  *2. Reviews Section (Written):
+  *- We want all 9 reviews in @ARTICLE_RESEARCH.md added to the reviews data.
+  *- We want pull quotes from each article (hopefully they are in the @ARTICLE_RESEARCH.md updates). If you cannot locate the pull quotes or excerpts in the updated Markdown file, please insert placeholder quotes for now and I will fill them in later.
+
+  *3. News Section (Written):
+  *- The label pages, premieres, and reviews on lines 70-92 of the MD file should use accordion format like Reviews.
+  *- Please check the updated Markdown file for pull quotes and excerpts, otherwise use placeholders.
+
+  *4. Reels - Video Player vs Embed:
+  *- One reel is on Facebook and the other is on YouTube. I will defer to whatever approach you think will make the most sense for our site to feature those 2 reels.
   
+  *5. Section Order Confirmation:
+  *-1. Interviews (written links/accordion)
+  *-2. Reviews (written accordion)
+  *-3. News (written links/accordion)
+  *-4. Video Interviews (4 YouTube embeds)
+  *-5. Video Reviews (current 4 embeds, rename from "Media")
+  *-6. Video Misc (1 YouTube embed)
+  *-7. Reels (2 items, format TBD)
+
+
+
+============
+You mentioned <video><source/> structure. Two approaches:
+
+  Option A: Native HTML5 Video (requires video files)
+  <video controls>
+    <source src="/videos/reel-1.mp4" type="video/mp4">
+  </video>
+  Pros: No external dependency, faster load
+  Cons: Need to download/host the video files
+
+  Option B: YouTube Shorts Embed
+  <iframe src="https://www.youtube.com/embed/frrVnKG1IUY"></iframe>
+  Pros: No hosting needed
+  Cons: YouTube branding, external dependency
+
+  Which do you prefer? If Option A, do you have the video files or want me to note that as a TODO?
