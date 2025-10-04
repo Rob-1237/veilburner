@@ -35,3 +35,69 @@ const contact = {
     </div>
   </div>
 </section>
+
+<style lang="scss">
+  @import '../styles/global.scss';
+
+  .contact {
+    padding: $spacing-3xl $spacing-md;
+    background: $color-gray-dark;
+
+    &__title {
+      font-family: $font-metal;
+      font-size: 4rem;
+      margin-bottom: $spacing-2xl;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+    }
+
+    &__content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+      padding: $spacing-lg;
+      border: 2px solid $color-blood-solid;
+      border-left: 6px solid $color-blood-solid;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+      background: linear-gradient(90deg, rgba($color-blood, 0.05) 0%, transparent 100%);
+      transition: all 0.4s ease;
+
+      &:hover {
+        border-color: $color-bone;
+        transform: translateX(4px);
+        box-shadow: -4px 0 0 $color-rust;
+      }
+    }
+
+    &__label {
+      font-size: 0.8rem;
+      color: $color-gray-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    &__link {
+      font-family: $font-metal;
+      font-size: 1.25rem;
+      color: $color-rust;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.4s ease;
+
+      &:hover {
+        color: $color-bone;
+      }
+    }
+  }
+</style>

@@ -1,5 +1,8 @@
 ---
 import NavigationLayout from '../layouts/NavigationLayout.astro';
+import { reviews } from '../data/reviews.js';
+import { interviews } from '../data/interviews.js';
+import { media } from '../data/media.js';
 ---
 
 <NavigationLayout title="VEILBURNER - Archive">
@@ -11,7 +14,33 @@ import NavigationLayout from '../layouts/NavigationLayout.astro';
       <section class="archive-section">
         <h2 class="archive-section__title">REVIEWS</h2>
         <div class="archive-section__content">
-          <p class="archive-placeholder">Review content will be added here.</p>
+          {reviews.map((review, index) => (
+            <div class="review-card" data-review-id={index}>
+              <div class="review-card__content">
+                <blockquote class="review-card__quote">"{review.quote}"</blockquote>
+                <div class="review-card__full-text" style="display: none;">
+                  <p>{review.fullText}</p>
+                  {review.album && (
+                    <p class="review-card__meta"><strong>Album:</strong> {review.album}</p>
+                  )}
+                  {review.rating && (
+                    <p class="review-card__meta"><strong>Rating:</strong> {review.rating}</p>
+                  )}
+                </div>
+                <div class="review-card__attribution">
+                  <span>— {review.publication}, {review.date}</span>
+                  <button class="review-card__toggle" aria-label="Expand review">
+                    <span class="toggle-icon">+</span>
+                  </button>
+                </div>
+                {review.link && (
+                  <a href={review.link} target="_blank" rel="noopener noreferrer" class="review-card__link" style="display: none;">
+                    Read Full Review →
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -19,7 +48,15 @@ import NavigationLayout from '../layouts/NavigationLayout.astro';
       <section class="archive-section">
         <h2 class="archive-section__title">INTERVIEWS</h2>
         <div class="archive-section__content">
-          <p class="archive-placeholder">Interview links will be added here.</p>
+          <ul class="interview-list">
+            {interviews.map((interview) => (
+              <li class="interview-item">
+                <a href={interview.link} target="_blank" rel="noopener noreferrer" class="interview-link">
+                  {interview.publication} — {interview.date} →
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -27,7 +64,21 @@ import NavigationLayout from '../layouts/NavigationLayout.astro';
       <section class="archive-section">
         <h2 class="archive-section__title">MEDIA</h2>
         <div class="archive-section__content">
-          <p class="archive-placeholder">Media embeds will be added here.</p>
+          {media.videoReviews.map((video) => (
+            <div class="media-embed">
+              <h3 class="media-embed__title">{video.title}</h3>
+              <div class="media-embed__wrapper">
+                <iframe
+                  width="800"
+                  height="450"
+                  src={`https://www.youtube.com/embed/${video.videoId}?theme=dark&modestbranding=1&rel=0`}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
@@ -77,14 +128,223 @@ import NavigationLayout from '../layouts/NavigationLayout.astro';
     }
   }
 
-  .archive-placeholder {
+  // Review Cards (Accordion)
+  .review-card {
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateX(4px);
+    }
+
+    &__content {
+      padding: 2rem;
+      border: 2px solid #5a3a2a; // Rust
+      border-left: 6px solid #5a3a2a;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+      background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+      transition: all 0.4s ease;
+    }
+
+    &.expanded &__content {
+      border-color: #8b7355; // Bone
+      box-shadow: -4px 0 0 #5a3a2a;
+    }
+
+    &__quote {
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cccccc;
+      margin: 0 0 1.5rem 0;
+      font-style: italic;
+    }
+
+    &__full-text {
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #cccccc;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &__meta {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #8b7355; // Bone
+      margin-bottom: 0.5rem;
+
+      strong {
+        color: #5a3a2a; // Rust
+      }
+    }
+
+    &__attribution {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    &__toggle {
+      background: none;
+      border: none;
+      color: #8b7355; // Bone
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        color: #5a3a2a; // Rust
+        transform: scale(1.2);
+      }
+    }
+
+    &.expanded &__toggle .toggle-icon::before {
+      content: '−';
+    }
+
+    &__link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'Courier New', monospace;
+      color: #5a3a2a; // Rust
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #8b7355; // Bone
+      }
+    }
+  }
+
+  // Interview List
+  .interview-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .interview-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #5a3a2a; // Rust
+      font-size: 1.2rem;
+    }
+  }
+
+  .interview-link {
     font-family: 'Courier New', monospace;
-    color: #666666;
+    color: #cccccc;
+    text-decoration: none;
     font-size: 1rem;
-    padding: 2rem;
-    border: 2px solid #5a3a2a;
-    border-left: 6px solid #5a3a2a;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
-    background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+    transition: color 0.3s ease;
+    display: inline-block;
+
+    &:hover {
+      color: #8b7355; // Bone
+    }
+  }
+
+  // Media Embeds
+  .media-embed {
+    margin-bottom: 4rem;
+
+    &__title {
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      color: #8b7355; // Bone
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    &__wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      border: 3px solid #5a3a2a; // Rust
+      clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+      overflow: hidden;
+
+      iframe {
+        display: block;
+        width: 100%;
+        height: 450px;
+
+        @media (max-width: 768px) {
+          height: 300px;
+        }
+      }
+    }
   }
 </style>
+
+<script>
+  // Accordion behavior for review cards
+  function initReviewAccordion() {
+    const reviewCards = document.querySelectorAll('.review-card');
+
+    reviewCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't toggle if clicking on the link
+        if (e.target.closest('.review-card__link')) return;
+
+        const isExpanded = card.classList.contains('expanded');
+        const fullText = card.querySelector('.review-card__full-text');
+        const link = card.querySelector('.review-card__link');
+
+        // Close all other cards (accordion behavior)
+        reviewCards.forEach(otherCard => {
+          if (otherCard !== card) {
+            otherCard.classList.remove('expanded');
+            const otherFullText = otherCard.querySelector('.review-card__full-text');
+            const otherLink = otherCard.querySelector('.review-card__link');
+            if (otherFullText) otherFullText.style.display = 'none';
+            if (otherLink) otherLink.style.display = 'none';
+          }
+        });
+
+        // Toggle current card
+        if (isExpanded) {
+          card.classList.remove('expanded');
+          if (fullText) fullText.style.display = 'none';
+          if (link) link.style.display = 'none';
+        } else {
+          card.classList.add('expanded');
+          if (fullText) fullText.style.display = 'block';
+          if (link) link.style.display = 'inline-block';
+        }
+      });
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initReviewAccordion);
+
+  // Re-initialize after page transitions
+  document.addEventListener('astro:after-swap', initReviewAccordion);
+</script>

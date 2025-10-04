@@ -3,6 +3,17 @@
 const tagline = "AVANT-GARDE BLACK/DEATH METAL";
 const heroImage = "/images/live-1.jpg";
 const logoImage = "/images/logo-entire-red-no-bg.png";
+
+// FONT TESTING: Toggle one at a time by uncommenting
+// const testFont = "Oswald";
+// const testFont = "Cinzel";
+const testFont = "Cormorant Garamond";
+// const testFont = "Pirata One";
+// const testFont = "Metal Mania";
+// const testFont = "Creepster";
+// const testFont = "Butcherman";
+// const testFont = "Nosifer";
+// const testFont = "Rubik Mono One";
 ---
 
 <section class="hero">
@@ -18,8 +29,84 @@ const logoImage = "/images/logo-entire-red-no-bg.png";
     <div class="hero__logo">
       <img src={logoImage} alt="Veilburner" />
     </div>
-    <p class="hero__tagline">
+    <p class="hero__tagline" style={`font-family: '${testFont}', sans-serif;`}>
       {tagline}
     </p>
   </div>
 </section>
+
+<style lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Pirata+One&family=Metal+Mania&family=Creepster&family=Butcherman&family=Nosifer&family=Rubik+Mono+One&display=swap');
+  @import '../styles/global.scss';
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    &__background {
+      position: absolute;
+      inset: 0;
+      background-size: 133%;
+      background-position: 12% center;
+      background-attachment: fixed;
+      filter: grayscale(30%) contrast(120%) brightness(80%);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.1) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 3px
+          );
+        pointer-events: none;
+      }
+    }
+
+    &__content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
+
+    &__logo {
+      max-width: 800px;
+      width: 90%;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 20px rgba(139, 0, 0, 0.3));
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        max-width: 600px;
+      }
+
+      @media (max-width: 480px) {
+        max-width: 400px;
+      }
+    }
+
+    &__tagline {
+      font-size: 1.5rem;
+      margin-top: $spacing-md;
+      color: $color-gray-light;
+      letter-spacing: 0.2em;
+
+      @media (max-width: 768px) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+</style>
