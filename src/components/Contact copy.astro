@@ -1,0 +1,640 @@
+---
+// Contact information
+const contact = {
+  email: "burningtheveil@gmail.com",
+  bandcamp: "https://veilburner.bandcamp.com/",
+  bandcampAlt: "https://veilburnerband.bandcamp.com/"
+};
+---
+
+<section class="contact">
+  <div class="container">
+    <h2 class="contact__title">CONTACT</h2>
+
+    <div class="contact__content">
+     
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../styles/global.scss';
+
+  .contact {
+    padding: $spacing-3xl $spacing-md;
+    background: $color-gray-dark;
+
+    &__title {
+      font-family: $font-metal;
+      font-size: 4rem;
+      margin-bottom: $spacing-2xl;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+    }
+
+    &__content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+      padding: $spacing-lg;
+      border: 2px solid $color-blood-solid;
+      border-left: 6px solid $color-blood-solid;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+      background: linear-gradient(90deg, rgba($color-blood, 0.05) 0%, transparent 100%);
+      transition: all 0.4s ease;
+
+      &:hover {
+        border-color: $color-bone;
+        transform: translateX(4px);
+        box-shadow: -4px 0 0 $color-rust;
+      }
+    }
+
+    &__label {
+      font-size: 0.8rem;
+      color: $color-gray-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    &__link {
+      font-family: $font-metal;
+      font-size: 1.25rem;
+      color: $color-rust;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: color 0.4s ease;
+
+      &:hover {
+        color: $color-bone;
+      }
+    }
+  }
+
+  // Occult Social Icons
+  .occult-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 2rem 0;
+
+    @media (max-width: 768px) {
+      gap: 2rem;
+    }
+
+    &__group {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &--rotated {
+        transform: rotate(90deg);
+
+        &:hover {
+          transform: rotate(90deg) scale(1.1);
+        }
+      }
+
+      &--enlarged {
+        .occult-icon {
+          width: 187.5px;
+          height: 187.5px;
+
+          @media (max-width: 768px) {
+            width: 150px;
+            height: 150px;
+          }
+        }
+      }
+
+      &--extra-large {
+        .occult-icon {
+          width: 450px;
+          height: 450px;
+
+          @media (max-width: 768px) {
+            width: 360px;
+            height: 360px;
+          }
+        }
+
+        &.occult-icon--logo {
+          width: 540px;
+          height: 540px;
+
+          @media (max-width: 768px) {
+            width: 420px;
+            height: 420px;
+          }
+        }
+      }
+
+      &--mega {
+        .occult-icon {
+          width: 675px;
+          height: 675px;
+
+          @media (max-width: 768px) {
+            width: 540px;
+            height: 540px;
+          }
+        }
+
+        .occult-icon--logo {
+          width: 810px;
+          height: 810px;
+
+          @media (max-width: 768px) {
+            width: 630px;
+            height: 630px;
+          }
+        }
+      }
+    }
+  }
+
+  .occult-icon {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    filter: grayscale(100%) contrast(90%) brightness(70%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      width: 120px;
+      height: 120px;
+    }
+
+    &--logo {
+      width: 180px;
+      height: 180px;
+
+      @media (max-width: 768px) {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    &:hover {
+      filter: grayscale(100%) contrast(100%) brightness(90%);
+      opacity: 1;
+    }
+  }
+
+  // Occult Glitch Container
+  .occult-glitch-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .occult-glitch-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    &.occult-glitch-base {
+      z-index: 5;
+      opacity: 1;
+      pointer-events: auto;
+      filter: grayscale(100%) contrast(90%) brightness(70%);
+    }
+
+    &.occult-glitch-cyan {
+      z-index: 4;
+      mix-blend-mode: screen;
+      opacity: 0; // Hidden by default, shown during glitch
+
+      svg {
+        fill: #00B4BF; // Muted cyan (75% saturation)
+        filter: brightness(1.5) saturate(2);
+      }
+    }
+
+    &.occult-glitch-magenta {
+      z-index: 3;
+      mix-blend-mode: screen;
+      opacity: 0; // Hidden by default, shown during glitch
+
+      svg {
+        fill: #BF008F; // Muted magenta (75% saturation)
+        filter: brightness(1.5) saturate(2);
+      }
+    }
+
+    &.occult-glitch-yellow {
+      z-index: 2;
+      mix-blend-mode: screen;
+      opacity: 0; // Hidden by default, shown during glitch
+
+      svg {
+        fill: #BFBF00; // Muted yellow (75% saturation)
+        filter: brightness(1.5) saturate(2);
+      }
+    }
+
+    &.occult-glitch-key {
+      z-index: 1;
+      mix-blend-mode: multiply;
+      // mix-blend-mode: darken;
+      opacity: 0; // Hidden by default, shown during glitch
+
+      svg {
+        fill: #000000; // Pure black for key channel
+        filter: brightness(0.3);
+      }
+    }
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.fading-in {
+      opacity: 1;
+    }
+  }
+
+  .occult-reveal-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+
+    &.revealed {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &.fading-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  // CMYK Channel Split Glitch - Electronic Violence (±1-2px displacement)
+  @keyframes cmyk-split-1 {
+    0%, 100% { transform: translate(-50%, -50%); opacity: 0; }
+    5% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    10% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    15% { transform: translate(calc(-50% + 1px), -50%); opacity: 0; }
+    20% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    25% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    30% { transform: translate(calc(-50% - 1px), -50%); opacity: 0; }
+    35% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    40% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    45% { transform: translate(calc(-50% + 1px), -50%); opacity: 0; }
+    50% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    55% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    60% { transform: translate(calc(-50% - 1px), -50%); opacity: 0; }
+    65% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    70% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    75% { transform: translate(calc(-50% + 2px), -50%); opacity: 0; }
+    80% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    85% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    90% { transform: translate(calc(-50% - 2px), -50%); opacity: 0; }
+    95% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+  }
+
+  @keyframes cmyk-split-2 {
+    0%, 100% { transform: translate(-50%, -50%); opacity: 0; }
+    5% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    10% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    15% { transform: translate(calc(-50% - 1px), -50%); opacity: 0; }
+    20% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    25% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    30% { transform: translate(calc(-50% + 1px), -50%); opacity: 0; }
+    35% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    40% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    45% { transform: translate(calc(-50% - 1px), -50%); opacity: 0; }
+    50% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    55% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    60% { transform: translate(calc(-50% + 1px), -50%); opacity: 0; }
+    65% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    70% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    75% { transform: translate(calc(-50% - 1px), -50%); opacity: 0; }
+    80% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    85% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    90% { transform: translate(calc(-50% + 1px), -50%); opacity: 0; }
+    95% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+  }
+
+  @keyframes cmyk-split-3 {
+    0%, 100% { transform: translate(-50%, -50%); opacity: 0; }
+    5% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    10% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    15% { transform: translate(calc(-50% + 2px), -50%); opacity: 0; }
+    20% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    25% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    30% { transform: translate(calc(-50% - 1px), -50%); opacity: 0; }
+    35% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    40% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    45% { transform: translate(calc(-50% + 2px), -50%); opacity: 0; }
+    50% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    55% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+    60% { transform: translate(calc(-50% - 2px), -50%); opacity: 0; }
+    65% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    70% { transform: translate(calc(-50% - 1px), -50%); opacity: 1; }
+    75% { transform: translate(calc(-50% + 1px), -50%); opacity: 0; }
+    80% { transform: translate(calc(-50% - 2px), -50%); opacity: 1; }
+    85% { transform: translate(calc(-50% + 2px), -50%); opacity: 1; }
+    90% { transform: translate(calc(-50% - 1px), -50%); opacity: 0; }
+    95% { transform: translate(calc(-50% + 1px), -50%); opacity: 1; }
+  }
+
+  @keyframes cmyk-split-4 {
+    0%, 100% { transform: translate(-50%, -50%); opacity: 0; }
+    5% { transform: translate(calc(-50% - 1px), calc(-50% + 1px)); opacity: 1; }
+    10% { transform: translate(calc(-50% + 2px), calc(-50% - 1px)); opacity: 1; }
+    15% { transform: translate(calc(-50% - 2px), calc(-50% + 2px)); opacity: 0; }
+    20% { transform: translate(calc(-50% + 1px), calc(-50% - 1px)); opacity: 1; }
+    25% { transform: translate(calc(-50% - 1px), calc(-50% + 1px)); opacity: 1; }
+    30% { transform: translate(calc(-50% + 2px), calc(-50% - 2px)); opacity: 0; }
+    35% { transform: translate(calc(-50% - 1px), calc(-50% + 1px)); opacity: 1; }
+    40% { transform: translate(calc(-50% + 1px), calc(-50% - 1px)); opacity: 1; }
+    45% { transform: translate(calc(-50% - 2px), calc(-50% + 2px)); opacity: 0; }
+    50% { transform: translate(calc(-50% + 2px), calc(-50% - 1px)); opacity: 1; }
+    55% { transform: translate(calc(-50% - 1px), calc(-50% + 1px)); opacity: 1; }
+    60% { transform: translate(calc(-50% + 1px), calc(-50% - 2px)); opacity: 0; }
+    65% { transform: translate(calc(-50% - 2px), calc(-50% + 1px)); opacity: 1; }
+    70% { transform: translate(calc(-50% + 1px), calc(-50% - 1px)); opacity: 1; }
+    75% { transform: translate(calc(-50% - 1px), calc(-50% + 2px)); opacity: 0; }
+    80% { transform: translate(calc(-50% + 2px), calc(-50% - 1px)); opacity: 1; }
+    85% { transform: translate(calc(-50% - 1px), calc(-50% + 1px)); opacity: 1; }
+    90% { transform: translate(calc(-50% + 1px), calc(-50% - 2px)); opacity: 0; }
+    95% { transform: translate(calc(-50% - 2px), calc(-50% + 1px)); opacity: 1; }
+  }
+
+  // Scanline horizontal tear
+  @keyframes scanline-tear {
+    0%, 100% { clip-path: inset(0 0 0 0); }
+    8% { clip-path: inset(35% 0 0 0); }
+    16% { clip-path: inset(0 0 60% 0); }
+    24% { clip-path: inset(20% 0 0 0); }
+    32% { clip-path: inset(0 0 45% 0); }
+    40% { clip-path: inset(50% 0 0 0); }
+    48% { clip-path: inset(0 0 30% 0); }
+    56% { clip-path: inset(15% 0 0 0); }
+    64% { clip-path: inset(0 0 55% 0); }
+    72% { clip-path: inset(40% 0 0 0); }
+    80% { clip-path: inset(0 0 25% 0); }
+    88% { clip-path: inset(30% 0 0 0); }
+    96% { clip-path: inset(0 0 40% 0); }
+  }
+
+  // Macroblocking - 4x4 pixel compression artifacts
+  .occult-glitch-macroblock {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    mix-blend-mode: lighten;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 6; // Above all channel layers
+    filter: brightness(2) saturate(3);
+    // filter: brightness(1.8) saturate(3);
+
+    &--cyan {
+      background: rgba(0, 180, 191, 0.5);
+    }
+
+    &--magenta {
+      background: rgba(191, 0, 143, 0.5);
+    }
+
+    &--yellow {
+      background: rgba(191, 191, 0, 0.75);
+    }
+
+    &--key {
+      background: rgba(141, 78, 78, 0.75);
+    }
+  }
+
+//   .occult-glitch-macroblock {
+//   width: 2px;  // finer "grain"
+//   height: 2px;
+//   opacity: 0.6;
+//   filter: brightness(2) saturate(3);
+// }
+
+
+  @keyframes macroblock-spawn {
+    0% { opacity: 0; transform: translate(0, 0); }
+    5% { opacity: 0.9; transform: translate(1px, -1px); }
+    10% { opacity: 0; transform: translate(-1px, 2px); }
+    15% { opacity: 0.85; transform: translate(2px, 1px); }
+    20% { opacity: 0; transform: translate(-1px, -1px); }
+    25% { opacity: 0.95; transform: translate(1px, 1px); }
+    30% { opacity: 0; transform: translate(-2px, -1px); }
+    35% { opacity: 0.8; transform: translate(1px, 1px); }
+    40% { opacity: 0; transform: translate(-1px, -2px); }
+    45% { opacity: 0.9; transform: translate(2px, -1px); }
+    50% { opacity: 0; transform: translate(-1px, 1px); }
+    55% { opacity: 0.85; transform: translate(1px, -1px); }
+    60% { opacity: 0; transform: translate(1px, 2px); }
+    65% { opacity: 0.95; transform: translate(-2px, 1px); }
+    70% { opacity: 0; transform: translate(-1px, -1px); }
+    75% { opacity: 0.8; transform: translate(2px, -1px); }
+    80% { opacity: 0; transform: translate(1px, -2px); }
+    85% { opacity: 0.9; transform: translate(-1px, 1px); }
+    90% { opacity: 0; transform: translate(1px, 1px); }
+    95% { opacity: 0.85; transform: translate(-1px, -1px); }
+    100% { opacity: 0; transform: translate(0, 0); }
+  }
+</style>
+
+<script>
+  // Occult Glitch Effect - Electronic Violence with CMYK
+  function initOccultGlitch() {
+    const baseIcon = document.querySelector('[data-glitch-target="facebook"]');
+    const cyanChannel = document.querySelector('[data-glitch-cyan="facebook"]');
+    const magentaChannel = document.querySelector('[data-glitch-magenta="facebook"]');
+    const yellowChannel = document.querySelector('[data-glitch-yellow="facebook"]');
+    const keyChannel = document.querySelector('[data-glitch-key="facebook"]');
+    const revealIcon = document.querySelector('[data-glitch-reveal="facebook"]');
+
+    if (!baseIcon || !cyanChannel || !magentaChannel || !yellowChannel || !keyChannel || !revealIcon) return;
+
+    function randomBetween(min: number, max: number): number {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function spawnMacroblocks() {
+      const container = document.querySelector('.occult-glitch-container');
+      if (!container) return [];
+
+      const iconRect = baseIcon.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const blocks: HTMLDivElement[] = [];
+
+      // Create 25-35 random macroblocks (4x4 pixels each)
+      const blockCount = randomBetween(60, 80);
+
+      for (let i = 0; i < blockCount; i++) {
+        const block = document.createElement('div');
+
+        // Randomly assign color class
+        const colorClasses = ['occult-glitch-macroblock--cyan', 'occult-glitch-macroblock--magenta', 'occult-glitch-macroblock--yellow', 'occult-glitch-macroblock--key'];
+        const chosenColorClass = colorClasses[randomBetween(0, 3)];
+        block.className = `occult-glitch-macroblock ${chosenColorClass}`;
+
+        // Random position within icon bounds
+        const randomX = randomBetween(0, Math.floor(iconRect.width));
+        const randomY = randomBetween(0, Math.floor(iconRect.height));
+
+        block.style.left = `${randomX}px`;
+        block.style.top = `${randomY}px`;
+
+        container.appendChild(block);
+        blocks.push(block);
+
+        // Debug: Check color inheritance on first block
+        if (i === 0) {
+          setTimeout(() => {
+            const computed = window.getComputedStyle(block);
+            console.log('=== BLOCK COLOR DEBUG ===');
+            console.log('Block classes:', block.className);
+            console.log('Computed background-color:', computed.backgroundColor);
+            console.log('Computed background:', computed.background);
+            console.log('Inline style background:', block.style.background);
+            console.log('CSS rule applies:', block.classList.contains('occult-glitch-macroblock--cyan') ? 'cyan' : block.classList.contains('occult-glitch-macroblock--magenta') ? 'magenta' : block.classList.contains('occult-glitch-macroblock--yellow') ? 'yellow' : 'key');
+          }, 100); // Wait for CSS to apply
+        }
+
+        // Stagger animation start
+        const delay = randomBetween(0, 200);
+        setTimeout(() => {
+          block.style.animation = `macroblock-spawn 600ms steps(1) infinite`;
+        }, delay);
+      }
+
+      return blocks;
+    }
+
+    function triggerGlitch() {
+      const glitchDuration = randomBetween(300, 800);
+      const variant = randomBetween(1, 3);
+
+      // Spawn macroblocks
+      const macroblocks = spawnMacroblocks();
+
+      // Show CMYK channels
+      cyanChannel.style.opacity = '1';
+      magentaChannel.style.opacity = '1';
+      yellowChannel.style.opacity = '1';
+      keyChannel.style.opacity = '1';
+      // cyanChannel.style.opacity = '0.7';
+      // magentaChannel.style.opacity = '0.7';
+      // yellowChannel.style.opacity = '0.7';
+      // keyChannel.style.opacity = '0.5';
+
+      // Apply CMYK split with steps() timing for instant jumps
+      cyanChannel.style.animation = `cmyk-split-${variant} ${glitchDuration}ms steps(1) infinite`;
+      magentaChannel.style.animation = `cmyk-split-${(variant % 3) + 1} ${glitchDuration}ms steps(1) infinite`;
+      yellowChannel.style.animation = `cmyk-split-${((variant + 1) % 3) + 1} ${glitchDuration}ms steps(1) infinite`;
+      keyChannel.style.animation = `cmyk-split-4 ${glitchDuration}ms steps(1) infinite`;
+      baseIcon.style.animation = `scanline-tear ${glitchDuration}ms steps(1) infinite`;
+
+      setTimeout(() => {
+        // Stop animations
+        cyanChannel.style.animation = '';
+        magentaChannel.style.animation = '';
+        yellowChannel.style.animation = '';
+        keyChannel.style.animation = '';
+        baseIcon.style.animation = '';
+
+        // Remove macroblocks
+        macroblocks.forEach(block => block.remove());
+
+        // Hide all glitch layers
+        baseIcon.style.opacity = '0';
+        cyanChannel.style.opacity = '0';
+        magentaChannel.style.opacity = '0';
+        yellowChannel.style.opacity = '0';
+        keyChannel.style.opacity = '0';
+
+        // Show Belial sigil
+        revealIcon.classList.add('revealed');
+
+        // Random disappearance duration
+        const disappearDuration = randomBetween(500, 1500);
+
+        setTimeout(() => {
+          // Random crossfade duration
+          const crossfadeDuration = randomBetween(800, 1600);
+
+          // Set transition duration dynamically
+          baseIcon.style.transition = `opacity ${crossfadeDuration}ms ease`;
+          revealIcon.style.transition = `opacity ${crossfadeDuration}ms ease`;
+
+          // Reset CMYK channels first to avoid pop
+          cyanChannel.style.opacity = '0';
+          magentaChannel.style.opacity = '0';
+          yellowChannel.style.opacity = '0';
+          keyChannel.style.opacity = '0';
+
+          // Then fade in Facebook, fade out Belial
+          baseIcon.style.opacity = '1';
+          revealIcon.classList.remove('revealed');
+          revealIcon.classList.add('fading-out');
+
+          setTimeout(() => {
+            // Clean up
+            revealIcon.classList.remove('fading-out');
+
+            // Reset transition
+            baseIcon.style.transition = '';
+            revealIcon.style.transition = '';
+
+            // Schedule next glitch
+            const nextGlitchDelay = randomBetween(8000, 16000);
+            setTimeout(triggerGlitch, nextGlitchDelay);
+          }, crossfadeDuration);
+        }, disappearDuration);
+      }, glitchDuration);
+    }
+
+    // Initial trigger
+    const initialDelay = randomBetween(8000, 16000);
+    setTimeout(triggerGlitch, initialDelay);
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initOccultGlitch);
+
+  // Re-initialize after page transitions
+  document.addEventListener('astro:after-swap', initOccultGlitch);
+</script>

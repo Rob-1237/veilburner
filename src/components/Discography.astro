@@ -4,7 +4,7 @@ import { albums } from '../data/albums.js';
 
 <section class="discography">
   <div class="container">
-    <h2 class="discography__title">DISCOGRAPHY</h2>
+    <h1 class="discography__title">DISCOGRAPHY</h1>
 
     <div class="discography__grid">
       {albums.map((album) => (
@@ -35,10 +35,19 @@ import { albums } from '../data/albums.js';
     background: linear-gradient(180deg, $color-void 0%, $color-gray-dark 50%, $color-void 100%);
 
     &__title {
-      font-family: $font-metal;
+      // font-family: $font-sub;
+      // font-size: 4rem;
+      // margin-bottom: $spacing-2xl;
+      // text-align: center;
+
+      font-family: $font-sub;
       font-size: 4rem;
-      margin-bottom: $spacing-2xl;
       text-align: center;
+      margin-bottom: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 300;
+
 
       @media (max-width: 768px) {
         font-size: 3rem;

@@ -8,13 +8,21 @@ import { media } from '../data/media.js';
 ---
 
 <NavigationLayout title="VEILBURNER - Archive">
+  <div class="vb-logo-gradient">
+    <img src="/images/logo-vb-white-no-bg.png" alt="Veilburner logo" />
+  </div>
   <section class="archive-page">
     <div class="container">
       <h1 class="archive-page__title">ARCHIVE</h1>
 
       <!-- 1. Interviews (Written) Section -->
-      <section class="archive-section">
-        <h2 class="archive-section__title">INTERVIEWS</h2>
+      <section class="archive-section" data-section="interviews">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">INTERVIEWS</h2>
+          <button class="archive-section__toggle" aria-label="Toggle Interviews section">
+            <span class="section-toggle-icon">−</span>
+          </button>
+        </div>
         <div class="archive-section__content">
           {interviewsWritten.map((interview, index) => (
             <div class="review-card" data-item-id={index}>
@@ -41,8 +49,13 @@ import { media } from '../data/media.js';
       </section>
 
       <!-- 2. Reviews (Written) Section -->
-      <section class="archive-section">
-        <h2 class="archive-section__title">REVIEWS</h2>
+      <section class="archive-section" data-section="reviews">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">REVIEWS</h2>
+          <button class="archive-section__toggle" aria-label="Toggle Reviews section">
+            <span class="section-toggle-icon">−</span>
+          </button>
+        </div>
         <div class="archive-section__content">
           {reviews.map((review, index) => (
             <div class="review-card" data-item-id={index}>
@@ -75,8 +88,13 @@ import { media } from '../data/media.js';
       </section>
 
       <!-- 3. News Section -->
-      <section class="archive-section">
-        <h2 class="archive-section__title">NEWS</h2>
+      <section class="archive-section" data-section="news">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">NEWS</h2>
+          <button class="archive-section__toggle" aria-label="Toggle News section">
+            <span class="section-toggle-icon">−</span>
+          </button>
+        </div>
         <div class="archive-section__content">
           {news.map((item, index) => (
             <div class="review-card" data-item-id={index}>
@@ -103,8 +121,13 @@ import { media } from '../data/media.js';
       </section>
 
       <!-- 4. Video Interviews Section -->
-      <section class="archive-section">
-        <h2 class="archive-section__title">VIDEO INTERVIEWS</h2>
+      <section class="archive-section" data-section="video-interviews">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">VIDEO INTERVIEWS</h2>
+          <button class="archive-section__toggle" aria-label="Toggle Video Interviews section">
+            <span class="section-toggle-icon">−</span>
+          </button>
+        </div>
         <div class="archive-section__content">
           <div class="media-grid">
             {interviews.map((video) => (
@@ -127,8 +150,13 @@ import { media } from '../data/media.js';
       </section>
 
       <!-- 5. Video Reviews Section -->
-      <section class="archive-section">
-        <h2 class="archive-section__title">VIDEO REVIEWS</h2>
+      <section class="archive-section" data-section="video-reviews">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">VIDEO REVIEWS</h2>
+          <button class="archive-section__toggle" aria-label="Toggle Video Reviews section">
+            <span class="section-toggle-icon">−</span>
+          </button>
+        </div>
         <div class="archive-section__content">
           <div class="media-grid">
             {media.videoReviews.map((video) => (
@@ -151,8 +179,13 @@ import { media } from '../data/media.js';
       </section>
 
       <!-- 6. Video Misc Section -->
-      <section class="archive-section">
-        <h2 class="archive-section__title">VIDEO MISC</h2>
+      <section class="archive-section" data-section="video-misc">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">VIDEO MISC</h2>
+          <button class="archive-section__toggle" aria-label="Toggle Video Misc section">
+            <span class="section-toggle-icon">−</span>
+          </button>
+        </div>
         <div class="archive-section__content">
           <div class="media-grid">
             {media.videoMisc.map((video) => (
@@ -175,8 +208,13 @@ import { media } from '../data/media.js';
       </section>
 
       <!-- 7. Reels Section -->
-      <section class="archive-section">
-        <h2 class="archive-section__title">REELS</h2>
+      <section class="archive-section" data-section="reels">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">REELS</h2>
+          <button class="archive-section__toggle" aria-label="Toggle Reels section">
+            <span class="section-toggle-icon">−</span>
+          </button>
+        </div>
         <div class="archive-section__content">
           <div class="reels-grid">
             {media.reels.map((reel) => (
@@ -209,18 +247,20 @@ import { media } from '../data/media.js';
 </NavigationLayout>
 
 <style lang="scss">
+  @import '../styles/global.scss';
+
   .archive-page {
     padding: 6rem 1.5rem 3rem;
     min-height: 100vh;
 
     &__title {
-      font-family: 'Oswald', sans-serif;
+      font-family: $font-sub;
       font-size: 4rem;
       text-align: center;
       margin-bottom: 4rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      font-weight: 700;
+      font-weight: 300;
 
       @media (max-width: 768px) {
         font-size: 3rem;
@@ -231,23 +271,73 @@ import { media } from '../data/media.js';
   .archive-section {
     margin-bottom: 6rem;
 
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover .archive-section__title {
+        color: #5a3a2a; // Rust on hover
+      }
+    }
+
     &__title {
       font-family: 'Oswald', sans-serif;
       font-size: 2.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       font-weight: 700;
       color: #8b7355; // Bone
+      transition: color 0.3s ease;
 
       @media (max-width: 768px) {
         font-size: 2rem;
       }
     }
 
+    &__toggle {
+      background: none;
+      border: none;
+      color: #8b7355; // Bone
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+
+      &:hover {
+        color: #5a3a2a; // Rust
+        transform: scale(1.2);
+      }
+
+      @media (max-width: 768px) {
+        width: 35px;
+        height: 35px;
+        font-size: 1.75rem;
+      }
+    }
+
+    &.collapsed &__toggle .section-toggle-icon::before {
+      content: '+';
+    }
+
+    &.collapsed &__content {
+      display: none;
+    }
+
     &__content {
       max-width: 900px;
       margin: 0 auto;
+      transition: opacity 0.3s ease;
     }
   }
 
@@ -276,7 +366,7 @@ import { media } from '../data/media.js';
     }
 
     &__quote {
-      font-family: 'Courier New', monospace;
+      font-family: 'IBM Plex Mono', monospace;
       font-size: 1rem;
       line-height: 1.6;
       color: #cccccc;
@@ -285,7 +375,7 @@ import { media } from '../data/media.js';
     }
 
     &__full-text {
-      font-family: 'Courier New', monospace;
+      font-family: 'IBM Plex Mono', monospace;
       font-size: 0.95rem;
       line-height: 1.7;
       color: #cccccc;
@@ -299,7 +389,7 @@ import { media } from '../data/media.js';
     }
 
     &__meta {
-      font-family: 'Courier New', monospace;
+      font-family: 'IBM Plex Mono', monospace;
       font-size: 0.9rem;
       color: #8b7355; // Bone
       margin-bottom: 0.5rem;
@@ -346,7 +436,7 @@ import { media } from '../data/media.js';
     &__link {
       display: inline-block;
       margin-top: 1rem;
-      font-family: 'Courier New', monospace;
+      font-family: 'IBM Plex Mono', monospace;
       color: #5a3a2a; // Rust
       text-decoration: none;
       font-size: 0.9rem;
@@ -376,16 +466,17 @@ import { media } from '../data/media.js';
     flex-direction: column;
 
     &__title {
-      font-family: 'Courier New', monospace;
+      font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
-      color: #8b7355; // Bone
+      color: #666666; // Bone
       margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
       line-height: 1.4;
       min-height: 3em; // Reserve space for ~3 lines of text
       display: flex;
       align-items: flex-start;
+      font-weight: 300;
 
       @media (min-width: 768px) {
         font-size: 0.85rem;
@@ -436,14 +527,15 @@ import { media } from '../data/media.js';
     align-items: center;
 
     &__title {
-      font-family: 'Courier New', monospace;
+      font-family: 'Oswald', sans-serif;
       font-size: 0.85rem;
-      color: #8b7355; // Bone
+      color: #666666; // Bone
       margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
       line-height: 1.4;
       text-align: center;
+      font-weight: 300;
 
       @media (min-width: 768px) {
         font-size: 0.8rem;
@@ -468,7 +560,7 @@ import { media } from '../data/media.js';
     &__link {
       display: inline-block;
       margin-top: 1rem;
-      font-family: 'Courier New', monospace;
+      font-family: 'Oswald', sans-serif;
       color: #5a3a2a; // Rust
       text-decoration: none;
       font-size: 0.85rem;
@@ -485,6 +577,58 @@ import { media } from '../data/media.js';
     height: 100%;
     object-fit: cover; // Fill the container while maintaining aspect ratio
     display: block;
+  }
+
+  .vb-logo-gradient {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    width: 200px;
+    height: 200px;
+    z-index: 10000;
+    pointer-events: none;
+
+    @media (max-width: 768px) {
+      top: 1rem;
+      left: 1rem;
+      width: 120px;
+      height: 120px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgb(0, 180, 191, 0.2), rgb(191, 0, 143, 0.2), rgb(191, 191, 0, 0.3), #000000);
+      background-size: 200% 200%;
+      animation: vb-logo-gradient 32s ease infinite;
+      mask-image: url('/images/logo-vb-white-no-bg.png');
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+
+    img {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @keyframes vb-logo-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 </style>
 
@@ -532,4 +676,30 @@ import { media } from '../data/media.js';
 
   // Re-initialize after page transitions
   document.addEventListener('astro:after-swap', initAccordion);
+
+  // Section accordion behavior (separate from review card accordions)
+  function initSectionAccordion() {
+    const sections = document.querySelectorAll('.archive-section');
+
+    sections.forEach(section => {
+      const header = section.querySelector('.archive-section__header');
+      const toggle = section.querySelector('.archive-section__toggle');
+
+      if (header && toggle) {
+        // Click on header or toggle button
+        const handleToggle = (e) => {
+          e.stopPropagation(); // Prevent event bubbling
+          section.classList.toggle('collapsed');
+        };
+
+        header.addEventListener('click', handleToggle);
+      }
+    });
+  }
+
+  // Initialize section accordions on page load
+  document.addEventListener('DOMContentLoaded', initSectionAccordion);
+
+  // Re-initialize after page transitions
+  document.addEventListener('astro:after-swap', initSectionAccordion);
 </script>

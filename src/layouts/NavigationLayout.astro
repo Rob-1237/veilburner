@@ -23,6 +23,12 @@ const isArchive = currentPath.startsWith('/archive');
   <title>{title}</title>
   <meta name="description" content={description}>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+
   <!-- Mobile status bar -->
   <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -34,7 +40,7 @@ const isArchive = currentPath.startsWith('/archive');
   <!-- Global Styles -->
   <ViewTransitions />
 </head>
-<body>
+<body class:list={[{ "home-page": isHome }]}>
   <!-- Navigation Dots -->
   <nav class="nav-dots" aria-label="Main navigation">
     <a
@@ -70,58 +76,112 @@ const isArchive = currentPath.startsWith('/archive');
 
   <!-- Fixed Footer -->
   <footer class="site-footer">
-    <!-- SVG Filters for Glitch Effects -->
-    <svg style="position: absolute; width: 0; height: 0;">
-      <defs>
-        <!-- CRT Displacement Filter -->
-        <filter id="crt-displace">
-          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="turbulence" seed="2"/>
-          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="0" xChannelSelector="R" yChannelSelector="G">
-            <animate attributeName="scale" values="0;8;0" dur="0.2s" begin="indefinite" fill="freeze" id="crt-anim"/>
-          </feDisplacementMap>
-        </filter>
 
-        <!-- Static Noise Filter -->
-        <filter id="static-noise">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
-          <feColorMatrix in="noise" type="saturate" values="0"/>
-          <feBlend in="SourceGraphic" in2="noise" mode="multiply" result="blend"/>
-          <feComposite in="blend" in2="SourceGraphic" operator="atop"/>
-        </filter>
-
-        <!-- Scanlines -->
-        <pattern id="scanlines" x="0" y="0" width="100%" height="8" patternUnits="userSpaceOnUse">
-          <rect x="0" y="0" width="100%" height="2" fill="black" opacity="0.6"/>
-        </pattern>
-      </defs>
-    </svg>
-
-    <!-- Social Icons -->
-    <div class="social-icons">
-      <a href="https://veilburner.bandcamp.com/" target="_blank" rel="noopener noreferrer" class="social-icons__link" aria-label="Bandcamp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M0 18.75l7.437-13.5h16.563l-7.438 13.5z"/>
-        </svg>
-      </a>
-      <a href="https://www.facebook.com/veilburner" target="_blank" rel="noopener noreferrer" class="social-icons__link" aria-label="Facebook">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-        </svg>
-      </a>
-      <a href="https://www.instagram.com/veilburner" target="_blank" rel="noopener noreferrer" class="social-icons__link" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-      </a>
-      <a href="mailto:burningtheveil@gmail.com" class="social-icons__link" aria-label="Email">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-      </a>
+    <div class="footer-left">
+      <p>Unofficial fan site.<br>Not affiliated with Veilburner<br>or Transcending Obscurity Records.</p>
+      <p class="footer-left__copyright">&copy; 2025 Garfish Digital</p>
     </div>
 
-    <p>Unofficial fan site. Not affiliated with Veilburner or Transcending Obscurity Records.</p>
-    <p>&copy; 2025 Garfish Digital</p>
+    <!-- Occult Social Icons -->
+    <div class="occult-icons">
+      <div class="occult-icons__row">
+        <!-- Bandcamp Stack -->
+        <div class="occult-stack-container">
+          <a
+            href="https://bandcamp.com/search?q=veilburner"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="occult-icons__link occult-stack-base"
+            aria-label="Bandcamp"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="rgba(139, 0, 0, 0.35)"
+              class="occult-icon"
+            >
+              <path d="M0 18.75l7.437-13.5h16.563l-7.438 13.5z"></path>
+            </svg>
+          </a>
+          <a
+            href="https://bandcamp.com/search?q=veilburner"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="occult-icons__link occult-icons__link--rotated occult-stack-underneath"
+            aria-label="Bandcamp Sigil"
+          >
+            <img
+              src="/images/Shakuzu.svg"
+              alt="Bandcamp occult flash"
+              class="occult-icon"
+            />
+          </a>
+        </div>
+
+        <!-- Facebook Stack -->
+        <div class="occult-stack-container">
+          <a
+            href="https://www.facebook.com/veilburner"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="occult-icons__link occult-stack-base occult-stack-facebook"
+            aria-label="Facebook"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="rgba(139, 0, 0, 0.35)"
+              class="occult-icon"
+            >
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+            </svg>
+          </a>
+          <a
+            href="https://www.facebook.com/veilburner"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="occult-icons__link occult-stack-underneath occult-stack-belial"
+            aria-label="Belial Sigil"
+          >
+            <img
+              src="/images/The_Seal_of_Belial.svg"
+              alt="Seal of Belial"
+              class="occult-icon"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- Tometal Stack -->
+      <div class="occult-stack-container">
+        <a
+          href="https://transcendingobscurity.com/artist/veilburner/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="occult-icons__link occult-stack-base"
+          aria-label="Transcending Obscurity"
+        >
+          <img
+            src="/images/tometal-logo-web.jpg"
+            alt="Transcending Obscurity"
+            class="occult-icon occult-icon--logo occult-icon--logo-large"
+          />
+        </a>
+        <a
+          href="https://transcendingobscurity.com/artist/veilburner/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="occult-icons__link occult-stack-underneath occult-stack-lilith"
+          aria-label="Lilith Sigil"
+        >
+          <img
+            src="/images/Lilith.svg"
+            alt="Grand Seal of Lilith"
+            class="occult-icon occult-icon--logo occult-icon--logo-large"
+          />
+        </a>
+      </div>
+    </div>
   </footer>
 
 <script>
@@ -199,74 +259,260 @@ const isArchive = currentPath.startsWith('/archive');
   // Page Content Area
   .page-content {
     min-height: calc(100vh - 120px); // Account for footer space
-    padding-bottom: 120px; // Ensure content doesn't hide under footer
+    // padding-bottom: 120px; // Ensure content doesn't hide under footer
   }
 
-  // Social Icons
-  .social-icons {
+  // Occult Social Icons
+  .occult-icons {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+    }
+
+    &__row {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2rem;
+      gap: 2rem;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        gap: 1.5rem;
+      }
+    }
 
     &__link {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-      color: #5a3a2a; // Rust
-      transition: color 0.3s ease;
-
-      svg {
-        width: 100%;
-        height: 100%;
-        filter: grayscale(100%) contrast(80%) brightness(90%);
-        transition: filter 0.3s ease;
-      }
+      transition: transform 0.3s ease;
 
       &:hover {
-        color: #8b7355; // Bone
+        // transform: scale(1.1);
+      }
+    }
+  }
 
-        svg {
-          filter: grayscale(100%) contrast(100%) brightness(110%);
+  .occult-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    // filter: grayscale(100%) contrast(90%) brightness(70%);
+    // opacity: 0.8;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+
+    &--logo {
+      width: 60px;
+      height: 60px;
+
+      @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+      }
+
+      &-large {
+        width: 180px;
+        height: auto;
+
+        @media (max-width: 768px) {
+          width: 150px;
+          height: auto;
         }
       }
     }
 
-    @media (max-width: 768px) {
-      gap: 1.5rem;
-
-      &__link {
-        width: 28px;
-        height: 28px;
-      }
+    &:hover {
+      // filter: grayscale(100%) contrast(100%) brightness(90%);
+      // opacity: 1;
     }
   }
 
   // Fixed Footer
   .site-footer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 9998; // Below nav dots, above content
-    padding: 2rem 0;
-    text-align: center;
+    padding: 3rem;
     color: #666666;
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid #0a0a0a;
     background: #000000;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      gap: 1.5rem;
+    }
+  }
+
+  // Override footer positioning on home page (Contact section)
+  .home-page .site-footer {
+    position: relative;
+    margin-top: 0;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
 
     p {
       font-size: 0.8rem;
       color: #666666;
-      margin-top: 0.5rem;
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
     }
+
+    &__copyright {
+      color: #5a3a2a !important; // Rust - override footer default
+      font-family: 'Oswald', sans-serif;
+    }
+  }
+
+  // Bandcamp Stack Effect
+  .occult-stack-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .occult-stack-base {
+    position: relative;
+    z-index: 2;
+    transition: opacity 250ms ease, transform 250ms ease;
+
+    &:hover {
+      opacity: 0;
+      transform: scale(0.8) rotate(-15deg);
+
+      ~ .occult-stack-underneath {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(90deg) scale(1);
+      }
+    }
+  }
+
+  .occult-stack-underneath {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg) scale(0.8);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 250ms ease, transform 250ms ease;
+    pointer-events: none;
+    filter: blur(1px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgb(0, 180, 191, 0.4), rgb(191, 0, 143, 0.4), rgb(191, 191, 0, 0.7), #000000);
+      background-size: 200% 200%;
+      animation: shakuzu-gradient 8s ease infinite;
+      mask-image: url('/images/Shakuzu.svg');
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      z-index: -1;
+    }
+
+    img {
+      opacity: 0;
+    }
+  }
+
+  .occult-icons__link--rotated {
+    transform: rotate(90deg);
+
+    &:hover {
+      transform: rotate(90deg) scale(1.1);
+    }
+  }
+
+  // Belial-specific gradient mask (same colors as Shakuzu)
+  .occult-stack-belial {
+    &::before {
+      mask-image: url('/images/The_Seal_of_Belial.svg') !important;
+    }
+
+    img {
+      width: 62.5px;
+      height: 62.5px;
+
+      @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  // Lilith-specific gradient mask (same colors as Shakuzu/Belial)
+  .occult-stack-lilith {
+    &::before {
+      mask-image: url('/images/Lilith.svg') !important;
+    }
+  }
+
+  .occult-stack-underneath {
+    &.occult-stack-lilith img {
+      width: 180px;
+      height: 180px;
+
+      @media (max-width: 768px) {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    img {
+      width: 62.5px;
+      height: 62.5px;
+
+      @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  // Facebook doesn't rotate like Bandcamp/Shakuzu
+  .occult-stack-facebook {
+    &:hover {
+      transform: scale(0.8) rotate(-15deg);
+    }
+  }
+
+  @keyframes shakuzu-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 </style>
 
