@@ -128,141 +128,23 @@ https://tometal.com/?s=veilburner
 ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 ==========
+## Missing Interviews, etc.
 
-"Answers to clarifying questions:"
+### 2014
 
-  *1. Interviews Section (Written):
-  *-These need to use the accordion/expandable format like Reviews.
-  *-Please refer the updated @ARTICLE_RESEARCH.md file (a great deal more was added from lines 96-263). 
+https://toiletovhell.com/veilburner-the-toilet-ov-hell-interview/?fbclid=IwY2xjawNPn31leHRuA2FlbQIxMABicmlkETFVMHJlWlRNVU52OGQ1cG1GAR7eA-YembAkrmGjfHTDxLD7KgXcqMo-jToYrSw_gPo_M1RiIu_JTdZqwgPRYw_aem_Y1fLNHfYgnnGRuyplS90vg
 
-  *2. Reviews Section (Written):
-  *- We want all 9 reviews in @ARTICLE_RESEARCH.md added to the reviews data.
-  *- We want pull quotes from each article (hopefully they are in the @ARTICLE_RESEARCH.md updates). If you cannot locate the pull quotes or excerpts in the updated Markdown file, please insert placeholder quotes for now and I will fill them in later.
+https://avenoctum.com/2014/12/15/veilburner-the-three-lightbearers-obscure-divinity/?fbclid=IwY2xjawNPoFhleHRuA2FlbQIxMABicmlkETFVMHJlWlRNVU52OGQ1cG1GAR4eHTSiLyyVmJF7Xe714djMbwVat61veq3k5i5N6yK_nYvc5-t0UhU8Gu4AFA_aem_QPaDOMZPYIpbc1CdI84kWA
 
-  *3. News Section (Written):
-  *- The label pages, premieres, and reviews on lines 70-92 of the MD file should use accordion format like Reviews.
-  *- Please check the updated Markdown file for pull quotes and excerpts, otherwise use placeholders.
+### 2015
 
-  *4. Reels - Video Player vs Embed:
-  *- One reel is on Facebook and the other is on YouTube. I will defer to whatever approach you think will make the most sense for our site to feature those 2 reels.
+
+
+
+==========
   
-  *5. Section Order Confirmation:
-  *-1. Interviews (written links/accordion)
-  *-2. Reviews (written accordion)
-  *-3. News (written links/accordion)
-  *-4. Video Interviews (4 YouTube embeds)
-  *-5. Video Reviews (current 4 embeds, rename from "Media")
-  *-6. Video Misc (1 YouTube embed)
-  *-7. Reels (2 items, format TBD)
-
-
-
-============
-🩸 Creepy vs. Campy: The Glitch Distortion Distinction
-
-When I say I want a harsh, violent glitch distortion, I do not mean “wobbly,” “stretchy,” or “bouncy.”
-I am not talking about a rubbery, anime-like morph or elastic scaling effect.
-
-What I want is electronic violence — the feeling of a corrupted analog signal or a digital feed imploding.
-
-⚡️ The “Harsh / Violent Glitch” Look
-
-Think of:
-
-CRT interference, VHS corruption, analog distortion.
-
-Abrupt dissonance between color channels — especially red and green slightly offset in opposite directions, producing a sharp, vibrating afterimage effect.
-
-Pixel displacement, horizontal tearing, chromatic aberration, and scanline jumps.
-
-Frame jitter, not motion wobble: a circle shouldn’t “breathe,” it should twitch, fracture, or skip frames as though an evil frequency is interfering with reality.
-
-Movement should feel like an electronic seizure, not an organic pulse.
-
-Visually, it should resemble:
-
-“A corrupted broadcast signal from a broken Blumhouse television — one where the air is humming and the color channels are fighting each other.”
-
-In technical animation terms:
-
-Use displacement maps, RGB split, or scanline offset shaders, not scaling or warping.
-
-Temporal jitter (per-frame offsets) works better than smooth easing functions.
-
-Avoid bezier or elastic transitions; use step functions, keyframe jumps, or flicker frequencies (e.g., 2–6 Hz irregular).
-
-If color is used, prefer discordant pairings — red/green or magenta/cyan — rather than complementary harmony.
-
-The goal is to make the viewer feel that the signal is breaking through from another dimension, not that the circle is soft or alive.
-
-💀 The “Campy / Cartoonish” Look (What NOT to do)
-
-Avoid:
-
-Soft oscillations, “boing” effects, or any bounce easing (like easeInOutElastic).
-
-Organic wobble, “squash and stretch,” or shape deformation typical of character animation.
-
-Saturated, friendly color palettes.
-
-Overly smooth transitions or uniform pulses that feel rhythmic or cute.
-
-In short:
-
-Don’t make it look “possessed but adorable.”
-Make it look “possessed and dangerous.”
-
-🎛️ Metaphorically
-
-Campy distortion feels like Play-Doh melting under a heat lamp.
-
-Creepy distortion feels like a haunted signal clawing its way through static.
-
-===========
-
-How it works:
-
-  1. Positioning: Facebook and Belial icons are stacked using position: absolute with transform: translate(-50%, -50%) for perfect centering (works on mobile too)
-  2. Violent Distortion Glitch:
-    - Random duration 200ms-800ms
-    - Extreme filters: hue-rotate, saturate, contrast, brightness
-    - Shape chaos: skew, scale, translate
-    - Color flashes between $color-blood-solid (#8B0000) and $color-sickly-green (#7cd37b)
-  3. Timing Sequence:
-    - Initial delay: 8000ms-16000ms (random)
-    - Glitch occurs → Facebook disappears
-    - Belial reveals for 500ms-1500ms (random)
-    - Crossfade back: 800ms-1600ms (random)
-    - Repeat cycle
-  4. Reusable: The code uses data-glitch-target and data-glitch-reveal attributes, so you can easily apply this to other icon pairs by duplicating the structure and updating the data attributes.
-
-  The effect should create a chaotic, ritualistic corruption where the Facebook icon violently distorts before revealing the occult Belial sigil beneath!
-
-  Smaller macroblocks (8x8px or 4x4px instead of 16x16px)
-  - Pixel-level noise (static/grain overlay)
-  - More color channels (add Cyan/Magenta for 4-color CMYK corruption)
-  - Tighter displacement (±1-2px instead of ±4-5px)
-  - Irregular block spawning (random positions, not grid-locked)
-
-  ___
-  Colors Applied to Facebook Icon:
-
-  1. Base icon: Grayscale (no color)
-  2. Cyan channel: #00B4BF (muted cyan)
-  3. Magenta channel: #BF008F (muted magenta)
-  4. Yellow channel: #BFBF00 (muted yellow)
-  5. Key channel: #000000 (black)
-  6. Macroblocks: All 4 CMYK colors randomly assigned
-
-  Duration & Timing Ranges:
-
-  1. Initial delay before first glitch: 8000-16000ms (8-16 seconds)
-  2. Glitch duration: 600-1200ms (0.6-1.2 seconds)
-  3. Belial reveal duration: 500-1500ms (0.5-1.5 seconds)
-  4. Crossfade back duration: 800-1600ms (0.8-1.6 seconds)
-  5. Delay before next glitch: 8000-16000ms (8-16 seconds)
-  6. Macroblock spawn stagger: 0-200ms per block
-
-  ___
-
-  
+"Answers:"
+*1. Yes, the album overlay image size should be 20vw on mobile.
+*2. I think reducing the size from 0.9rem to 0.675rem might work (I'm sure clamp would be best, but I'm just looking for a quick fix).
+*3. I fixed this issue.
+*4. I fixed this issue.

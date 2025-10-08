@@ -67,7 +67,37 @@ const testBioFont = "IBM Plex Mono";
   @import '../styles/global.scss';
 
   .about {
+    position: relative;
     padding: $spacing-3xl $spacing-md;
+    background-color: black;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -5%;
+      bottom: -5%;
+      left: -5%;
+      background-image: url('/images/sigil-bg-1.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+
+      @media (max-width: 968px) {
+        right: -10%;
+        bottom: -10%;
+        left: -10%;
+        background-size: 80%;
+      }
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
 
     &__title {
       font-family: $font-metal;
@@ -104,7 +134,7 @@ const testBioFont = "IBM Plex Mono";
       position: relative;
       width: 100%;
       clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
-      border: 3px solid $color-blood-solid;
+      border: 3px solid $color-blood;
       overflow: hidden;
 
       img {
@@ -169,7 +199,7 @@ const testBioFont = "IBM Plex Mono";
       grid-template-columns: repeat(2, 1fr);
       gap: $spacing-md;
       padding-top: $spacing-lg;
-      border-top: 2px solid $color-rust;
+      border-top: 2px solid $color-gray-dark;
 
       @media (max-width: 568px) {
         grid-template-columns: 1fr;

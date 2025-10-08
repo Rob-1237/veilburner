@@ -11,126 +11,145 @@ import { media } from '../data/media.js';
   <div class="vb-logo-gradient">
     <img src="/images/logo-vb-white-no-bg.png" alt="Veilburner logo" />
   </div>
+  <h1 class="archive-page__title">ARCHIVE</h1>
   <section class="archive-page">
     <div class="container">
-      <h1 class="archive-page__title">ARCHIVE</h1>
 
       <!-- 1. Interviews (Written) Section -->
-      <section class="archive-section" data-section="interviews">
+      <section class="archive-section collapsed" data-section="interviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">INTERVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Interviews section">
-            <span class="section-toggle-icon">−</span>
+            <span class="section-toggle-icon">🜁</span>
           </button>
         </div>
-        <div class="archive-section__content">
-          {interviewsWritten.map((interview, index) => (
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            {interviewsWritten.map((interview, index) => (
             <div class="review-card" data-item-id={index}>
               <div class="review-card__content">
                 <blockquote class="review-card__quote">"{interview.quote}"</blockquote>
-                <div class="review-card__full-text" style="display: none;">
-                  <p>{interview.fullText}</p>
-                </div>
                 <div class="review-card__attribution">
                   <span>— {interview.publication}, {interview.date}</span>
                   <button class="review-card__toggle" aria-label="Expand interview">
-                    <span class="toggle-icon">+</span>
+                    <span class="toggle-icon">🜃</span>
                   </button>
                 </div>
-                {interview.link && (
-                  <a href={interview.link} target="_blank" rel="noopener noreferrer" class="review-card__link" style="display: none;">
-                    Read Full Interview →
-                  </a>
-                )}
+                <div class="review-card__expandable">
+                  <div class="review-card__expandable-content">
+                    <div class="review-card__full-text">
+                      <p>{interview.fullText}</p>
+                    </div>
+                    {interview.link && (
+                      <a href={interview.link} target="_blank" rel="noopener noreferrer" class="review-card__link">
+                        Read Full Interview →
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
       <!-- 2. Reviews (Written) Section -->
-      <section class="archive-section" data-section="reviews">
+      <section class="archive-section collapsed" data-section="reviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">REVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Reviews section">
-            <span class="section-toggle-icon">−</span>
+            <span class="section-toggle-icon">🜁</span>
           </button>
         </div>
-        <div class="archive-section__content">
-          {reviews.map((review, index) => (
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            {reviews.map((review, index) => (
             <div class="review-card" data-item-id={index}>
               <div class="review-card__content">
                 <blockquote class="review-card__quote">"{review.quote}"</blockquote>
-                <div class="review-card__full-text" style="display: none;">
-                  <p>{review.fullText}</p>
-                  {review.album && (
-                    <p class="review-card__meta"><strong>Album:</strong> {review.album}</p>
-                  )}
-                  {review.rating && (
-                    <p class="review-card__meta"><strong>Rating:</strong> {review.rating}</p>
-                  )}
-                </div>
                 <div class="review-card__attribution">
                   <span>— {review.publication}, {review.date}</span>
                   <button class="review-card__toggle" aria-label="Expand review">
-                    <span class="toggle-icon">+</span>
+                    <span class="toggle-icon">🜃</span>
                   </button>
                 </div>
-                {review.link && (
-                  <a href={review.link} target="_blank" rel="noopener noreferrer" class="review-card__link" style="display: none;">
-                    Read Full Review →
-                  </a>
-                )}
+                <div class="review-card__expandable">
+                  <div class="review-card__expandable-content">
+                    <div class="review-card__full-text">
+                      <p>{review.fullText}</p>
+                      {review.album && (
+                        <p class="review-card__meta"><strong>Album:</strong> {review.album}</p>
+                      )}
+                      {review.rating && (
+                        <p class="review-card__meta"><strong>Rating:</strong> {review.rating}</p>
+                      )}
+                    </div>
+                    {review.link && (
+                      <a href={review.link} target="_blank" rel="noopener noreferrer" class="review-card__link">
+                        Read Full Review →
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
       <!-- 3. News Section -->
-      <section class="archive-section" data-section="news">
+      <section class="archive-section collapsed" data-section="news">
         <div class="archive-section__header">
           <h2 class="archive-section__title">NEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle News section">
-            <span class="section-toggle-icon">−</span>
+            <span class="section-toggle-icon">🜁</span>
           </button>
         </div>
-        <div class="archive-section__content">
-          {news.map((item, index) => (
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            {news.map((item, index) => (
             <div class="review-card" data-item-id={index}>
               <div class="review-card__content">
                 <blockquote class="review-card__quote">"{item.quote}"</blockquote>
-                <div class="review-card__full-text" style="display: none;">
-                  <p>{item.fullText}</p>
-                </div>
                 <div class="review-card__attribution">
                   <span>— {item.publication}, {item.date}</span>
                   <button class="review-card__toggle" aria-label="Expand news item">
-                    <span class="toggle-icon">+</span>
+                    <span class="toggle-icon">🜃</span>
                   </button>
                 </div>
-                {item.link && (
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" class="review-card__link" style="display: none;">
-                    Read More →
-                  </a>
-                )}
+                <div class="review-card__expandable">
+                  <div class="review-card__expandable-content">
+                    <div class="review-card__full-text">
+                      <p>{item.fullText}</p>
+                    </div>
+                    {item.link && (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" class="review-card__link">
+                        Read More →
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
       <!-- 4. Video Interviews Section -->
-      <section class="archive-section" data-section="video-interviews">
+      <section class="archive-section collapsed" data-section="video-interviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO INTERVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Video Interviews section">
-            <span class="section-toggle-icon">−</span>
+            <span class="section-toggle-icon">🜁</span>
           </button>
         </div>
-        <div class="archive-section__content">
-          <div class="media-grid">
-            {interviews.map((video) => (
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            <div class="media-grid">
+              {interviews.map((video) => (
               <div class="media-embed">
                 <h3 class="media-embed__title">{video.title}</h3>
                 <div class="media-embed__wrapper">
@@ -145,21 +164,23 @@ import { media } from '../data/media.js';
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       <!-- 5. Video Reviews Section -->
-      <section class="archive-section" data-section="video-reviews">
+      <section class="archive-section collapsed" data-section="video-reviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO REVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Video Reviews section">
-            <span class="section-toggle-icon">−</span>
+            <span class="section-toggle-icon">🜁</span>
           </button>
         </div>
-        <div class="archive-section__content">
-          <div class="media-grid">
-            {media.videoReviews.map((video) => (
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            <div class="media-grid">
+              {media.videoReviews.map((video) => (
               <div class="media-embed">
                 <h3 class="media-embed__title">{video.title}</h3>
                 <div class="media-embed__wrapper">
@@ -174,21 +195,23 @@ import { media } from '../data/media.js';
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       <!-- 6. Video Misc Section -->
-      <section class="archive-section" data-section="video-misc">
+      <section class="archive-section collapsed" data-section="video-misc">
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO MISC</h2>
           <button class="archive-section__toggle" aria-label="Toggle Video Misc section">
-            <span class="section-toggle-icon">−</span>
+            <span class="section-toggle-icon">🜁</span>
           </button>
         </div>
-        <div class="archive-section__content">
-          <div class="media-grid">
-            {media.videoMisc.map((video) => (
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            <div class="media-grid">
+              {media.videoMisc.map((video) => (
               <div class="media-embed">
                 <h3 class="media-embed__title">{video.title}</h3>
                 <div class="media-embed__wrapper">
@@ -203,21 +226,23 @@ import { media } from '../data/media.js';
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       <!-- 7. Reels Section -->
-      <section class="archive-section" data-section="reels">
+      <section class="archive-section collapsed" data-section="reels">
         <div class="archive-section__header">
           <h2 class="archive-section__title">REELS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Reels section">
-            <span class="section-toggle-icon">−</span>
+            <span class="section-toggle-icon">🜁</span>
           </button>
         </div>
-        <div class="archive-section__content">
-          <div class="reels-grid">
-            {media.reels.map((reel) => (
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            <div class="reels-grid">
+              {media.reels.map((reel) => (
               <div class="reel-container">
                 <h3 class="reel-container__title">{reel.title}</h3>
                 <div class="reel-container__wrapper">
@@ -239,6 +264,7 @@ import { media } from '../data/media.js';
                 )}
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
@@ -255,9 +281,9 @@ import { media } from '../data/media.js';
 
     &__title {
       font-family: $font-sub;
-      font-size: 4rem;
+      font-size: 3rem;
       text-align: center;
-      margin-bottom: 4rem;
+      margin-top: 8rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       font-weight: 300;
@@ -326,18 +352,48 @@ import { media } from '../data/media.js';
       }
     }
 
-    &.collapsed &__toggle .section-toggle-icon::before {
-      content: '+';
+    .section-toggle-icon {
+      display: inline-block;
+      position: relative;
     }
 
-    &.collapsed &__content {
-      display: none;
+    // When NOT collapsed, show minus (default state from HTML)
+    &:not(.collapsed) .section-toggle-icon {
+      // Show the HTML content (−)
+    }
+
+    // When collapsed, hide the HTML content and show plus via ::before
+    &.collapsed .section-toggle-icon {
+      font-size: 0; // Hide the HTML "−"
+
+      &::before {
+        content: '🜃';
+        font-size: 2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @media (max-width: 768px) {
+          font-size: 1.75rem;
+        }
+      }
+    }
+
+    &__content-wrapper {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.4s ease;
+    }
+
+    &.collapsed &__content-wrapper {
+      grid-template-rows: 0fr;
     }
 
     &__content {
       max-width: 900px;
       margin: 0 auto;
-      transition: opacity 0.3s ease;
+      overflow: hidden;
     }
   }
 
@@ -374,14 +430,27 @@ import { media } from '../data/media.js';
       font-style: italic;
     }
 
+    &__expandable {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s ease;
+    }
+
+    &.expanded &__expandable {
+      grid-template-rows: 1fr;
+    }
+
+    &__expandable-content {
+      overflow: hidden;
+    }
+
     &__full-text {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.95rem;
       line-height: 1.7;
       color: #cccccc;
       margin-bottom: 1.5rem;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+      margin-top: 1.5rem;
 
       p {
         margin-bottom: 1rem;
@@ -429,8 +498,28 @@ import { media } from '../data/media.js';
       }
     }
 
-    &.expanded &__toggle .toggle-icon::before {
-      content: '−';
+    .toggle-icon {
+      display: inline-block;
+      position: relative;
+    }
+
+    // When NOT expanded, show plus (default state from HTML)
+    &:not(.expanded) .toggle-icon {
+      // Show the HTML content (+)
+    }
+
+    // When expanded, hide the HTML content and show minus via ::before
+    &.expanded .toggle-icon {
+      font-size: 0; // Hide the HTML "+"
+
+      &::before {
+        content: '🜁';
+        font-size: 1.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     &__link {
@@ -643,29 +732,19 @@ import { media } from '../data/media.js';
         if (e.target.closest('.review-card__link')) return;
 
         const isExpanded = card.classList.contains('expanded');
-        const fullText = card.querySelector('.review-card__full-text');
-        const link = card.querySelector('.review-card__link');
 
         // Close all other cards (accordion behavior)
         cards.forEach(otherCard => {
           if (otherCard !== card) {
             otherCard.classList.remove('expanded');
-            const otherFullText = otherCard.querySelector('.review-card__full-text');
-            const otherLink = otherCard.querySelector('.review-card__link');
-            if (otherFullText) otherFullText.style.display = 'none';
-            if (otherLink) otherLink.style.display = 'none';
           }
         });
 
         // Toggle current card
         if (isExpanded) {
           card.classList.remove('expanded');
-          if (fullText) fullText.style.display = 'none';
-          if (link) link.style.display = 'none';
         } else {
           card.classList.add('expanded');
-          if (fullText) fullText.style.display = 'block';
-          if (link) link.style.display = 'inline-block';
         }
       });
     });

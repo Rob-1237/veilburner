@@ -256,7 +256,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       width: 100%;
       height: auto;
       display: block;
-      border: 3px solid #8B0000;
+      border: 2px solid rgba(139, 0, 0, 0.5);
       clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
     }
   }
@@ -296,6 +296,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
   // Description
   .album-description {
     margin-bottom: 4rem;
+    transition: all .3 ease;
 
     &__text {
       font-family: 'IBM Plex Mono', monospace;
@@ -303,10 +304,15 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       line-height: 1.8;
       color: #cccccc;
       padding: 2rem;
-      border: 2px solid #5a3a2a;
-      border-left: 6px solid #5a3a2a;
+      border: 2px solid rgba(139, 0, 0, 0.5);
+      border-left: 6px solid rgba(139, 0, 0, 0.5);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
       background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+    }
+
+    &__text:hover {
+      border: 2px solid #8b7355;
+      border-left: 6px solid #8b7355;
     }
   }
 
@@ -322,10 +328,15 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
 
     &__item {
       padding: 1.5rem;
-      border: 2px solid #5a3a2a;
-      border-left: 6px solid #5a3a2a;
+      border: 2px solid rgba(139, 0, 0, 0.5);
+      border-left: 6px solid rgba(139, 0, 0, 0.5);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
       background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+    }
+
+    &__item:hover {
+      border: 2px solid #8b7355;
+      border-left: 6px solid #8b7355;
     }
 
     &__label {

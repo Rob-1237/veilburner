@@ -97,7 +97,7 @@ const isArchive = currentPath.startsWith('/archive');
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="rgba(139, 0, 0, 0.35)"
+              fill="#5e584f"
               class="occult-icon"
             >
               <path d="M0 18.75l7.437-13.5h16.563l-7.438 13.5z"></path>
@@ -107,7 +107,7 @@ const isArchive = currentPath.startsWith('/archive');
             href="https://bandcamp.com/search?q=veilburner"
             target="_blank"
             rel="noopener noreferrer"
-            class="occult-icons__link occult-icons__link--rotated occult-stack-underneath"
+            class="occult-icons__link occult-stack-underneath"
             aria-label="Bandcamp Sigil"
           >
             <img
@@ -130,7 +130,7 @@ const isArchive = currentPath.startsWith('/archive');
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="rgba(139, 0, 0, 0.35)"
+              fill="#5e584f"
               class="occult-icon"
             >
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
@@ -158,11 +158,11 @@ const isArchive = currentPath.startsWith('/archive');
           href="https://transcendingobscurity.com/artist/veilburner/"
           target="_blank"
           rel="noopener noreferrer"
-          class="occult-icons__link occult-stack-base"
+          class="occult-icons__link occult-stack-base occult-icons__tometal"
           aria-label="Transcending Obscurity"
         >
           <img
-            src="/images/tometal-logo-web.jpg"
+            src="/images/tometal-logo-web-tint.jpg"
             alt="Transcending Obscurity"
             class="occult-icon occult-icon--logo occult-icon--logo-large"
           />
@@ -241,7 +241,7 @@ const isArchive = currentPath.startsWith('/archive');
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: rgba(139, 0, 0, 0.35); // Inactive: blood
+    background: rgba(139, 0, 0, 0.5); // Inactive: blood
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -296,14 +296,13 @@ const isArchive = currentPath.startsWith('/archive');
         // transform: scale(1.1);
       }
     }
+
   }
 
   .occult-icon {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    // filter: grayscale(100%) contrast(90%) brightness(70%);
-    // opacity: 0.8;
     transition: all 0.3s ease;
 
     @media (max-width: 768px) {
@@ -331,10 +330,6 @@ const isArchive = currentPath.startsWith('/archive');
       }
     }
 
-    &:hover {
-      // filter: grayscale(100%) contrast(100%) brightness(90%);
-      // opacity: 1;
-    }
   }
 
   // Fixed Footer
@@ -354,9 +349,9 @@ const isArchive = currentPath.startsWith('/archive');
     background: #000000;
 
     @media (max-width: 768px) {
-      flex-direction: column;
-      padding: 2rem 1.5rem;
-      gap: 1.5rem;
+      // flex-direction: column;
+      padding: .5rem;
+      gap: 1rem;
     }
   }
 
@@ -369,11 +364,13 @@ const isArchive = currentPath.startsWith('/archive');
   .footer-left {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
     gap: 2rem;
 
     @media (max-width: 768px) {
-      align-items: center;
+      // align-items: center;
     }
 
     p {
@@ -381,7 +378,8 @@ const isArchive = currentPath.startsWith('/archive');
       color: #666666;
 
       @media (max-width: 768px) {
-        text-align: center;
+        // text-align: center;
+        font-size: 0.65rem;
       }
     }
 

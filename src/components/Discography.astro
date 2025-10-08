@@ -2,9 +2,9 @@
 import { albums } from '../data/albums.js';
 ---
 
+<h1 class="discography__title">DISCOGRAPHY</h1>
 <section class="discography">
   <div class="container">
-    <h1 class="discography__title">DISCOGRAPHY</h1>
 
     <div class="discography__grid">
       {albums.map((album) => (
@@ -13,7 +13,9 @@ import { albums } from '../data/albums.js';
             <div class="album-card__cover">
               <img src={album.cover} alt={`${album.title} album cover`} />
               <div class="album-card__overlay">
-                <span class="album-card__cta">LISTEN</span>
+                <svg class="album-card__cta" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                </svg>
               </div>
             </div>
             <div class="album-card__info">
@@ -39,11 +41,11 @@ import { albums } from '../data/albums.js';
       // font-size: 4rem;
       // margin-bottom: $spacing-2xl;
       // text-align: center;
-
+      padding: 0;
       font-family: $font-sub;
-      font-size: 4rem;
+      font-size: 3rem;
       text-align: center;
-      margin-bottom: 4rem;
+      margin-top: 8rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       font-weight: 300;
@@ -82,7 +84,7 @@ import { albums } from '../data/albums.js';
       width: 100%;
       padding-bottom: 100%; // Square aspect ratio
       overflow: hidden;
-      border: 3px solid $color-blood-solid;
+      border: 2px solid $color-blood;
       clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
       background: $color-gray-dark;
 
@@ -110,10 +112,9 @@ import { albums } from '../data/albums.js';
     }
 
     &__cta {
-      font-family: $font-metal;
-      font-size: 2rem;
+      width: 8rem;
+      height: 8rem;
       color: $color-white;
-      letter-spacing: 0.2em;
       transform: translateY(10px);
       transition: transform 0.4s ease;
     }
@@ -143,7 +144,7 @@ import { albums } from '../data/albums.js';
       }
 
       .album-card__overlay {
-        opacity: 1;
+        opacity: .6;
       }
 
       .album-card__cta {

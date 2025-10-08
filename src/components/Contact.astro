@@ -16,7 +16,7 @@ const contact = {
     </a>
     <div class="album-overlay__text">
       <p class="album-overlay__new">The new album <span class="album-overlay__title">Longing for Triumph, Reeking of Tragedy</span></p>
-      <p class="album-overlay__release">will be released November 14th on <a href="https://transcendingobscurity.com/artist/veilburner/" target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
+      <p class="album-overlay__release">coming November 14th on <a href="https://transcendingobscurity.com/artist/veilburner/" target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
     </div>
   </div>
 </section>
@@ -47,10 +47,10 @@ const contact = {
     z-index: 10;
 
     @media (max-width: 768px) {
-      bottom: 1rem;
-      left: 1rem;
-      gap: 1rem;
-      flex-direction: column;
+      bottom: .5rem;
+      left: .5rem;
+      gap: .5rem;
+      // flex-direction: column;
       align-items: flex-start;
     }
 
@@ -68,11 +68,13 @@ const contact = {
       width: 15vw;
       height: auto;
       display: block;
-      border: 3px solid $color-blood-solid;
+      border: 2px solid $color-blood-solid;
       clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
 
       @media (max-width: 768px) {
-        width: 40vw;
+        width: 20vw;
+        border: 1px solid $color-blood-solid;
+
       }
     }
 
@@ -83,7 +85,7 @@ const contact = {
       // max-width: 700px;
 
       @media (max-width: 768px) {
-        max-width: 300px;
+        max-width: 350px;
       }
 
       p {
@@ -95,13 +97,13 @@ const contact = {
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
       color: #666666;
-      text-transform: uppercase;
+      // text-transform: uppercase;
       letter-spacing: 0.1em;
       line-height: 1.4;
       font-weight: 300;
 
       @media (max-width: 768px) {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
       }
     }
 
@@ -123,13 +125,13 @@ const contact = {
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
       color: #666666;
-      text-transform: uppercase;
+      // text-transform: uppercase;
       letter-spacing: 0.1em;
       line-height: 1.4;
       font-weight: 300;
 
       @media (max-width: 768px) {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
       }
     }
 
