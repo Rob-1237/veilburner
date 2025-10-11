@@ -1,21 +1,13 @@
 export const reviews = [
+ 
   {
-    quote: "Veilburner are a force to be reckoned with, and VLBRNR is yet another strong exhibit of proof to that end.",
-    fullText: "Sick and twisted are Veilburner's bread and butter, and off‑kilter and occasionally dissonant blackened death metal is their vessel. Mephisto Deleterio conjures nothing short of excellence in his instrumental performances, and nothing about that excellence suffered in the year spanning between Lurkers and VLBRNR. Special mention goes to Mephisto's drumming, which constitutes one of the finest kit performances I've heard all year. Meanwhile, Chrisom Infernium continuously improves as a vocalist, a clear development of skill and versatility evident in his repulsive retches and gutturals.",
-    publication: "Angry Metal Guy",
-    date: "December 3, 2022",
-    album: "VLBRNR",
+    quote: "The Duality of Decapitation and Wisdom turned into one of the best Dissonant Metal pieces on our roster.",
+    fullText: "Veilburner are master storytellers, delivering grotesque yet stellar riffs and solos in a finely tuned production.",
+    publication: "Rock Music Raider",
+    date: "November 24, 2024",
+    album: "The Duality of Decapitation and Wisdom",
     rating: null,
-    link: "https://www.angrymetalguy.com/veilburner-vlbrnr-review/"
-  },
-  {
-    quote: "Lurkers is that rare record that doesn't get weaker when it leans on effects over technique, using the guitar as a metamorphic synth unit.",
-    fullText: "Some of these riffs seem to bulge in ways I've heard nowhere else (at least not so pervasively), using gradual bends, tortured wah‑wah, and spasms of the tremolo bar to swell into something uncomfortably 3‑dimensional. … Veilburner finds extremity not necessarily in speed, heaviness, or overwrought chaos, but in the twisting of death and black metal flesh into something darkly parodic. Evocative of a familiar being, but exquisitely peeled apart and rewired into an uncanny engine of perverted bliss.",
-    publication: "Toilet ov Hell",
-    date: "September 10, 2021",
-    album: "Lurkers in the Capsule of Skull",
-    rating: null,
-    link: "https://toiletovhell.com/review-veilburner-lurkers-in-the-capsule-of-skull/"
+    link: "https://www.rockmusicraider.com/veilburner-the-duality-of-decapitation-and-wisdom-review/"
   },
   {
     quote: "The twisted compositions only get better as the album is played more and more. This is a trip down a rabbit hole that I'll happily get lost in.",
@@ -25,6 +17,25 @@ export const reviews = [
     album: "The Duality of Decapitation and Wisdom",
     rating: null,
     link: "https://metal-temple.com/review/veilburner-the-duality-of-decapitation-and-wisdom/"
+  },
+ 
+  {
+    quote: "Veilburner's eclecticism isn't scattershot. They do have their anchor-points in death and black metal.",
+    fullText: "Their influences break the surface in a dizzying and dazzling way without losing their footing in the genre.",
+    publication: "No Clean Singing",
+    date: "October 29, 2024",
+    album: "The Duality of Decapitation and Wisdom",
+    rating: null,
+    link: "https://www.nocleansinging.com/2024/10/29/an-ncs-premiere-veilburner-woe-ye-who-build-these-crosses-are-those-who-will-serve-us-death/"
+  },
+  {
+    quote: "Veilburner are a force to be reckoned with, and VLBRNR is yet another strong exhibit of proof to that end.",
+    fullText: "Sick and twisted are Veilburner's bread and butter, and off‑kilter and occasionally dissonant blackened death metal is their vessel. Mephisto Deleterio conjures nothing short of excellence in his instrumental performances, and nothing about that excellence suffered in the year spanning between Lurkers and VLBRNR. Special mention goes to Mephisto's drumming, which constitutes one of the finest kit performances I've heard all year. Meanwhile, Chrisom Infernium continuously improves as a vocalist, a clear development of skill and versatility evident in his repulsive retches and gutturals.",
+    publication: "Angry Metal Guy",
+    date: "December 3, 2022",
+    album: "VLBRNR",
+    rating: null,
+    link: "https://www.angrymetalguy.com/veilburner-vlbrnr-review/"
   },
   {
     quote: "With VLBRNR, Veilburner shows us that, six albums deep, they can still pull several infernal tricks from up their sleeves.",
@@ -36,15 +47,6 @@ export const reviews = [
     link: "https://www.nocleansinging.com/2022/09/30/veilburner-a-review-of-vlbrnr-and-the-premiere-of-repulsed-by-the-light/"
   },
   {
-    quote: "Veilburner's eclecticism isn't scattershot. They do have their anchor-points in death and black metal.",
-    fullText: "Their influences break the surface in a dizzying and dazzling way without losing their footing in the genre.",
-    publication: "No Clean Singing",
-    date: "October 29, 2024",
-    album: "The Duality of Decapitation and Wisdom",
-    rating: null,
-    link: "https://www.nocleansinging.com/2024/10/29/an-ncs-premiere-veilburner-woe-ye-who-build-these-crosses-are-those-who-will-serve-us-death/"
-  },
-  {
     quote: "Veilburner's latest offering is a complex and challenging listen, but one that rewards repeated plays.",
     fullText: "The album showcases the duo's ability to blend dissonant melodies with aggressive rhythms, creating a unique and immersive listening experience.",
     publication: "Metal Epidemic",
@@ -52,15 +54,6 @@ export const reviews = [
     album: "VLBRNR",
     rating: null,
     link: "https://metalepidemic.com/veilburner-vlbrnr-review/"
-  },
-  {
-    quote: "Veilburner continues to push the boundaries of extreme metal with their latest release.",
-    fullText: "Lurkers in the Capsule of Skull is a testament to the band's commitment to innovation and their refusal to conform to genre norms.",
-    publication: "Metal Rules",
-    date: "September 2021",
-    album: "Lurkers in the Capsule of Skull",
-    rating: null,
-    link: "https://www.metal-rules.com/2021/09/25/veilburner-lurkers-in-the-capsule-of-skull/"
   },
   {
     quote: "Veilburner's VLBRNR is a chaotic yet cohesive album that showcases the band's evolution.",
@@ -72,13 +65,22 @@ export const reviews = [
     link: "https://www.teethofthedivine.com/reviews/veilburner-vlbrnr/"
   },
   {
-    quote: "The Duality of Decapitation and Wisdom turned into one of the best Dissonant Metal pieces on our roster.",
-    fullText: "Veilburner are master storytellers, delivering grotesque yet stellar riffs and solos in a finely tuned production.",
-    publication: "Rock Music Raider",
-    date: "November 24, 2024",
-    album: "The Duality of Decapitation and Wisdom",
+    quote: "Lurkers is that rare record that doesn't get weaker when it leans on effects over technique, using the guitar as a metamorphic synth unit.",
+    fullText: "Some of these riffs seem to bulge in ways I've heard nowhere else (at least not so pervasively), using gradual bends, tortured wah‑wah, and spasms of the tremolo bar to swell into something uncomfortably 3‑dimensional. … Veilburner finds extremity not necessarily in speed, heaviness, or overwrought chaos, but in the twisting of death and black metal flesh into something darkly parodic. Evocative of a familiar being, but exquisitely peeled apart and rewired into an uncanny engine of perverted bliss.",
+    publication: "Toilet ov Hell",
+    date: "September 10, 2021",
+    album: "Lurkers in the Capsule of Skull",
     rating: null,
-    link: "https://www.rockmusicraider.com/veilburner-the-duality-of-decapitation-and-wisdom-review/"
+    link: "https://toiletovhell.com/review-veilburner-lurkers-in-the-capsule-of-skull/"
+  },
+  {
+    quote: "Veilburner continues to push the boundaries of extreme metal with their latest release.",
+    fullText: "Lurkers in the Capsule of Skull is a testament to the band's commitment to innovation and their refusal to conform to genre norms.",
+    publication: "Metal Rules",
+    date: "September 2021",
+    album: "Lurkers in the Capsule of Skull",
+    rating: null,
+    link: "https://www.metal-rules.com/2021/09/25/veilburner-lurkers-in-the-capsule-of-skull/"
   },
   {
     quote: "It is beauty and ugliness, heaviness and levity, and it will absolutely set your mind ablaze.",

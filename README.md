@@ -140,11 +140,3 @@ https://avenoctum.com/2014/12/15/veilburner-the-three-lightbearers-obscure-divin
 
 
 
-
-==========
-  
-"Answers:"
-*1. Yes, the album overlay image size should be 20vw on mobile.
-*2. I think reducing the size from 0.9rem to 0.675rem might work (I'm sure clamp would be best, but I'm just looking for a quick fix).
-*3. I fixed this issue.
-*4. I fixed this issue.

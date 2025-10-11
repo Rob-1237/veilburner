@@ -49,6 +49,7 @@ const isArchive = currentPath.startsWith('/archive');
       aria-label="Home"
       aria-current={isHome ? "page" : undefined}
     >
+      <span class="nav-dots__symbol">🝆</span>
       <span class="sr-only">Home</span>
     </a>
     <a
@@ -57,6 +58,7 @@ const isArchive = currentPath.startsWith('/archive');
       aria-label="Listen"
       aria-current={isListen ? "page" : undefined}
     >
+      <span class="nav-dots__symbol">⚷</span>
       <span class="sr-only">Listen</span>
     </a>
     <a
@@ -65,6 +67,7 @@ const isArchive = currentPath.startsWith('/archive');
       aria-label="Archive"
       aria-current={isArchive ? "page" : undefined}
     >
+      <span class="nav-dots__symbol">☋</span>
       <span class="sr-only">Archive</span>
     </a>
   </nav>
@@ -97,8 +100,8 @@ const isArchive = currentPath.startsWith('/archive');
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="#5e584f"
-              class="occult-icon"
+              fill="#a99191"
+              class="occult-icon occult-icon--bandcamp"
             >
               <path d="M0 18.75l7.437-13.5h16.563l-7.438 13.5z"></path>
             </svg>
@@ -130,8 +133,8 @@ const isArchive = currentPath.startsWith('/archive');
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="#5e584f"
-              class="occult-icon"
+              fill="#a99191"
+              class="occult-icon occult-icon--facebook"
             >
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
             </svg>
@@ -229,31 +232,41 @@ const isArchive = currentPath.startsWith('/archive');
     gap: 35px;
 
     @media (max-width: 768px) {
-      top: auto;
-      bottom: 30px;
-      right: 50%;
-      transform: translateX(50%);
-      flex-direction: row;
+      top: 25px;
+      // right: 20px;
+      gap: 25px;
     }
   }
 
   .nav-dots__dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(139, 0, 0, 0.5); // Inactive: blood
-    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .nav-dots__symbol {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #8b7355; // Inactive: blood
+    // color: rgba(139, 0, 0, 0.5); // Inactive: blood
+    transition: color 0.3s ease;
     display: block;
 
-    &:hover {
-      background: #5a3a2a; // Hover: rust
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
     }
+  }
 
-    &--active {
-      background: #8b7355; // Active: bone
-    }
+  .nav-dots__dot:hover .nav-dots__symbol {
+    color: #8B0000; // Hover: rust
+    // color: #5a3a2a; // Hover: rust
+  }
+
+  .nav-dots__dot--active .nav-dots__symbol {
+    color: #cccccc; // Active: bone
+    // color: #8b7355; // Active: bone
   }
 
   // Page Content Area
@@ -308,6 +321,17 @@ const isArchive = currentPath.startsWith('/archive');
     @media (max-width: 768px) {
       width: 40px;
       height: 40px;
+    }
+
+    &--bandcamp,
+    &--facebook {
+      width: 42.5px;
+      height: 42.5px;
+
+      @media (max-width: 768px) {
+        width: 34px;
+        height: 34px;
+      }
     }
 
     &--logo {

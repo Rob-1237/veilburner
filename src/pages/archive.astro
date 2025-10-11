@@ -20,7 +20,7 @@ import { media } from '../data/media.js';
         <div class="archive-section__header">
           <h2 class="archive-section__title">INTERVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Interviews section">
-            <span class="section-toggle-icon">🜁</span>
+            <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
         <div class="archive-section__content-wrapper">
@@ -32,7 +32,7 @@ import { media } from '../data/media.js';
                 <div class="review-card__attribution">
                   <span>— {interview.publication}, {interview.date}</span>
                   <button class="review-card__toggle" aria-label="Expand interview">
-                    <span class="toggle-icon">🜃</span>
+                    <span class="toggle-icon">🜁</span>
                   </button>
                 </div>
                 <div class="review-card__expandable">
@@ -59,7 +59,7 @@ import { media } from '../data/media.js';
         <div class="archive-section__header">
           <h2 class="archive-section__title">REVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Reviews section">
-            <span class="section-toggle-icon">🜁</span>
+            <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
         <div class="archive-section__content-wrapper">
@@ -71,7 +71,7 @@ import { media } from '../data/media.js';
                 <div class="review-card__attribution">
                   <span>— {review.publication}, {review.date}</span>
                   <button class="review-card__toggle" aria-label="Expand review">
-                    <span class="toggle-icon">🜃</span>
+                    <span class="toggle-icon">🜁</span>
                   </button>
                 </div>
                 <div class="review-card__expandable">
@@ -104,7 +104,7 @@ import { media } from '../data/media.js';
         <div class="archive-section__header">
           <h2 class="archive-section__title">NEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle News section">
-            <span class="section-toggle-icon">🜁</span>
+            <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
         <div class="archive-section__content-wrapper">
@@ -116,7 +116,7 @@ import { media } from '../data/media.js';
                 <div class="review-card__attribution">
                   <span>— {item.publication}, {item.date}</span>
                   <button class="review-card__toggle" aria-label="Expand news item">
-                    <span class="toggle-icon">🜃</span>
+                    <span class="toggle-icon">🜁</span>
                   </button>
                 </div>
                 <div class="review-card__expandable">
@@ -143,7 +143,7 @@ import { media } from '../data/media.js';
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO INTERVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Video Interviews section">
-            <span class="section-toggle-icon">🜁</span>
+            <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
         <div class="archive-section__content-wrapper">
@@ -174,7 +174,7 @@ import { media } from '../data/media.js';
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO REVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Video Reviews section">
-            <span class="section-toggle-icon">🜁</span>
+            <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
         <div class="archive-section__content-wrapper">
@@ -205,7 +205,7 @@ import { media } from '../data/media.js';
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO MISC</h2>
           <button class="archive-section__toggle" aria-label="Toggle Video Misc section">
-            <span class="section-toggle-icon">🜁</span>
+            <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
         <div class="archive-section__content-wrapper">
@@ -236,7 +236,7 @@ import { media } from '../data/media.js';
         <div class="archive-section__header">
           <h2 class="archive-section__title">REELS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Reels section">
-            <span class="section-toggle-icon">🜁</span>
+            <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
         <div class="archive-section__content-wrapper">
@@ -337,12 +337,11 @@ import { media } from '../data/media.js';
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: color 0.3s ease;
       flex-shrink: 0;
 
       &:hover {
         color: #5a3a2a; // Rust
-        transform: scale(1.2);
       }
 
       @media (max-width: 768px) {
@@ -355,6 +354,11 @@ import { media } from '../data/media.js';
     .section-toggle-icon {
       display: inline-block;
       position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    &__toggle:hover .section-toggle-icon {
+      transform: rotate(180deg);
     }
 
     // When NOT collapsed, show minus (default state from HTML)
@@ -367,7 +371,7 @@ import { media } from '../data/media.js';
       font-size: 0; // Hide the HTML "−"
 
       &::before {
-        content: '🜃';
+        content: '🜁';
         font-size: 2rem;
         position: absolute;
         top: 50%;
@@ -490,17 +494,21 @@ import { media } from '../data/media.js';
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: color 0.3s ease;
 
       &:hover {
         color: #5a3a2a; // Rust
-        transform: scale(1.2);
       }
     }
 
     .toggle-icon {
       display: inline-block;
       position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    &__toggle:hover .toggle-icon {
+      transform: rotate(180deg);
     }
 
     // When NOT expanded, show plus (default state from HTML)
@@ -513,7 +521,7 @@ import { media } from '../data/media.js';
       font-size: 0; // Hide the HTML "+"
 
       &::before {
-        content: '🜁';
+        content: '🜃';
         font-size: 1.5rem;
         position: absolute;
         top: 50%;
@@ -691,7 +699,8 @@ import { media } from '../data/media.js';
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 50% 50%, rgb(0, 180, 191, 0.2), rgb(191, 0, 143, 0.2), rgb(191, 191, 0, 0.3), #000000);
+      background: radial-gradient(circle at 50% 50%, rgb(139, 0, 0, .5), #5a3a2a, #8b7355, #a99191);
+      // background: radial-gradient(circle at 50% 50%, rgb(0, 180, 191, 0.2), rgb(191, 0, 143, 0.2), rgb(191, 191, 0, 0.3), #000000);
       background-size: 200% 200%;
       animation: vb-logo-gradient 32s ease infinite;
       mask-image: url('/images/logo-vb-white-no-bg.png');

@@ -5,6 +5,11 @@ export const interviews = [
     link: "https://www.youtube.com/watch?v=xXlgGIjj1As"
   },
   {
+    title: "Veilburner: Mephisto Deleterio & Chrisom Infernium : The Duality of Veilburner",
+    videoId: "_DjeLiSJ7_k",
+    link: "https://www.youtube.com/watch?v=_DjeLiSJ7_k"
+  },
+  {
     title: "VEILBURNER - Mephisto Deleterio & Chrisum Infernium | Into The Necrosphere Podcast #253",
     videoId: "5LtBcCJZWlI",
     link: "https://www.youtube.com/watch?v=5LtBcCJZWlI"
@@ -13,10 +18,5 @@ export const interviews = [
     title: "VEILBURNER - Mephisto Deleterio & Chrisum Infernium | Into The Necrosphere Podcast #156",
     videoId: "HZSJUQ6p4xY",
     link: "https://www.youtube.com/watch?v=HZSJUQ6p4xY"
-  },
-  {
-    title: "Veilburner: Mephisto Deleterio & Chrisom Infernium : The Duality of Veilburner",
-    videoId: "_DjeLiSJ7_k",
-    link: "https://www.youtube.com/watch?v=_DjeLiSJ7_k"
   }
 ];
