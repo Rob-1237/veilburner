@@ -199,21 +199,25 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
 
     &__title {
       display: none;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      // background: #1a1a1a;
+      padding: 0.5rem 1rem;
+      // border: 1px solid #5a3a2a;
+      white-space: nowrap;
+      z-index: 10;
+      font-size: 0.875rem;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
 
       @media (min-width: 969px) {
         display: block;
-        max-width: 200px;
       }
 
       .album-nav__arrow:hover & {
-        display: block;
-        position: absolute;
-        background: #1a1a1a;
-        padding: 0.5rem 1rem;
-        border: 1px solid #5a3a2a;
-        white-space: nowrap;
-        z-index: 10;
-        font-size: 0.875rem;
+        opacity: 1;
+        visibility: visible;
 
         @media (max-width: 968px) {
           position: static;
@@ -223,11 +227,11 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
         }
       }
 
-      .album-nav__arrow--prev:hover & {
+      .album-nav__arrow--prev & {
         left: 3rem;
       }
 
-      .album-nav__arrow--next:hover & {
+      .album-nav__arrow--next & {
         right: 3rem;
       }
     }
@@ -311,8 +315,8 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
     }
 
     &__text:hover {
-      border: 2px solid #8b7355;
-      border-left: 6px solid #8b7355;
+      // border: 2px solid #8b7355;
+      // border-left: 6px solid #8b7355;
     }
   }
 

@@ -279,18 +279,18 @@ const isArchive = currentPath.startsWith('/archive');
   .occult-icons {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: space-around;
     gap: 1.5rem;
 
     @media (max-width: 768px) {
-      gap: 1rem;
+      gap: .75rem;
     }
 
     &__row {
       display: flex;
       flex-direction: row;
-      margin-bottom: 2rem;
+      // margin-bottom: 2rem;
       gap: 2rem;
       align-items: center;
 
@@ -410,7 +410,11 @@ const isArchive = currentPath.startsWith('/archive');
     &__copyright {
       color: #5a3a2a !important; // Rust - override footer default
       font-family: 'Oswald', sans-serif;
+      @media (max-width: 768px) {
+        font-size: 0.5rem;
+      }
     }
+    
   }
 
   // Bandcamp Stack Effect
