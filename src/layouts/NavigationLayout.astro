@@ -224,17 +224,17 @@ const isArchive = currentPath.startsWith('/archive');
   // Navigation Dots
   .nav-dots {
     position: fixed;
-    top: 100px;
-    right: 30px;
+    top: 30px;
+    right: 50px;
     z-index: 9999;
     display: flex;
-    flex-direction: column;
-    gap: 35px;
+    flex-direction: row;
+    gap: 50px;
 
     @media (max-width: 768px) {
-      top: 25px;
-      // right: 20px;
-      gap: 25px;
+      top: 30px;
+      right: 20px;
+      gap: 15px;
     }
   }
 
@@ -292,7 +292,7 @@ const isArchive = currentPath.startsWith('/archive');
       flex-direction: row;
       // margin-bottom: 2rem;
       gap: 2rem;
-      align-items: center;
+      align-items: flex-end;
 
       @media (max-width: 768px) {
         gap: 1.5rem;
