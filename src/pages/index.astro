@@ -3,10 +3,185 @@ import NavigationLayout from '../layouts/NavigationLayout.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <NavigationLayout title="VEILBURNER - Unofficial Fan Site">
   <Hero />
-  <About />
+  <!-- Put all the new shit here: -->
+  <section class="about">
+    <div class="container">
+      <div class="about__content">
+        <div class="about__image-wrapper">
+          <div class="about__image">
+            <img src="/images/both-members-3.jpg" alt="Band photo" class="scroll-reveal-image" />
+          </div>
+        </div>
+
+        <div class="about__text">
+          <div class="about__bio" style="font-family: 'IBM Plex Mono', monospace;">
+            <p>Veilburner is a two-man metal project that emerged from the underground with a sound that eludes classification. Their strain of avant-garde metal has carved a unique path through the extreme music landscape.</p>
+            <p>Comprised of Mephisto Deleterio (David Moody) and Chrisom Infernium (Chris Sheppard), the duo has released eight full-length albums since 2014. Their boundary-pushing approach to songwriting and relentless experimentation have earned them a dedicated cult following within the global metal scene.</p>
+            <p>Veilburner's music delves into themes of occult mysticism, cosmic horror, and esoteric philosophy, channeled through dissonant riffs, atmospheric layers, and visceral vocal performances that pull metal toward a beautifully nightmarish terrain.</p>
+          </div>
+
+          <div class="about__details">
+            <div class="about__detail">
+              <span class="about__detail-label">Formed</span>
+              <span class="about__detail-value">2014</span>
+            </div>
+            <div class="about__detail">
+              <span class="about__detail-label">Location</span>
+              <span class="about__detail-value">Pennsylvania, USA</span>
+            </div>
+            <div class="about__detail">
+              <span class="about__detail-label">Genre</span>
+              <span class="about__detail-value">Avant-Garde Black/Death Metal</span>
+            </div>
+            <div class="about__detail">
+              <span class="about__detail-label">Label</span>
+              <span class="about__detail-value">Transcending Obscurity Records</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <Contact />
+  <Footer />
 </NavigationLayout>
+
+<style lang="scss">
+ @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Inconsolata:wght@400;700&family=Courier+Prime:wght@400;700&display=swap');
+ @import '../styles/global.scss';
+
+  .about {
+    padding: $spacing-3xl $spacing-md;
+    // background-color: black;
+    // background-image: url('/images/key-bg-3.png');
+
+
+    &__content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: $spacing-2xl;
+
+      @media (max-width: 968px) {
+        grid-template-columns: 1fr;
+        gap: $spacing-xl;
+      }
+    }
+
+    &__image-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+
+    &__image {
+      width: 100%;
+      clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+      border: 3px solid $color-blood;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: grayscale(40%) contrast(115%);
+      }
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+
+    &__bio {
+      p {
+        margin-bottom: $spacing-md;
+        line-height: 1.8;
+        color: $color-gray-light;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-md;
+      padding-top: $spacing-lg;
+      border-top: 2px solid $color-gray-dark;
+
+      @media (max-width: 568px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__detail {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+    }
+
+    &__detail-label {
+      font-size: 0.8rem;
+      color: $color-gray-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    &__detail-value {
+      font-family: $font-metal;
+      font-size: 1.1rem;
+      color: $color-rust;
+      letter-spacing: 0.05em;
+    }
+  }
+</style>
+
+<script>
+  function initImageProximityEffect() {
+    const image = document.querySelector('.scroll-reveal-image');
+    if (!image) return;
+
+    function updateFilter() {
+      const rect = image.getBoundingClientRect();
+      const imageCenterY = rect.top + rect.height / 2;
+      const viewportCenterY = window.innerHeight / 2;
+      const distance = Math.abs(imageCenterY - viewportCenterY);
+      const normalizedDistance = Math.min(distance / (window.innerHeight / 2), 1);
+
+      // Interpolate filter based on distance
+      // normalizedDistance 0 (centered) = grayscale
+      // normalizedDistance 1 (off-center) = inverted sepia
+      const grayscale = 40 * (1 - normalizedDistance);
+      const invert = normalizedDistance;
+      const sepia = 0.8 * normalizedDistance;
+      const hueRotate = 20 * normalizedDistance;
+
+      image.style.filter = `grayscale(${grayscale}%) invert(${invert}) sepia(${sepia}) hue-rotate(${hueRotate}deg) contrast(115%)`;
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateFilter();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    updateFilter();
+  }
+
+  document.addEventListener('DOMContentLoaded', initImageProximityEffect);
+  document.addEventListener('astro:after-swap', initImageProximityEffect);
+</script>

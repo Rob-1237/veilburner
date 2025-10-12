@@ -365,10 +365,15 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
   }
 
   .lyrics-details {
-    border: 2px solid #5a3a2a;
-    border-left: 6px solid #5a3a2a;
+    border: 2px solid rgba(139, 0, 0, 0.5);
+    border-left: 6px solid rgba(139, 0, 0, 0.5);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
     background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+
+    &:hover {
+        border: 2px solid #8b7355;
+        border-left: 6px solid #8b7355;
+    }
 
     &__summary {
       font-family: 'Oswald', sans-serif;

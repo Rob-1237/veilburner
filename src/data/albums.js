@@ -6,16 +6,25 @@ export const albums = [
     cover: "/images/album-art-2025.jpg",
     bandcampId: "970185902",
     bandcampLink: "https://veilburnerband.bandcamp.com/album/longing-for-triumph-reeking-of-tragedy",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "A cosmic requiem for every victory doomed to rot. Longing for Triumph, Reeking of Tragedy closes the circle with grandeur and despair, its sound both celebratory and terminal — the last sermon before silence devours the light.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: [
+        "Longing for Triumph...",
+        "Pestilent Niche",
+        "Rigor & Wraith",
+        "That Which Crypts Howls Grandeur",
+        "Da'ath Ye Shadow Portrait",
+        "Ouroboreal Whorl",
+        "Matter o' the Most Awful of Martyrs",
+        "...Reeking of Tragedy"
+      ]
     }
   },
   {
@@ -25,16 +34,24 @@ export const albums = [
     cover: "/images/album-art-2024.jpg",
     bandcampId: "999392335",
     bandcampLink: "https://veilburnerband.bandcamp.com/album/the-duality-of-decapitation-and-wisdom",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "The blade and the oracle are one. The Duality of Decapitation and Wisdom is a study in ecstatic violence and transcendental logic — an alchemical paradox that finds revelation in ruin and divinity in dismemberment.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: [
+        "Tem Ohp Ab in Mysticum",
+        "III Visions of Hex-Shaped Hiss, Behead the Howling Spirit",
+        "The Duality of Decapitation and Wisdom Part I",
+        "The Duality of Decapitation and Wisdom Part II",
+        "Shadows of a Shadow",
+        "Woe Ye’ Who Build these Crosses...Are Those Who Will Serve Us Death",
+        "V.I.I. (Voured Ichneumous Icon)"
+      ]
     }
   },
   {
@@ -44,16 +61,27 @@ export const albums = [
     cover: "/images/album-art-2022.jpg",
     bandcampId: "357912691",
     bandcampLink: "https://veilburnerband.bandcamp.com/album/vlbrnr",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "A summoning and a culmination. VLBRNR wields blackened industrial fury like a ritual fire, consuming every prior incarnation of the band and reconstituting it into something unholy, triumphant, and vividly self-aware.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: [
+        "VI (Vulgar Incantations)",
+        "Envexomous Hex",
+        "Interim Oblivion",
+        "Lo! Heirs to the Serpent",
+        "Burning the Veil",
+        "Unorthodoxagon",
+        "Repulsed by the Light",
+        "None so Hideous",
+        "Exhibitionism in Limbo",
+        "Ruin"
+      ]
     }
   },
   {
@@ -63,16 +91,24 @@ export const albums = [
     cover: "/images/album-art-2021.jpg",
     bandcampId: "3137732114",
     bandcampLink: "https://veilburnerband.bandcamp.com/album/lurkers-in-the-capsule-of-skull",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "The mind becomes a mausoleum — each track a reflection echoing within its decaying architecture. Lurkers in the Capsule of Skull blurs dream and delusion, using progressive dissonance and industrial grime to explore the spaces between sentience and sickness.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: ["In the Tomb of Dreaming Limbo",
+        "Nocturnal Gold",
+        "Cursed, Disfigured, Amen!",
+        "Lurkers in the Capsule of Skull",
+        "Para-Opaque",
+        "An Odyssey Through Cataclysm",
+        "Vault of Haunting Dissolve",
+        "Dissonance in Bloom"
+      ]
     }
   },
   {
@@ -82,16 +118,23 @@ export const albums = [
     cover: "/images/album-art-2018.jpg",
     bandcampId: "2810695557",
     bandcampLink: "https://veilburner.bandcamp.com/album/a-sire-to-the-ghouls-of-lunacy",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "An ascent through lunacy and dream logic. A Sire to the Ghouls of Lunacy paints its horrors in surreal technicolor — an operatic study in transformation, obsession, and the beauty of psychological ruin.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: ["Introvertoid",
+        "Panoramic Phantoms",
+        "Agony On Repeat",
+        "Abattoir Noir",
+        "A Sire To The Ghouls Of Lunacy",
+        "Glory Glory Grotesque",
+        "Upstream And Parallel",
+        "Where Torment Has Danced Before"]
     }
   },
   {
@@ -101,16 +144,26 @@ export const albums = [
     cover: "/images/album-art-2016.jpg",
     bandcampId: "1235378926",
     bandcampLink: "https://veilburner.bandcamp.com/album/the-obscene-rite",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "Here the ceremony turns inward — a self-inflicted exorcism drenched in delirium and sacrilege. The Obscene Rite channels dissonant fervor and ritualistic pulse, as the veil between body and spirit fractures under the weight of its own revelation.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
-      label: "Transcending Obscurity Records"
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
+      label: "Veilburner"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: [
+        "Postmortem Exordium",
+        "Necroquantum Plague Asylum",
+        "Vaterchen",
+        "Eucharist of the Breathing Abyss",
+        "Masquerade Macabre",
+        "Baphometic Catalyst",
+        "Dilemma Manifestation",
+        "In the Revelations of Bloodstained Void",
+        "Phainops"
+      ]
     }
   },
   {
@@ -120,16 +173,26 @@ export const albums = [
     cover: "/images/album-art-2015.jpg",
     bandcampId: "1776981611",
     bandcampLink: "https://veilburner.bandcamp.com/album/noumenon",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "A descent into psychic fever and metaphysical decay. Noumenon expands the band’s twisted lexicon, layering philosophical terror with grotesque melody, where the material and immaterial grind against each other until both are unrecognizable.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
-      label: "Transcending Obscurity Records"
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
+      label: "Veilburner"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: [
+        "Astral Caskets, Abstract Flesh",
+        "Ever Relapsing Fever",
+        "Grave Wax Cenotaph",
+        "Godspeed Lucifer",
+        "Scorched Earth Exorcism",
+        "Prayer Morgue Orphace",
+        "Omnicosmic Interstellar Lucivore",
+        "IHVH",
+        "Hypsiphrone"
+      ]
     }
   },
   {
@@ -139,16 +202,28 @@ export const albums = [
     cover: "/images/album-art-2014.jpg",
     bandcampId: "118644513",
     bandcampLink: "https://veilburner.bandcamp.com/album/the-three-lightbearers",
-    description: "[Album description from Bandcamp - to be added]",
+    description: "The genesis of Veilburner’s labyrinthine doctrine — an invocation through warped blackened death and deranged ritual. The Three Lightbearers summons chaos from the cosmic void, binding flesh and philosophy in the first movement of the duo’s alchemical ascent.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
-      production: "[Production credits - to be added]",
-      artwork: "[Artwork artist - to be added]",
-      label: "Transcending Obscurity Records"
+      production: "Mephisto Deleterio",
+      artwork: "Chrisom Infernium",
+      label: "Veilburner"
     },
     lyrics: {
       available: false,
-      tracks: []
+      tracks: [
+        "Gospel of Bloodstained Void",
+        "Masturbating the Obelisk",
+        "In the Constellation of Dust and Shadow",
+        "Nil Absolute",
+        "Purgatorium",
+        "Where the Light is Death and Darkness is Lord",
+        "Solarcide",
+        "Revelations Genesis",
+        "Stigmatic Levitation",
+        "Idol Horror",
+        "Damnation A.D."
+      ]
     }
   }
 ];

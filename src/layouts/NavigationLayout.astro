@@ -13,6 +13,8 @@ const currentPath = Astro.url.pathname;
 const isHome = currentPath === '/';
 const isListen = currentPath.startsWith('/listen');
 const isArchive = currentPath.startsWith('/archive');
+
+const bgImage = isListen ? "body__listen" : isArchive ? "body__archive" : "body__home";
 ---
 
 <!DOCTYPE html>
@@ -40,7 +42,7 @@ const isArchive = currentPath.startsWith('/archive');
   <!-- Global Styles -->
   <ViewTransitions />
 </head>
-<body class:list={[{ "home-page": isHome }]}>
+<body class:list={[{ "home-page": isHome }, bgImage]}>
   <!-- Navigation Dots -->
   <nav class="nav-dots" aria-label="Main navigation">
     <a
@@ -49,7 +51,7 @@ const isArchive = currentPath.startsWith('/archive');
       aria-label="Home"
       aria-current={isHome ? "page" : undefined}
     >
-      <span class="nav-dots__symbol">🝆</span>
+      <span class="nav-dots__symbol nav-dots__symbol--home">🝆</span>
       <span class="sr-only">Home</span>
     </a>
     <a
@@ -58,7 +60,7 @@ const isArchive = currentPath.startsWith('/archive');
       aria-label="Listen"
       aria-current={isListen ? "page" : undefined}
     >
-      <span class="nav-dots__symbol">⚷</span>
+      <span class="nav-dots__symbol nav-dots__symbol--listen">⚷</span>
       <span class="sr-only">Listen</span>
     </a>
     <a
@@ -67,7 +69,7 @@ const isArchive = currentPath.startsWith('/archive');
       aria-label="Archive"
       aria-current={isArchive ? "page" : undefined}
     >
-      <span class="nav-dots__symbol">☋</span>
+      <span class="nav-dots__symbol nav-dots__symbol--archive">☋</span>
       <span class="sr-only">Archive</span>
     </a>
   </nav>
@@ -76,116 +78,6 @@ const isArchive = currentPath.startsWith('/archive');
   <main class="page-content">
     <slot />
   </main>
-
-  <!-- Fixed Footer -->
-  <footer class="site-footer">
-
-    <div class="footer-left">
-      <p>Unofficial fan site.<br>Not affiliated with Veilburner<br>or Transcending Obscurity Records.</p>
-      <p class="footer-left__copyright">&copy; 2025 Garfish Digital</p>
-    </div>
-
-    <!-- Occult Social Icons -->
-    <div class="occult-icons">
-      <div class="occult-icons__row">
-        <!-- Bandcamp Stack -->
-        <div class="occult-stack-container">
-          <a
-            href="https://bandcamp.com/search?q=veilburner"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="occult-icons__link occult-stack-base"
-            aria-label="Bandcamp"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="#a99191"
-              class="occult-icon occult-icon--bandcamp"
-            >
-              <path d="M0 18.75l7.437-13.5h16.563l-7.438 13.5z"></path>
-            </svg>
-          </a>
-          <a
-            href="https://bandcamp.com/search?q=veilburner"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="occult-icons__link occult-stack-underneath"
-            aria-label="Bandcamp Sigil"
-          >
-            <img
-              src="/images/Shakuzu.svg"
-              alt="Bandcamp occult flash"
-              class="occult-icon"
-            />
-          </a>
-        </div>
-
-        <!-- Facebook Stack -->
-        <div class="occult-stack-container">
-          <a
-            href="https://www.facebook.com/veilburner"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="occult-icons__link occult-stack-base occult-stack-facebook"
-            aria-label="Facebook"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="#a99191"
-              class="occult-icon occult-icon--facebook"
-            >
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
-            </svg>
-          </a>
-          <a
-            href="https://www.facebook.com/veilburner"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="occult-icons__link occult-stack-underneath occult-stack-belial"
-            aria-label="Belial Sigil"
-          >
-            <img
-              src="/images/The_Seal_of_Belial.svg"
-              alt="Seal of Belial"
-              class="occult-icon"
-            />
-          </a>
-        </div>
-      </div>
-
-      <!-- Tometal Stack -->
-      <div class="occult-stack-container">
-        <a
-          href="https://transcendingobscurity.com/artist/veilburner/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="occult-icons__link occult-stack-base occult-icons__tometal"
-          aria-label="Transcending Obscurity"
-        >
-          <img
-            src="/images/tometal-logo-web-tint.jpg"
-            alt="Transcending Obscurity"
-            class="occult-icon occult-icon--logo occult-icon--logo-large"
-          />
-        </a>
-        <a
-          href="https://transcendingobscurity.com/artist/veilburner/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="occult-icons__link occult-stack-underneath occult-stack-lilith"
-          aria-label="Lilith Sigil"
-        >
-          <img
-            src="/images/Lilith.svg"
-            alt="Grand Seal of Lilith"
-            class="occult-icon occult-icon--logo occult-icon--logo-large"
-          />
-        </a>
-      </div>
-    </div>
-  </footer>
 
 <script>
     // Disable scroll during transition
@@ -199,6 +91,17 @@ const isArchive = currentPath.startsWith('/archive');
         document.body.style.overflow = '';
       }, 750);
     });
+
+    // Ensure navigation stays fixed by moving it to body if needed
+    function ensureNavFixed() {
+      const nav = document.querySelector('.nav-dots');
+      if (nav && nav.parentElement !== document.body) {
+        document.body.appendChild(nav);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', ensureNavFixed);
+    document.addEventListener('astro:after-swap', ensureNavFixed);
   </script>
 </body>
 </html>
@@ -208,6 +111,39 @@ const isArchive = currentPath.startsWith('/archive');
 </style>
 
 <style lang="scss">
+  // Body background
+  body {
+    // background-image: url('/images/key-bg-3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, .9);
+    background-blend-mode: soft-light;
+
+    &.body__home {
+      background-image: url('/images/bg-1.png');
+      background-position: bottom;
+      background-color: rgba(0, 0, 0, .9);
+      background-blend-mode: soft-light;
+    }
+
+    &.body__listen {
+      background-image: url('/images/bg-2.png');
+      background-position: bottom;
+      background-color: rgba(0, 0, 0, .9);
+      background-blend-mode: soft-light;
+    }
+    &.body__archive {
+      background-image: url('/images/bg-5.png');
+      background-position: center;
+      background-color: rgba(0, 0, 0, .9);
+      background-blend-mode: soft-light;
+    }
+
+    // background-color: rgba(128, 128, 128, .5);
+    // background-blend-mode: soft-light;
+  }
+
   // Screen reader only class
   .sr-only {
     position: absolute;
@@ -226,22 +162,22 @@ const isArchive = currentPath.startsWith('/archive');
     position: fixed;
     top: 30px;
     right: 50px;
-    z-index: 9999;
+    z-index: 10000;
     display: flex;
     flex-direction: row;
     gap: 50px;
 
     @media (max-width: 768px) {
       top: 30px;
-      right: 20px;
-      gap: 15px;
+      right: 30px;
+      gap: 30px;
     }
   }
 
   .nav-dots__dot {
     cursor: pointer;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-decoration: none;
   }
@@ -257,11 +193,39 @@ const isArchive = currentPath.startsWith('/archive');
     @media (max-width: 768px) {
       font-size: 1.75rem;
     }
+
+    &--home {
+      font-size: 3.25rem;
+      position: relative;
+      top: -25px; // Adjust to align with others
+      @media (max-width: 768px) {
+        top: -22px;
+      font-size: 2.5rem;
+    }
+    }
+
+    &--listen {
+      position: relative;
+      font-size: 2.25rem;
+      top: 0; // Baseline reference
+      @media (max-width: 768px) {
+      font-size: 1.6rem;
+    }
+    }
+
+    &--archive {
+      position: relative;
+      font-size: 2.5rem;
+      top: -1px; // Adjust to align with others
+      @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+    }
   }
 
   .nav-dots__dot:hover .nav-dots__symbol {
-    color: #8B0000; // Hover: rust
-    // color: #5a3a2a; // Hover: rust
+    // color: #8B0000; // Hover: rust
+    color: #5a3a2a; // Hover: rust
   }
 
   .nav-dots__dot--active .nav-dots__symbol {
@@ -271,274 +235,7 @@ const isArchive = currentPath.startsWith('/archive');
 
   // Page Content Area
   .page-content {
-    min-height: calc(100vh - 120px); // Account for footer space
-    // padding-bottom: 120px; // Ensure content doesn't hide under footer
-  }
-
-  // Occult Social Icons
-  .occult-icons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: space-around;
-    gap: 1.5rem;
-
-    @media (max-width: 768px) {
-      gap: .75rem;
-    }
-
-    &__row {
-      display: flex;
-      flex-direction: row;
-      // margin-bottom: 2rem;
-      gap: 2rem;
-      align-items: flex-end;
-
-      @media (max-width: 768px) {
-        gap: 1.5rem;
-      }
-    }
-
-    &__link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        // transform: scale(1.1);
-      }
-    }
-
-  }
-
-  .occult-icon {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    transition: all 0.3s ease;
-
-    @media (max-width: 768px) {
-      width: 40px;
-      height: 40px;
-    }
-
-    &--bandcamp,
-    &--facebook {
-      width: 42.5px;
-      height: 42.5px;
-
-      @media (max-width: 768px) {
-        width: 34px;
-        height: 34px;
-      }
-    }
-
-    &--logo {
-      width: 60px;
-      height: 60px;
-
-      @media (max-width: 768px) {
-        width: 50px;
-        height: 50px;
-      }
-
-      &-large {
-        width: 180px;
-        height: auto;
-
-        @media (max-width: 768px) {
-          width: 150px;
-          height: auto;
-        }
-      }
-    }
-
-  }
-
-  // Fixed Footer
-  .site-footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9998; // Below nav dots, above content
-    padding: 3rem;
-    color: #666666;
-    border-top: 1px solid #0a0a0a;
-    background: #000000;
-
-    @media (max-width: 768px) {
-      // flex-direction: column;
-      padding: .5rem;
-      gap: 1rem;
-    }
-  }
-
-  // Override footer positioning on home page (Contact section)
-  .home-page .site-footer {
-    position: relative;
-    margin-top: 0;
-  }
-
-  .footer-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    text-align: left;
-    gap: 2rem;
-
-    @media (max-width: 768px) {
-      // align-items: center;
-    }
-
-    p {
-      font-size: 0.8rem;
-      color: #666666;
-
-      @media (max-width: 768px) {
-        // text-align: center;
-        font-size: 0.65rem;
-      }
-    }
-
-    &__copyright {
-      color: #5a3a2a !important; // Rust - override footer default
-      font-family: 'Oswald', sans-serif;
-      @media (max-width: 768px) {
-        font-size: 0.5rem;
-      }
-    }
-    
-  }
-
-  // Bandcamp Stack Effect
-  .occult-stack-container {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .occult-stack-base {
-    position: relative;
-    z-index: 2;
-    transition: opacity 250ms ease, transform 250ms ease;
-
-    &:hover {
-      opacity: 0;
-      transform: scale(0.8) rotate(-15deg);
-
-      ~ .occult-stack-underneath {
-        opacity: 1;
-        transform: translate(-50%, -50%) rotate(90deg) scale(1);
-      }
-    }
-  }
-
-  .occult-stack-underneath {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg) scale(0.8);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 250ms ease, transform 250ms ease;
-    pointer-events: none;
-    filter: blur(1px);
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% 50%, rgb(0, 180, 191, 0.4), rgb(191, 0, 143, 0.4), rgb(191, 191, 0, 0.7), #000000);
-      background-size: 200% 200%;
-      animation: shakuzu-gradient 8s ease infinite;
-      mask-image: url('/images/Shakuzu.svg');
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      z-index: -1;
-    }
-
-    img {
-      opacity: 0;
-    }
-  }
-
-  .occult-icons__link--rotated {
-    transform: rotate(90deg);
-
-    &:hover {
-      transform: rotate(90deg) scale(1.1);
-    }
-  }
-
-  // Belial-specific gradient mask (same colors as Shakuzu)
-  .occult-stack-belial {
-    &::before {
-      mask-image: url('/images/The_Seal_of_Belial.svg') !important;
-    }
-
-    img {
-      width: 62.5px;
-      height: 62.5px;
-
-      @media (max-width: 768px) {
-        width: 50px;
-        height: 50px;
-      }
-    }
-  }
-
-  // Lilith-specific gradient mask (same colors as Shakuzu/Belial)
-  .occult-stack-lilith {
-    &::before {
-      mask-image: url('/images/Lilith.svg') !important;
-    }
-  }
-
-  .occult-stack-underneath {
-    &.occult-stack-lilith img {
-      width: 180px;
-      height: 180px;
-
-      @media (max-width: 768px) {
-        width: 150px;
-        height: 150px;
-      }
-    }
-
-    img {
-      width: 62.5px;
-      height: 62.5px;
-
-      @media (max-width: 768px) {
-        width: 50px;
-        height: 50px;
-      }
-    }
-  }
-
-  // Facebook doesn't rotate like Bandcamp/Shakuzu
-  .occult-stack-facebook {
-    &:hover {
-      transform: scale(0.8) rotate(-15deg);
-    }
-  }
-
-  @keyframes shakuzu-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    min-height: 100vh;
   }
 </style>
 
