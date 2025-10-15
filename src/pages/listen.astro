@@ -1,16 +1,16 @@
 ---
-import NavigationLayout from '../layouts/NavigationLayout.astro';
+import Layout from '../layouts/Layout.astro';
 import Discography from '../components/Discography.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<NavigationLayout title="VEILBURNER - Discography">
+<Layout title="VEILBURNER - Discography">
   <div class="vb-logo-gradient">
     <img src="/images/logo-vb-white-no-bg.png" alt="Veilburner logo" />
   </div>
   <Discography />
   <Footer />
-</NavigationLayout>
+</Layout>
 
 <style lang="scss">
   .vb-logo-gradient {
@@ -37,7 +37,7 @@ import Footer from '../components/Footer.astro';
       width: 100%;
       height: 100%;
       // background: radial-gradient(circle at 50% 50%, rgb(139, 0, 0, .5), rgb(90, 58, 42, .5), rgb(0, 0, 0));
-      background: radial-gradient(circle at 50% 50%, rgb(0, 0, 0, .75), rgb(139, 0, 0, .25), rgb(90, 58, 42, .25));
+      background: radial-gradient(circle at 50% 50%, rgb(0, 0, 0, .75), rgb(139, 0, 0, .5), rgb(90, 58, 42, .5));
 
       background-size: 200% 200%;
       animation: vb-logo-gradient 32s ease infinite;

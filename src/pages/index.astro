@@ -1,12 +1,12 @@
 ---
-import NavigationLayout from '../layouts/NavigationLayout.astro';
+import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<NavigationLayout title="VEILBURNER - Unofficial Fan Site">
+<Layout title="VEILBURNER - Unofficial Fan Site">
   <Hero />
   <!-- Put all the new shit here: -->
   <section class="about">
@@ -36,7 +36,7 @@ import Footer from '../components/Footer.astro';
             </div>
             <div class="about__detail">
               <span class="about__detail-label">Genre</span>
-              <span class="about__detail-value">Avant-Garde Black/Death Metal</span>
+              <span class="about__detail-value">Metal</span>
             </div>
             <div class="about__detail">
               <span class="about__detail-label">Label</span>
@@ -49,7 +49,7 @@ import Footer from '../components/Footer.astro';
   </section>
   <Contact />
   <Footer />
-</NavigationLayout>
+</Layout>
 
 <style lang="scss">
  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&family=IBM+Plex+Mono:wght@400;700&family=Inconsolata:wght@400;700&family=Courier+Prime:wght@400;700&display=swap');
@@ -57,11 +57,30 @@ import Footer from '../components/Footer.astro';
 
   .about {
     padding: $spacing-3xl $spacing-md;
+    position: relative;
     // background-color: black;
     // background-image: url('/images/key-bg-3.png');
 
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.95) 0%,      /* Very black at top */
+        rgba(0, 0, 0, 0.7) 10%,       /* Still dark */
+        rgba(0, 0, 0, 0.3) 20%,       /* Fading fast */
+        rgba(0, 0, 0, 0.05) 25%,      /* Nearly transparent at 25% */
+        rgba(0, 0, 0, 0.05) 100%      /* Stay subtle to bottom */
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
 
     &__content {
+      position: relative;
+      z-index: 1;
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
@@ -116,7 +135,7 @@ import Footer from '../components/Footer.astro';
       grid-template-columns: repeat(2, 1fr);
       gap: $spacing-md;
       padding-top: $spacing-lg;
-      border-top: 2px solid $color-gray-dark;
+      // border-top: 2px solid $color-gray-dark;
 
       @media (max-width: 568px) {
         grid-template-columns: 1fr;

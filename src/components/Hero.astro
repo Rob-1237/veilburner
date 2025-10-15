@@ -1,14 +1,14 @@
 ---
 // This would come from props in real use
-const tagline = "AVANT-GARDE METAL";
-const heroImage = "/images/both-members-9.jpg";
+// const tagline = "AVANT-GARDE METAL";
+// const heroImage = "/images/both-members-9.jpg";
 // const heroImage = "/images/live-1.jpg";
 const logoImage = "/images/logo-entire-red-no-bg.png";
 
 // FONT TESTING: Toggle one at a time by uncommenting
 // const testFont = "Oswald";
 // const testFont = "Cinzel";
-const testFont = "Cormorant Garamond";
+// const testFont = "Cormorant Garamond";
 // const testFont = "Pirata One";
 // const testFont = "Metal Mania";
 // const testFont = "Creepster";
@@ -21,24 +21,22 @@ const testFont = "Cormorant Garamond";
   <!-- Background Image with Parallax -->
   <div
     class="hero__background"
-    style={`background-image: url('${heroImage}');`}
+    
   >
   </div>
 
   <!-- Content -->
   <div class="hero__content">
     <div class="hero__logo">
-      <img src={logoImage} alt="Veilburner" />
+      <img src="/images/logo-entire-red-no-bg.png" alt="Veilburner" />
     </div>
-    <p class="hero__tagline" style={`font-family: '${testFont}', sans-serif;`}>
-      {tagline}
-    </p>
+    <p class="hero__tagline">AVANT-GARDE METAL</p>
   </div>
 </section>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Pirata+One&family=Metal+Mania&family=Creepster&family=Butcherman&family=Nosifer&family=Rubik+Mono+One&display=swap');
-  @import '../styles/global.scss';
+  @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Pirata+One&family=Metal+Mania&family=Creepster&family=Butcherman&family=Nosifer&family=Rubik+Mono+One&display=swap");
+  @import "../styles/global.scss";
 
   .hero {
     position: relative;
@@ -49,7 +47,7 @@ const testFont = "Cormorant Garamond";
     // overflow: hidden;
 
     &::before {
-      content: '';
+      content: "";
       // position: absolute;
       // inset: 0;
       // background-image: url('/images/sigil-bg-1.png');
@@ -70,37 +68,51 @@ const testFont = "Cormorant Garamond";
     &__background {
       position: absolute;
       inset: 0;
+      background-image: url('/images/both-members-9.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       // filter: grayscale(30%) contrast(120%) brightness(80%);
 
       @media (max-width: 768px) {
-        background-size: 150%;
+        background-image: url('/images/both-members-1.jpg');
+        // background-size: 150%;
         background-position: center top;
+        filter: grayscale(20%) contrast(110%) brightness(75%) sepia(20%);
       }
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95) 0%,
+          /* Very black at bottom */ rgba(0, 0, 0, 0.7) 10%,
+          /* Still dark */ rgba(0, 0, 0, 0.3) 20%,
+          /* Fading fast */ rgba(0, 0, 0, 0.05) 25%,
+          /* Nearly transparent at 25% */ rgba(0, 0, 0, 0.05) 100%
+            /* Stay subtle to top */
+        );
         pointer-events: none;
         z-index: 1;
+
+        @media (max-width: 768px) {
+          // linear gradient here
+        }
       }
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        background:
-          repeating-linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.1) 0px,
-            transparent 1px,
-            transparent 2px,
-            rgba(0, 0, 0, 0.1) 3px
-          );
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.1) 0px,
+          transparent 1px,
+          transparent 2px,
+          rgba(0, 0, 0, 0.1) 3px
+        );
         pointer-events: none;
         z-index: 2;
       }
@@ -110,6 +122,11 @@ const testFont = "Cormorant Garamond";
       position: relative;
       z-index: 10;
       text-align: center;
+
+      @media (max-width: 768px) {
+        // max-width: 600px;
+        top: 15vh;
+      }
     }
 
     &__logo {
@@ -134,7 +151,9 @@ const testFont = "Cormorant Garamond";
     }
 
     &__tagline {
+      font-family: 'Cormorant Garamond', sans-serif;
       font-size: 1.5rem;
+      font-weight: 600;
       margin-top: $spacing-md;
       color: $color-gray-light;
       letter-spacing: 0.2em;

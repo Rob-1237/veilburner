@@ -1,5 +1,5 @@
 ---
-import NavigationLayout from '../../layouts/NavigationLayout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { albums, getAlbumBySlug, getNextAlbum, getPrevAlbum } from '../../data/albums.js';
 
 export async function getStaticPaths() {
@@ -21,7 +21,7 @@ if (!album) {
 const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/size=large/bgcol=000000/linkcol=8b7355/tracklist=true/artwork=none/transparent=true/`;
 ---
 
-<NavigationLayout title={`${album.title} - VEILBURNER`}>
+<Layout title={`${album.title} - VEILBURNER`}>
   <div class="album-page">
     <div class="container">
       <!-- Navigation Arrows -->
@@ -109,7 +109,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       </div>
     </div>
   </div>
-</NavigationLayout>
+</Layout>
 
 <style lang="scss">
   .album-page {

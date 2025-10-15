@@ -10,6 +10,36 @@
 
   <!-- Occult Social Icons -->
   <div class="occult-icons">
+
+    <!-- Tometal Stack -->
+    <div class="occult-stack-container">
+      <a
+        href="https://transcendingobscurity.com/artist/veilburner/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="occult-icons__link occult-stack-base occult-icons__tometal"
+        aria-label="Transcending Obscurity"
+      >
+        <img
+          src="/images/tometal-logo-web-tint.jpg"
+          alt="Transcending Obscurity"
+          class="occult-icon occult-icon--logo occult-icon--logo-large"
+        />
+      </a>
+      <a
+        href="https://transcendingobscurity.com/artist/veilburner/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="occult-icons__link occult-stack-underneath occult-stack-lilith"
+        aria-label="Lilith Sigil"
+      >
+        <img
+          src="/images/Lilith.svg"
+          alt="Grand Seal of Lilith"
+          class="occult-icon occult-icon--logo occult-icon--logo-large"
+        />
+      </a>
+    </div>
     <div class="occult-icons__row">
       <!-- Bandcamp Stack -->
       <div class="occult-stack-container">
@@ -78,37 +108,10 @@
       </div>
     </div>
 
-    <!-- Tometal Stack -->
-    <div class="occult-stack-container">
-      <a
-        href="https://transcendingobscurity.com/artist/veilburner/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="occult-icons__link occult-stack-base occult-icons__tometal"
-        aria-label="Transcending Obscurity"
-      >
-        <img
-          src="/images/tometal-logo-web-tint.jpg"
-          alt="Transcending Obscurity"
-          class="occult-icon occult-icon--logo occult-icon--logo-large"
-        />
-      </a>
-      <a
-        href="https://transcendingobscurity.com/artist/veilburner/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="occult-icons__link occult-stack-underneath occult-stack-lilith"
-        aria-label="Lilith Sigil"
-      >
-        <img
-          src="/images/Lilith.svg"
-          alt="Grand Seal of Lilith"
-          class="occult-icon occult-icon--logo occult-icon--logo-large"
-        />
-      </a>
-    </div>
   </div>
 </footer>
+
+<!-- <div class="hidden-ribbon"></div> -->
 
 <style lang="scss">
   @import '../styles/global.scss';
@@ -120,7 +123,7 @@
     align-items: center;
     justify-content: space-between;
     z-index: 9998;
-    padding: 3rem;
+    padding: 2rem 2rem 1rem 2rem;
     color: #666666;
     border-top: 1px solid #0a0a0a;
     background: rgb(0, 0, 0);
@@ -167,7 +170,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: space-around;
-    gap: 1.5rem;
+    gap: 1rem;
 
     @media (max-width: 768px) {
       gap: .75rem;
@@ -362,4 +365,13 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
+
+  // .hidden-ribbon {
+  //   height: 7vh;
+  //   width: 100%;
+  //   background-color: #000000;
+  //   position: fixed;
+  //   bottom: 0;
+  //   z-index: -10;
+  // }
 </style>
