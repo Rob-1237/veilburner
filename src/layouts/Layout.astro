@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -10,104 +10,150 @@ const { title, description = "Unofficial fan site" } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 // Determine active page
-const isHome = currentPath === '/';
-const isListen = currentPath.startsWith('/listen');
-const isArchive = currentPath.startsWith('/archive');
+const isHome = currentPath === "/";
+const isListen = currentPath.startsWith("/listen");
+const isArchive = currentPath.startsWith("/archive");
 
-const bgImage = isListen ? "body__listen" : isArchive ? "body__archive" : "body__home";
+const bgImage = isListen
+  ? "body__listen"
+  : isArchive
+    ? "body__archive"
+    : "body__home";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <meta name="description" content={description}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
 
-  <!-- Mobile status bar -->
-  <meta name="theme-color" content="#000000">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Mobile status bar -->
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Global Styles -->
-  <ViewTransitions />
-</head>
-<body class:list={[{ "home-page": isHome }, bgImage]}>
-  <!-- Navigation Dots -->
-  <nav class="nav-dots" aria-label="Main navigation">
-    <a
-      href="/"
-      class:list={["nav-dots__dot", { "nav-dots__dot--active": isHome }]}
-      aria-label="Home"
-      aria-current={isHome ? "page" : undefined}
-    >
-      <span class="nav-dots__symbol nav-dots__symbol--home">🝆</span>
-      <span class="sr-only">Home</span>
-    </a>
-    <a
-      href="/listen"
-      class:list={["nav-dots__dot", { "nav-dots__dot--active": isListen }]}
-      aria-label="Listen"
-      aria-current={isListen ? "page" : undefined}
-    >
-      <span class="nav-dots__symbol nav-dots__symbol--listen">⚷</span>
-      <span class="sr-only">Listen</span>
-    </a>
-    <a
-      href="/archive"
-      class:list={["nav-dots__dot", { "nav-dots__dot--active": isArchive }]}
-      aria-label="Archive"
-      aria-current={isArchive ? "page" : undefined}
-    >
-      <span class="nav-dots__symbol nav-dots__symbol--archive">☋</span>
-      <span class="sr-only">Archive</span>
-    </a>
-  </nav>
+    <!-- Global Styles -->
+    <ViewTransitions />
+  </head>
+  <body class:list={[{ "home-page": isHome }, bgImage]}>
+    <!-- Navigation Dots -->
+    <nav class="nav-dots" aria-label="Main navigation">
+      <a
+        href="/"
+        class:list={["nav-dots__dot", { "nav-dots__dot--active": isHome }]}
+        aria-label="Home"
+        aria-current={isHome ? "page" : undefined}
+      >
+        <img
+          src={isHome ? "/images/icon-home-active.svg" : "/images/icon-home-static.svg"}
+          alt=""
+          class="nav-dots__symbol nav-dots__symbol--home"
+        />
+        <img
+          src="/images/icon-home-hover.svg"
+          alt=""
+          class="nav-dots__symbol-hover nav-dots__symbol-hover--home"
+        />
+        <span class="sr-only">Home</span>
+      </a>
+      <a
+        href="/listen"
+        class:list={["nav-dots__dot", { "nav-dots__dot--active": isListen }]}
+        aria-label="Listen"
+        aria-current={isListen ? "page" : undefined}
+      >
+        <img
+          src={isListen ? "/images/icon-listen-active.svg" : "/images/icon-listen-static.svg"}
+          alt=""
+          class="nav-dots__symbol nav-dots__symbol--listen"
+        />
+        <img
+          src="/images/icon-listen-hover.svg"
+          alt=""
+          class="nav-dots__symbol-hover nav-dots__symbol-hover--listen"
+        />
+        <span class="sr-only">Listen</span>
+      </a>
+      <a
+        href="/archive"
+        class:list={["nav-dots__dot", { "nav-dots__dot--active": isArchive }]}
+        aria-label="Archive"
+        aria-current={isArchive ? "page" : undefined}
+      >
+        <img
+          src={isArchive ? "/images/icon-archive-active.svg" : "/images/icon-archive-static.svg"}
+          alt=""
+          class="nav-dots__symbol nav-dots__symbol--archive"
+        />
+        <img
+          src="/images/icon-archive-hover.svg"
+          alt=""
+          class="nav-dots__symbol-hover nav-dots__symbol-hover--archive"
+        />
+        <span class="sr-only">Archive</span>
+      </a>
+    </nav>
 
-  <!-- Main Content Area -->
-  <main class="page-content">
-    <slot />
-  </main>
+    <!-- Main Content Area -->
+    <main class="page-content">
+      <slot />
+    </main>
 
-<script>
-    // Disable scroll during transition
-    document.addEventListener('astro:before-preparation', () => {
-      document.body.style.overflow = 'hidden';
-    });
+    <script>
+      // Disable scroll during transition
+      document.addEventListener("astro:before-preparation", () => {
+        document.body.style.overflow = "hidden";
+      });
 
-    document.addEventListener('astro:after-swap', () => {
-      window.scrollTo(0, 0);
-      setTimeout(() => {
-        document.body.style.overflow = '';
-      }, 750);
-    });
+      document.addEventListener("astro:after-swap", () => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          document.body.style.overflow = "";
+        }, 750);
+      });
 
-    // Ensure navigation stays fixed by moving it to body if needed
-    function ensureNavFixed() {
-      const nav = document.querySelector('.nav-dots');
-      if (nav && nav.parentElement !== document.body) {
-        document.body.appendChild(nav);
+      // Ensure navigation stays fixed by moving it to body if needed
+      function ensureNavFixed() {
+        const nav = document.querySelector(".nav-dots");
+        if (nav && nav.parentElement !== document.body) {
+          document.body.appendChild(nav);
+        }
       }
-    }
 
-    document.addEventListener('DOMContentLoaded', ensureNavFixed);
-    document.addEventListener('astro:after-swap', ensureNavFixed);
-  </script>
-</body>
+      document.addEventListener("DOMContentLoaded", ensureNavFixed);
+      document.addEventListener("astro:after-swap", ensureNavFixed);
+    </script>
+  </body>
 </html>
 
 <style is:global>
-  @import '../styles/global.scss';
+  @import "../styles/global.scss";
 </style>
 
 <style lang="scss">
@@ -121,7 +167,7 @@ const bgImage = isListen ? "body__listen" : isArchive ? "body__archive" : "body_
     // background-blend-mode: soft-light;
 
     &.body__home {
-      background-image: url('/images/bg-1.png');
+      background-image: url("/images/bg-1.png");
       background-position: center;
       background-size: cover;
 
@@ -135,24 +181,24 @@ const bgImage = isListen ? "body__listen" : isArchive ? "body__archive" : "body_
     }
 
     &.body__listen {
-      background-image: url('/images/bg-2.png');
+      background-image: url("/images/bg-2.png");
       background-position: top;
       background-size: cover;
 
-      // background-color: rgba(25, 25, 25);
-      // background-blend-mode: multiply;
+      background-blend-mode: multiply;
+      background-color: rgba(25, 25, 25, 0.7);
+
       @media (max-width: 768px) {
         background-size: 400%;
         // background-size: 700%;
         background-position: top;
         // background-position: 50% bottom;
         background-repeat: repeat;
-
       }
     }
 
     &.body__archive {
-      background-image: url('/images/bg-5.png');
+      background-image: url("/images/bg-5.png");
       background-position: top;
       background-size: 175%;
       // background-size: cover;
@@ -162,7 +208,6 @@ const bgImage = isListen ? "body__listen" : isArchive ? "body__archive" : "body_
       @media (max-width: 768px) {
         background-size: 300%;
         background-position: top;
-
       }
     }
   }
@@ -203,57 +248,118 @@ const bgImage = isListen ? "body__listen" : isArchive ? "body__archive" : "body_
     align-items: flex-start;
     justify-content: center;
     text-decoration: none;
+    position: relative;
   }
 
   .nav-dots__symbol {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #8b7355; // Inactive: blood
-    // color: rgba(139, 0, 0, 0.5); // Inactive: blood
-    transition: color 0.3s ease;
+    // width: 48px;
+    // height: 48px;
     display: block;
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 2;
 
-    @media (max-width: 768px) {
-      font-size: 1.75rem;
-    }
+    // @media (max-width: 768px) {
+    //   width: 36px;
+    //   height: 36px;
+    // }
 
+    // Individual icon size adjustments
     &--home {
-      font-size: 3.25rem;
-      position: relative;
-      top: -25px; // Adjust to align with others
+      width: 30px;
+      height: 30px;
+
       @media (max-width: 768px) {
-        top: -22px;
-      font-size: 2.5rem;
-    }
+        width: 23px;
+        height: 23px;
+      }
     }
 
     &--listen {
-      position: relative;
-      font-size: 2.25rem;
-      top: 0; // Baseline reference
+      width: 30px;
+      height: 28px;
+
       @media (max-width: 768px) {
-      font-size: 1.6rem;
-    }
+        width: 20px;
+        height: 20px;
+      }
     }
 
     &--archive {
-      position: relative;
-      font-size: 2.5rem;
-      top: -1px; // Adjust to align with others
+      width: 28px;
+      height: 28px;
+
       @media (max-width: 768px) {
-      font-size: 1.75rem;
+        width: 20px;
+        height: 20px;
+      }
     }
+  }
+
+  .nav-dots__symbol-hover {
+    // width: 48px;
+    // height: 48px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+
+    // @media (max-width: 768px) {
+    //   width: 36px;
+    //   height: 36px;
+    // }
+
+    // Individual icon size adjustments (must match symbol sizes)
+    &--home {
+      width: 30px;
+      height: 30px;
+
+      @media (max-width: 768px) {
+        width: 23px;
+        height: 23px;
+      }
+    }
+
+    &--listen {
+      width: 30px;
+      height: 28px;
+
+      @media (max-width: 768px) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &--archive {
+      width: 28px;
+      height: 28px;
+
+      @media (max-width: 768px) {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
   .nav-dots__dot:hover .nav-dots__symbol {
-    // color: #8B0000; // Hover: rust
-    color: #5a3a2a; // Hover: rust
+    opacity: 0;
   }
 
-  .nav-dots__dot--active .nav-dots__symbol {
-    color: #cccccc; // Active: bone
-    // color: #8b7355; // Active: bone
+  .nav-dots__dot:hover .nav-dots__symbol-hover {
+    opacity: 1;
+  }
+
+  // Disable hover effect on active pages
+  .nav-dots__dot--active:hover .nav-dots__symbol {
+    opacity: 1;
+  }
+
+  .nav-dots__dot--active:hover .nav-dots__symbol-hover {
+    opacity: 0;
   }
 
   // Page Content Area

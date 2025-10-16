@@ -103,7 +103,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
         <details class="lyrics-details">
           <summary class="lyrics-details__summary">Lyrics</summary>
           <div class="lyrics-details__content">
-            <p class="lyrics-placeholder">[Lyrics to be added]</p>
+            <p class="lyrics-placeholder">[Lyrics coming soon]</p>
           </div>
         </details>
       </div>
@@ -113,12 +113,13 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
 
 <style lang="scss">
   .album-page {
-    padding: 4rem 1.5rem;
+    padding: 6rem 1.5rem 3rem 1.5rem;
     min-height: 100vh;
 
     &__title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      // font-size: 2.5rem;
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.15em;
@@ -126,15 +127,15 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       margin-bottom: 0.5rem;
 
       @media (max-width: 768px) {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
       }
     }
 
     &__year {
-      font-family: 'Oswald', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1.25rem;
       text-align: center;
-      color: #8b7355;
+      color: #666666;
       letter-spacing: 0.1em;
     }
   }
