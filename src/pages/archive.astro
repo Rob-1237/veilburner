@@ -58,7 +58,7 @@ import { media } from '../data/media.js';
       <!-- 2. Reviews (Written) Section -->
       <section class="archive-section collapsed" data-section="reviews">
         <div class="archive-section__header">
-          <h2 class="archive-section__title">REVIEWS</h2>
+          <h2 class="archive-section__title">ALBUM REVIEWS</h2>
           <button class="archive-section__toggle" aria-label="Toggle Reviews section">
             <span class="section-toggle-icon">🜃</span>
           </button>
@@ -70,7 +70,7 @@ import { media } from '../data/media.js';
               <div class="review-card__content">
                 <blockquote class="review-card__quote">"{review.quote}"</blockquote>
                 <div class="review-card__attribution">
-                  <span>— {review.publication}, {review.date}</span>
+                  <span>— {review.publication}, {review.date}<span class="review-author">&nbsp;{review.author}</span></span>
                   <button class="review-card__toggle" aria-label="Expand review">
                     <span class="toggle-icon">🜁</span>
                   </button>
@@ -546,6 +546,14 @@ import { media } from '../data/media.js';
         color: #8b7355; // Bone
       }
     }
+  }
+
+  .review-author {
+    font-size: .6rem;
+    font-style: italic;
+    color: #5a3a2a;
+    text-align: left;
+    text-transform: lowercase;
   }
 
   // .section-toggle-icon,
