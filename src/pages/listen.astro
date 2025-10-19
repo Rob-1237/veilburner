@@ -6,7 +6,9 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="VEILBURNER - Discography">
   <div class="vb-logo-gradient">
-    <img src="/images/logo-vb-white-no-bg.png" alt="Veilburner logo" />
+    <a href="/" aria-label="Home">
+      <img src="/images/logo-vb-white-no-bg.png" alt="Veilburner logo" />
+    </a>
   </div>
   <Discography />
   <Footer />
@@ -20,13 +22,19 @@ import Footer from '../components/Footer.astro';
     width: 175px;
     height: 175px;
     z-index: 10000;
-    pointer-events: none;
 
     @media (max-width: 768px) {
       top: 1rem;
       left: 1rem;
       width: 80px;
       height: 80px;
+    }
+
+    a {
+      pointer-events: auto;
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
     &::before {
