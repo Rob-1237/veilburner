@@ -34,7 +34,6 @@ import { albums } from '../data/albums.js';
 
   .discography {
     padding: $spacing-3xl $spacing-md;
-    // background: linear-gradient(180deg, $color-void 0%, $color-gray-dark 50%, $color-void 100%);
 
     &__title {
      
@@ -48,13 +47,6 @@ import { albums } from '../data/albums.js';
       letter-spacing: 0.15em;
       font-weight: 300;
 
-      // font-family: $font-sub;
-      // font-size: 2.25rem;
-      // text-align: center;
-      // margin-top: 6rem;
-      // text-transform: uppercase;
-      // letter-spacing: 0.15em;
-      // font-weight: 300;
       @media (max-width: 768px) {
         font-size: 2.25rem;
       }
@@ -86,7 +78,7 @@ import { albums } from '../data/albums.js';
     &__cover {
       position: relative;
       width: 100%;
-      padding-bottom: 100%; // Square aspect ratio
+      padding-bottom: 100%; 
       overflow: hidden;
       border: 2px solid $color-blood;
       clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);

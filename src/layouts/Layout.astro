@@ -160,21 +160,12 @@ const bgImage = isListen
 <style lang="scss">
   // Body background
   body {
-    // background-image: url('/images/key-bg-3.png');
-    // background-size: cover;
     background-repeat: no-repeat;
-    // background-attachment: fixed;
-    // background-color: rgba(0, 0, 0, .9);
-    // background-blend-mode: soft-light;
 
     &.body__home {
       background-image: url("/images/bg-1.png");
       background-position: center;
       background-size: cover;
-
-      // background-color: rgba(25, 25, 25);
-      // background-blend-mode: multiply;
-      // filter: brightness(1.5) contrast(.9);
 
       @media (max-width: 768px) {
         background-size: 400%;
@@ -191,9 +182,7 @@ const bgImage = isListen
 
       @media (max-width: 768px) {
         background-size: 400%;
-        // background-size: 700%;
         background-position: top;
-        // background-position: 50% bottom;
         background-repeat: repeat;
       }
     }
@@ -202,7 +191,6 @@ const bgImage = isListen
       background-image: url("/images/bg-5.png");
       background-position: top;
       background-size: 175%;
-      // background-size: cover;
       background-blend-mode: multiply;
       background-color: rgba(25, 25, 25);
 
@@ -260,11 +248,6 @@ const bgImage = isListen
     position: relative;
     z-index: 2;
 
-    // @media (max-width: 768px) {
-    //   width: 36px;
-    //   height: 36px;
-    // }
-
     // Individual icon size adjustments
     &--home {
       width: 30px;
@@ -298,8 +281,6 @@ const bgImage = isListen
   }
 
   .nav-dots__symbol-hover {
-    // width: 48px;
-    // height: 48px;
     display: block;
     position: absolute;
     top: 0;
@@ -308,11 +289,6 @@ const bgImage = isListen
     transition: opacity 0.3s ease;
     z-index: 1;
     pointer-events: none;
-
-    // @media (max-width: 768px) {
-    //   width: 36px;
-    //   height: 36px;
-    // }
 
     // Individual icon size adjustments (must match symbol sizes)
     &--home {

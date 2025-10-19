@@ -45,15 +45,6 @@ html {
   padding: 0;
   background-color: $color-void; // Match body background so gap isn't visible
   
-  // MOBILE HACK: Gradient to hide the gap below footer
-  // @media (max-width: 768px) {
-  //   background: linear-gradient(to top, 
-  //     rgb(0, 0, 0) 0%,           // Solid black at bottom (footer color)
-  //     rgb(0, 0, 0) 10vh,         // Stay black for a bit
-  //     rgba(0, 0, 0, 0.5) 15vh,   // Start fading
-  //     transparent 20vh           // Fully transparent
-  //   );
-  // }
 }
 
 body {

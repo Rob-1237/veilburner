@@ -1,29 +1,11 @@
 ---
 // This would come from props in real use
-// const tagline = "AVANT-GARDE METAL";
-// const heroImage = "/images/both-members-9.jpg";
-// const heroImage = "/images/live-1.jpg";
-const logoImage = "/images/logo-entire-red-no-bg.png";
 
-// FONT TESTING: Toggle one at a time by uncommenting
-// const testFont = "Oswald";
-// const testFont = "Cinzel";
-// const testFont = "Cormorant Garamond";
-// const testFont = "Pirata One";
-// const testFont = "Metal Mania";
-// const testFont = "Creepster";
-// const testFont = "Butcherman";
-// const testFont = "Nosifer";
-// const testFont = "Rubik Mono One";
 ---
 
 <section class="hero">
   <!-- Background Image with Parallax -->
-  <div
-    class="hero__background"
-    
-  >
-  </div>
+  <div class="hero__background" ></div>
 
   <!-- Content -->
   <div class="hero__content">
@@ -48,21 +30,7 @@ const logoImage = "/images/logo-entire-red-no-bg.png";
 
     &::before {
       content: "";
-      // position: absolute;
-      // inset: 0;
-      // background-image: url('/images/sigil-bg-1.png');
-      // background-image: url('/images/key-bg-3.png');
-      // height: 100vh;
-      // background-size: 100% 100%;
-      // background-size: cover;
-      // background-position: bottom;
-      // background-repeat: no-repeat;
-      // opacity: 0.2;
-      // z-index: 0;
-    }
-
-    @media (max-width: 768px) {
-      // height: 70vh;
+     
     }
 
     &__background {
@@ -72,11 +40,9 @@ const logoImage = "/images/logo-entire-red-no-bg.png";
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      // filter: grayscale(30%) contrast(120%) brightness(80%);
 
       @media (max-width: 768px) {
         background-image: url('/images/both-members-1.jpg');
-        // background-size: 150%;
         background-position: center top;
         filter: grayscale(20%) contrast(110%) brightness(75%) sepia(20%);
       }
@@ -124,7 +90,6 @@ const logoImage = "/images/logo-entire-red-no-bg.png";
       text-align: center;
 
       @media (max-width: 768px) {
-        // max-width: 600px;
         top: 15vh;
       }
     }

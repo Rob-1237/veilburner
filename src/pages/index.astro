@@ -1,14 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="VEILBURNER - Unofficial Fan Site">
   <Hero />
-  <!-- Put all the new shit here: -->
   <section class="about">
     <div class="container">
       <div class="about__content">
@@ -58,8 +56,6 @@ import Footer from '../components/Footer.astro';
   .about {
     padding: $spacing-3xl $spacing-md;
     position: relative;
-    // background-color: black;
-    // background-image: url('/images/key-bg-3.png');
 
     &::before {
       content: '';
@@ -135,7 +131,6 @@ import Footer from '../components/Footer.astro';
       grid-template-columns: repeat(2, 1fr);
       gap: $spacing-md;
       padding-top: $spacing-lg;
-      // border-top: 2px solid $color-gray-dark;
 
       @media (max-width: 568px) {
         grid-template-columns: 1fr;
