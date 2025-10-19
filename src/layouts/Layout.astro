@@ -29,28 +29,36 @@ const bgImage = isListen
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <!-- Standard favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
     <link
       rel="icon"
       type="image/png"
       sizes="96x96"
       href="/favicons/favicon-96x96.png"
     />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+
+    <!-- Apple/iOS -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/favicons/apple-touch-icon.png"
     />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- Manifest for Android -->
     <link rel="manifest" href="/favicons/site.webmanifest" />
 
-    <!-- Mobile status bar -->
+    <!-- Theme colors -->
     <meta name="theme-color" content="#000000" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black"
-    />
+    <meta name="msapplication-TileColor" content="#000000" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,7 +80,9 @@ const bgImage = isListen
         aria-current={isHome ? "page" : undefined}
       >
         <img
-          src={isHome ? "/images/icon-home-active.svg" : "/images/icon-home-static.svg"}
+          src={isHome
+            ? "/images/icon-home-active.svg"
+            : "/images/icon-home-static.svg"}
           alt=""
           class="nav-dots__symbol nav-dots__symbol--home"
         />
@@ -90,7 +100,9 @@ const bgImage = isListen
         aria-current={isListen ? "page" : undefined}
       >
         <img
-          src={isListen ? "/images/icon-listen-active.svg" : "/images/icon-listen-static.svg"}
+          src={isListen
+            ? "/images/icon-listen-active.svg"
+            : "/images/icon-listen-static.svg"}
           alt=""
           class="nav-dots__symbol nav-dots__symbol--listen"
         />
@@ -108,7 +120,9 @@ const bgImage = isListen
         aria-current={isArchive ? "page" : undefined}
       >
         <img
-          src={isArchive ? "/images/icon-archive-active.svg" : "/images/icon-archive-static.svg"}
+          src={isArchive
+            ? "/images/icon-archive-active.svg"
+            : "/images/icon-archive-static.svg"}
           alt=""
           class="nav-dots__symbol nav-dots__symbol--archive"
         />
