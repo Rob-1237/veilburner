@@ -5,7 +5,10 @@
 
 <section class="hero">
   <!-- Background Image with Parallax -->
-  <div class="hero__background" ></div>
+  <div class="hero__background">
+    <div class="hero__bg-layer hero__bg-layer--1"></div>
+    <div class="hero__bg-layer hero__bg-layer--2"></div>
+  </div>
 
   <!-- Content -->
   <div class="hero__content">
@@ -41,10 +44,8 @@
       background-position: center center;
       background-repeat: no-repeat;
 
-      @media (max-width: 768px) {
-        background-image: url('/images/both-members-1.jpg');
-        background-position: center top;
-        filter: grayscale(20%) contrast(110%) brightness(75%) sepia(20%);
+      @media (max-width: 540px) {
+        background-image: none; // Remove static background on mobile
       }
 
       &::before {
@@ -61,11 +62,7 @@
             /* Stay subtle to top */
         );
         pointer-events: none;
-        z-index: 1;
-
-        @media (max-width: 768px) {
-          // linear gradient here
-        }
+        z-index: 3;
       }
 
       &::after {
@@ -80,7 +77,91 @@
           rgba(0, 0, 0, 0.1) 3px
         );
         pointer-events: none;
+        z-index: 4;
+      }
+    }
+
+    &__bg-layer {
+      display: none; // Hidden on desktop
+
+      @media (max-width: 768px) {
+        display: block;
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        // background-position: center top;
+        background-repeat: no-repeat;
+        filter: grayscale(20%) contrast(110%) brightness(75%) sepia(20%);
+      }
+
+      &--1 {
+        @media (max-width: 540px) {
+          background-image: url('/images/hero-mobile.jpg');
+          animation: deckShuffle 60s ease infinite;
+          animation-delay: 0s;
+          z-index: 2;
+          opacity: 1;
+        }
+      }
+
+      &--2 {
+        @media (max-width: 540px) {
+          background-image: url('/images/both-members-1.jpg');
+          animation: deckShuffle 60s ease infinite;
+          animation-delay: 30s;
+          z-index: 1;
+          opacity: 1;
+        }
+      }
+    }
+
+    @keyframes deckShuffle {
+      0% {
         z-index: 2;
+        opacity: 1;
+      }
+      21% { // 25s - stay visible on top
+        z-index: 2;
+        opacity: 1;
+      }
+      29% { // 35s - fade out (ease-in for 10s)
+        z-index: 2;
+        opacity: 0;
+        animation-timing-function: ease-in;
+      }
+      33% { // 40s - swap to back while invisible
+        z-index: 1;
+        opacity: 0;
+      }
+      42% { // 50s - fade in behind (ease-in-out for 10s)
+        z-index: 1;
+        opacity: 1;
+        animation-timing-function: ease-in-out;
+      }
+      46% { // 55s - stay visible behind
+        z-index: 1;
+        opacity: 1;
+      }
+      71% { // 85s - stay visible behind
+        z-index: 1;
+        opacity: 1;
+      }
+      79% { // 95s - fade out behind (ease-in for 10s)
+        z-index: 1;
+        animation-timing-function: ease-in;
+      }
+      83% { // 100s - swap to front while invisible
+        z-index: 2;
+      }
+      92% { // 110s - fade in on top (ease-in-out for 10s)
+        z-index: 2;
+        opacity: 1;
+        animation-timing-function: ease-in-out;
+      }
+      100% { // 120s - loop
+        z-index: 2;
+        opacity: 1;
       }
     }
 

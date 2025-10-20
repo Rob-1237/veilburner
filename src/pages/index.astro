@@ -179,7 +179,8 @@ import Footer from '../components/Footer.astro';
       const sepia = 0.8 * normalizedDistance;
       const hueRotate = 20 * normalizedDistance;
 
-      image.style.filter = `grayscale(${grayscale}%) invert(${invert}) sepia(${sepia}) hue-rotate(${hueRotate}deg) contrast(115%)`;
+      image.style.filter = `invert(${invert}) sepia(${sepia}) contrast(115%)`;
+      // image.style.filter = `grayscale(${grayscale}%) invert(${invert}) sepia(${sepia}) hue-rotate(${hueRotate}deg) contrast(115%)`;
     }
 
     let ticking = false;
