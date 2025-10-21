@@ -4,10 +4,17 @@ import { ViewTransitions } from "astro:transitions";
 export interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = "Unofficial fan site" } = Astro.props;
+const {
+  title,
+  description = "Veilburner is a two-man avant-garde metal project from Pennsylvania, pushing the boundaries of extreme music since 2014.",
+  ogImage = "/images/logo-entire-on-black.jpg"
+} = Astro.props;
 const currentPath = Astro.url.pathname;
+const canonicalURL = `https://veilburner.band${currentPath}`;
+const siteTitle = "VEILBURNER";
 
 // Determine active page
 const isHome = currentPath === "/";
@@ -29,20 +36,35 @@ const bgImage = isListen
     <title>{title}</title>
     <meta name="description" content={description} />
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://veilburner.band${ogImage}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={siteTitle} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`https://veilburner.band${ogImage}`} />
+
     <!-- Standard favicons -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicons/favicon-32x32.png"
-    />
+    <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
     <link
       rel="icon"
       type="image/png"
       sizes="96x96"
       href="/favicons/favicon-96x96.png"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
 
     <!-- Apple/iOS -->
     <link

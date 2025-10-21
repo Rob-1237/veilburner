@@ -1,6 +1,14 @@
 {
   "name": "Veilburner",
   "short_name": "VB",
+  "description": "Avant-garde metal project pushing the boundaries of extreme music",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "categories": ["music", "entertainment"],
   "icons": [
     {
       "src": "/favicons/web-app-manifest-192x192.png",
@@ -15,7 +23,30 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#000000",
-  "display": "standalone"
+  "shortcuts": [
+    {
+      "name": "Listen",
+      "short_name": "Listen",
+      "description": "Browse Veilburner's discography",
+      "url": "/listen",
+      "icons": [
+        {
+          "src": "/favicons/web-app-manifest-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Archive",
+      "short_name": "Archive",
+      "description": "Press photos and media",
+      "url": "/archive",
+      "icons": [
+        {
+          "src": "/favicons/web-app-manifest-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
