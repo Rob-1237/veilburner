@@ -13,7 +13,9 @@ const {
   ogImage = "/images/logo-entire-on-black.jpg"
 } = Astro.props;
 const currentPath = Astro.url.pathname;
+const siteURL = Astro.url.origin; // Use current domain (netlify during testing, veilburner.band in prod)
 const canonicalURL = `https://veilburner.band${currentPath}`;
+const fullOgImageURL = `${siteURL}${ogImage}`;
 const siteTitle = "VEILBURNER";
 
 // Determine active page
@@ -44,7 +46,7 @@ const bgImage = isListen
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`https://veilburner.band${ogImage}`} />
+    <meta property="og:image" content={fullOgImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content={siteTitle} />
@@ -54,7 +56,7 @@ const bgImage = isListen
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`https://veilburner.band${ogImage}`} />
+    <meta name="twitter:image" content={fullOgImageURL} />
 
     <!-- Standard favicons -->
     <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
