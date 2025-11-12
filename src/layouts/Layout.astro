@@ -13,8 +13,9 @@ const {
   ogImage = "/images/logo-entire-on-black.jpg"
 } = Astro.props;
 const currentPath = Astro.url.pathname;
-const siteURL = Astro.url.origin; // Use current domain (netlify during testing, veilburner.band in prod)
 const canonicalURL = `https://veilburner.band${currentPath}`;
+// Use Astro.site for production builds, falls back to current origin in dev
+const siteURL = Astro.site?.toString().replace(/\/$/, '') || Astro.url.origin;
 const fullOgImageURL = `${siteURL}${ogImage}`;
 const siteTitle = "VEILBURNER";
 
