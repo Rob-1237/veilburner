@@ -1,5 +1,35 @@
 export const reviews = [
 
+{
+quote: "Veilburner rip your psyche from its mortal cradle for another round of face melting black/death metal in the vein only Veilburner can deliver.",
+fullText: "I think this record will certainly push listeners to the brink of what they think they enjoy, and this applies to their established fanbase too.",
+publication: "The Razor's Edge",
+date: "November 12, 2025",
+author: "Sam Jones",
+album: "Longing for Triumph, Reeking of Tragedy",
+rating: "Face Melting",
+link: "https://therazorsedge.rocks/2025-11-album-review-veilburner/?fbclid=IwY2xjawODTGpleHRuA2FlbQIxMQBicmlkETFxcVFsc3d2amY4N3ZnTFN5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqx3-iBW1tOHqxXfsLY_O2-eZsmAvkYxt9mXBo5Jiz04dw4BIuubOFp6zcYg_aem_UNY7GW7NqFMTco05JzXYjQ",
+},
+  {
+    quote: "This is another masterpiece full of high level song crafting, albeit a nightmarish one.",
+    fullText: " Pennsylvania’s two piece avant-garde extreme metal band Veilburner return with another off kilter, but highly engaging look into a world that’s mysterious, brutal, disturbing and grotesquely dissonant.",
+    publication: "Metal Epidemic",
+    date: "November 12, 2025",
+    author: "themetalepidemic",
+    album: "Longing for Triumph, Reeking of Tragedy",
+    rating: "5/5",
+    link: "https://www.metalepidemic.com/veilburner-longing-for-triumph-reeking-of-tragedy/?fbclid=IwY2xjawODS0NleHRuA2FlbQIxMABicmlkETF1WkNhQW5JTmZua0VhSUFGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkQyWKMYmnl3SJsd7RfzHaJABv9JRyEzFuInwEBiGYQKJ8gitGlaykHwz11T_aem_E8rg6qlu6VvOwHphav3nSA",
+  },
+  {
+    quote: "You think that everything’s been done until you come across an act like Pennsylvania’s Veilburner",
+    fullText: "The core spirit of rebellion that is at the heart of all metal is here, but finally in a form that demands of the listener more than you’ve likely experienced prior. Genuinely innovative.",
+    publication: "Deaf Sparrow",
+    date: "November 11, 2025",
+    author: "Stanley, Devourer of Souls",
+    album: "Longing for Triumph, Reeking of Tragedy",
+    rating: "4.8/5",
+    link: "https://www.deafsparrow.com/2025/11/11/veilburner-longing-for-triumph-reeking-of-tragedy-gnostic-nihilistic-experimental-black-metal/",
+  },
   {
     quote: "Once again, it seems we won’t be able to ignore Veilburner this year.",
     fullText: `We know exactly what we’re getting — interdimensional evil music — when these guys are in charge of "Longing for Triumph, Reeking of Tragedy". So sit back and prepare yourself for dissonance!`,
@@ -10,7 +40,6 @@ export const reviews = [
     rating: "4/5",
     link: "https://metaleclipsereviews.com/2025/10/05/veilburner-longing-for-triumph-reeking-of-tragedy/?fbclid=IwY2xjawNfBNNleHRuA2FlbQIxMABicmlkETEzcWJjZ2tqd1BxbU9QeWNyAR6YV70T6CrPW5zhhzYFzMvEACJ6RTP0x-KfRPgIhL6daMeaPhW1f0cWw4cEGQ_aem_K0pLlUsAh0wD1IFOGpQ_oQ#more-14026",
   },
-
   {
     quote: "Dense but intensely frenetic, Veilburner’s dark magic still has yet to wane in its ever-shifting menace!",
     fullText: "It’s with everything about this record that Veilburner cements itself as one of the premier acts of the mirky underworld that demands to be experienced.",
@@ -21,7 +50,16 @@ export const reviews = [
     rating: null,
     link: "https://headbangerreviews.com/2025/09/26/veilburner-longing-for-triumph-reeking-of-tragedy/",
   },
-
+  {
+    quote: "La música es difícil de describir, ya que si bien es cierto que tocan sobre una base de black/death metal en la línea americana",
+    fullText: `"Longing for Triumph, Reeking of Tragedy" es otro gran disco de Veilburner, una banda que ha sabido trazar su propio camino experimentando sin llegar al ridículo, al sin sentido y demás, material totalmente recomendable.`,
+    publication: "Metallerium",
+    date: "September 11, 2025",
+    author: "Gocho",
+    album: "Longing for Triumph, Reeking of Tragedy",
+    rating: "9.3 / 10",
+    link: "https://www.metallerium.com/veilburner-longing-for-triumph-reeking-of-tragedy-2025",
+  },
   {
     quote: "The Duality of Decapitation and Wisdom is another triumph from Veilburner.",
     fullText: "The duo continues to find new ways to challenge extreme metal norms and come up with something that is sonically and intellectually compelling, while also raising the bar for which they have already set rather high.",

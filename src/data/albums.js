@@ -10,7 +10,7 @@ export const albums = [
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
       production: "Mephisto Deleterio",
-      artwork: "Chrisom Infernium",
+      artwork: "Luciana Nedelea",
       label: "Transcending Obscurity Records"
     },
     lyrics: {

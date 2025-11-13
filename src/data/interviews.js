@@ -1,5 +1,10 @@
 export const interviews = [
   {
+    title: "Whatever Comes Next Episode 108 Veilburner",
+    videoId: "QWY3IcCJQP4",
+    link: "https://www.youtube.com/watch?v=QWY3IcCJQP4"
+  },
+  {
     title: "Whatever Comes Next Episode 42 Veilburner",
     videoId: "xXlgGIjj1As",
     link: "https://www.youtube.com/watch?v=xXlgGIjj1As"
