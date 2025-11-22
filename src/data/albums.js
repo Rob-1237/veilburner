@@ -8,7 +8,7 @@ export const albums = [
     bandcampLink: "https://veilburnerband.bandcamp.com/album/longing-for-triumph-reeking-of-tragedy",
     description: "A cosmic requiem for every victory doomed to rot. Longing for Triumph, Reeking of Tragedy closes the circle with grandeur and despair, its sound both celebratory and terminal — the last sermon before silence devours the light.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals",
       production: "Mephisto Deleterio",
       artwork: "Luciana Nedelea",
       label: "Transcending Obscurity Records"
@@ -36,7 +36,7 @@ export const albums = [
     bandcampLink: "https://veilburnerband.bandcamp.com/album/the-duality-of-decapitation-and-wisdom",
     description: "The blade and the oracle are one. The Duality of Decapitation and Wisdom is a study in ecstatic violence and transcendental logic — an alchemical paradox that finds revelation in ruin and divinity in dismemberment.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals",
       production: "Mephisto Deleterio",
       artwork: "Luciana Nedelea",
       label: "Transcending Obscurity Records"

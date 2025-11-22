@@ -1,6 +1,11 @@
 export const media = {
   videoReviews: [
     {
+      title: `Veilburner "Longing for Triumph, Reeking of Tragedy" Review (DARKNESS TRIUMPHS ONCE AGAIN...)`,
+      videoId: "92X72x5Dt8k",
+      link: "https://www.youtube.com/watch?v=92X72x5Dt8k"
+    },
+    {
       title: "Veilburner \"The Duality of Decapitation & Wisdom\" Review (MUSICAL INSANITY THAT WILL TAKE YOUR HEAD)",
       videoId: "rLiCCeNS4h4",
       link: "https://www.youtube.com/watch?v=rLiCCeNS4h4"

@@ -1,5 +1,47 @@
+// {
+// quote: "",
+// fullText: "",
+// publication: "",
+// date: "",
+// author: "",
+// album: "",
+// rating: "",
+// link: "",
+// }
+
+
 export const reviews = [
 
+{
+quote: "It's almost as if these riffs were transported back from 100 years in the future.",
+fullText: "Chrisom Infernium and Mephisto Deleterio are proving themselves to be top-notch black metal musicians, and the scary thing is, they just keep getting better and better.",
+publication: "Sputnik Music",
+date: "November 14, 2025",
+author: "Ryan P",
+album: "Longing for Triumph, Reeking of Tragedy",
+rating: "4.8 Classic",
+link: "https://www.sputnikmusic.com/review/90318/Veilburner-Longing-for-Triumph-Reeking-of-Tragedy/?fbclid=IwY2xjawOO265leHRuA2FlbQIxMABicmlkETFnbGlQOUlxcmxJc2VacHFoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvYIk6Q0CJRKgP7xiNEO7CzjsLj7Ecr5hwI2XRysFyU5txHm9JNI3q0vFlwc_aem_kRxH6veVl_YYec7M-L40BA",
+},
+{
+  quote: "It has to be one of the most singular unique listening experiences I’ve had this year.",
+  fullText: "They operate outside of traditional norms, yes, they have riffs and double bass but you have to really give them your full attention in order to absorb what they are doing.",
+  publication: "Musipedia of Metal",
+  date: "November 14, 2025",
+  author: "Mark Young",
+  album: "Longing for Triumph, Reeking of Tragedy",
+  rating: "9/10",
+  link: "https://musipediaofmetal.blogspot.com/2025/11/reviews-veilburner-chairmaker-asira.html?m=1&fbclid=IwY2xjawOO1gBleHRuA2FlbQIxMABicmlkETFnbGlQOUlxcmxJc2VacHFoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuuVhREr0f2VcSExSbs9k90oNKogpwHEBVFgIHEe6QemnBRQIXIj7pW7q6NG_aem_7NvX849YO__kJDugIbp30w",
+},
+{
+quote: "Dit is gewoon weer een klasse plaat; Veilburner blijft hard timmeren aan de weg naar glorie.",
+fullText: "Veilburner levert opnieuw een indrukwekkende, diepgaande en prachtig coherente plaat af; de unieke mix van furie, experiment en emotie maakt dit album bijzonder krachtig en volledig meeslepend.",
+publication: "Zware Metalen",
+date: "November 13, 2025",
+author: "JohannesV",
+album: "Longing for Triumph, Reeking of Tragedy",
+rating: "88/100",
+link: "https://zwaremetalen.com/albumrecensies/veilburner-longing-for-triumph-reeking-of-tragedy",
+},
 {
 quote: "Veilburner rip your psyche from its mortal cradle for another round of face melting black/death metal in the vein only Veilburner can deliver.",
 fullText: "I think this record will certainly push listeners to the brink of what they think they enjoy, and this applies to their established fanbase too.",
