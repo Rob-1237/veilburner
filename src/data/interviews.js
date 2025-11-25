@@ -1,4 +1,14 @@
+// {
+//   title: "",
+//   videoId: "",
+//   link: ""
+// },
 export const interviews = [
+  {
+    title: "Veilburner Dissect “Longing For Triumph...” | Into The Necrosphere Podcast #298",
+    videoId: "youb-Q3vQ_E",
+    link: "https://www.youtube.com/watch?v=youb-Q3vQ_E"
+  },
   {
     title: "Whatever Comes Next Episode 108 Veilburner",
     videoId: "QWY3IcCJQP4",

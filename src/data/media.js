@@ -1,5 +1,16 @@
+// 
+// {
+//   title: ``,
+//   videoId: "",
+//   link: ""
+// },
 export const media = {
   videoReviews: [
+    {
+      title: `The BEST new Heavy music from Lamp of Murmuur, Veilburner, Excide and more!`,
+      videoId: "lW0hQhjTabU",
+      link: "https://www.youtube.com/watch?v=lW0hQhjTabU"
+    },
     {
       title: `Veilburner "Longing for Triumph, Reeking of Tragedy" Review (DARKNESS TRIUMPHS ONCE AGAIN...)`,
       videoId: "92X72x5Dt8k",
