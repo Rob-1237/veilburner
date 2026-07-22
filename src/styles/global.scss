@@ -1,31 +1,49 @@
+// ============================================================
+//  VEILBURNER — Global styles (emitted ONCE, via Layout is:global)
+//  Component <style> blocks should @import 'tokens' (variables only),
+//  NOT this file, so the reset/utilities aren't duplicated per-component.
+// ============================================================
 
-// SASS Variables
-$color-void: #000000;
-$color-blood: rgba(139, 0, 0, 0.5);  // Muted, semi-transparent
-$color-blood-solid: #8B0000;          // For borders that need opacity
-$color-rust: #5a3a2a;                 // Dried blood
-$color-bone: #8b7355;                 // Dirty parchment
-$color-white: #e8e8e8;                // Off-white, not pure
-$color-gray-dark: #1a1a1a;
-$color-test: #5a3a2abf;
-$color-gray-medium: #666666;
-$color-gray-light: #cccccc;
-$color-sickly-green: #385b38;
+@import 'tokens';
 
-$font-metal: 'Oswald', sans-serif;
-$font-body: 'Inter', sans-serif;
-$font-sub: 'Cormorant Garamond', serif;
-$font-mono: 'IBM Plex Mono', monospace;
+// ---- Design tokens: single source of truth ----
+:root {
+  // Palette (raw values)
+  --color-void:         #000000;              // absolute black
+  --color-blood:        rgba(139, 0, 0, 0.5); // muted arterial red — accent only
+  --color-blood-solid:  #8b0000;              // solid red — rare accent
+  --color-rust:         #5a3a2a;              // dried blood / tarnished — primary edge
+  --color-bone:         #8b7355;              // dirty parchment — secondary / headings
+  --color-white:        #e8e8e8;              // off-white text
+  --color-gray-dark:    #1a1a1a;
+  --color-gray-medium:  #666666;
+  --color-gray-light:   #cccccc;
+  --color-sickly-green: #385b38;
 
-$spacing-xs: 0.5rem;
-$spacing-sm: 1rem;
-$spacing-md: 1.5rem;
-$spacing-lg: 2rem;
-$spacing-xl: 3rem;
-$spacing-2xl: 4rem;
-$spacing-3xl: 6rem;
+  // Semantic (what things mean — rust-forward for "All That Glimmers Is Gloam")
+  --edge:         var(--color-rust);              // default structural border
+  --edge-strong:  var(--color-bone);              // hover / emphasis border
+  --accent:       var(--color-blood-solid);       // reserved: rare focal accent / glow
+  --surface-tint: rgba(90, 58, 42, 0.05);         // faint rust wash for card backgrounds
 
-// Reset and Base Styles
+  // Type scale
+  --fs-display:    3rem;
+  --fs-h1:         2.25rem;
+  --fs-h2:         1.5rem;
+  --fs-h3:         1.15rem;
+  --fs-body:       1rem;
+  --fs-caption:    0.8rem;
+  --tracking-wide:  0.15em;
+  --tracking-wider: 0.2em;
+
+  @media (max-width: 768px) {
+    --fs-display: 2.25rem;
+    --fs-h1:      1.9rem;
+    --fs-h2:      1.35rem;
+  }
+}
+
+// ---- Reset and base ----
 * {
   margin: 0;
   padding: 0;
@@ -34,8 +52,8 @@ $spacing-3xl: 6rem;
 
 html {
   scroll-behavior: smooth;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  // IE and Edge
+  scrollbar-width: none;     // Firefox
   height: 100%;
   min-height: 100vh;
   min-height: -webkit-fill-available; // iOS Safari fix
@@ -43,7 +61,6 @@ html {
   margin: 0;
   padding: 0;
   background-color: $color-void; // Match body background so gap isn't visible
-  
 }
 
 body {
@@ -65,7 +82,74 @@ body {
   display: none;
 }
 
-// Typography Utilities
+// ============================================================
+//  TYPE SCALE — role = fixed treatment.
+//  Apply these classes so a heading's LEVEL is what sets its look,
+//  not a per-page one-off. (Rollout continues as pages are rebuilt.)
+//    .t-display  Oswald 700 — hero / page mastheads
+//    .t-h1       Oswald 700 — page titles
+//    .t-h2       Oswald 600 — section headers
+//    .t-h3       Oswald 600 — sub-headers
+//    .t-serif    Cormorant  — album titles, pull-quotes, mystical lines
+//    .t-body     Inter      — body copy
+//    .t-mono     Plex Mono  — credits, tracklists, data blocks
+//    .t-caption  Inter      — labels / eyebrows
+// ============================================================
+.t-display {
+  font-family: $font-metal;
+  font-weight: 700;
+  font-size: var(--fs-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.05;
+}
+.t-h1 {
+  font-family: $font-metal;
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.1;
+}
+.t-h2 {
+  font-family: $font-metal;
+  font-weight: 600;
+  font-size: var(--fs-h2);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.15;
+}
+.t-h3 {
+  font-family: $font-metal;
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+.t-serif {
+  font-family: $font-sub;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.t-body {
+  font-family: $font-body;
+  font-size: var(--fs-body);
+  line-height: 1.7;
+}
+.t-mono {
+  font-family: $font-mono;
+  line-height: 1.7;
+}
+.t-caption {
+  font-family: $font-body;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gray-medium);
+}
+
+// Legacy utility (kept for compatibility)
 .font-metal {
   font-family: $font-metal;
   text-transform: uppercase;
@@ -115,12 +199,13 @@ body {
 .btn {
   display: inline-block;
   padding: $spacing-sm $spacing-lg;
-  border: 2px solid $color-blood-solid;
-  border-right: 4px solid $color-blood-solid;
-  border-bottom: 4px solid $color-blood-solid;
-  color: $color-rust;
+  border: 2px solid $edge;
+  border-right: 4px solid $edge;
+  border-bottom: 4px solid $edge;
+  color: $color-bone;
   background: transparent;
-  font-weight: bold;
+  font-family: $font-metal;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-decoration: none;
   text-transform: uppercase;
@@ -144,7 +229,7 @@ body {
 
   &:hover {
     color: $color-white;
-    border-color: $color-bone;
+    border-color: $edge-strong;
     transform: translate(2px, 2px);
 
     &::before {

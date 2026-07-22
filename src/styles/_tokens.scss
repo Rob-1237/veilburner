@@ -1,0 +1,39 @@
+// ============================================================
+//  VEILBURNER — SCSS token aliases (variables only, no CSS output)
+//  Safe to @import into any component's scoped <style> block: it
+//  emits nothing on its own, it just maps $sass-vars onto the CSS
+//  custom properties defined once in global.scss (:root).
+//  Change a VALUE in global.scss :root — it changes everywhere.
+// ============================================================
+
+// ---- Palette (resolve at runtime from :root custom properties) ----
+$color-void:         var(--color-void);
+$color-blood:        var(--color-blood);         // muted arterial red — ACCENT ONLY now
+$color-blood-solid:  var(--color-blood-solid);   // solid red — rare accent
+$color-rust:         var(--color-rust);          // primary structural edge (Gloam-forward)
+$color-bone:         var(--color-bone);           // secondary structural / headings
+$color-white:        var(--color-white);
+$color-gray-dark:    var(--color-gray-dark);
+$color-gray-medium:  var(--color-gray-medium);
+$color-gray-light:   var(--color-gray-light);
+$color-sickly-green: var(--color-sickly-green);
+
+// ---- Semantic aliases ----
+$edge:        var(--edge);         // default structural border
+$edge-strong: var(--edge-strong);  // hover / emphasis border
+$accent:      var(--accent);       // rare focal accent / glow
+
+// ---- Typography families ----
+$font-metal: 'Oswald', sans-serif;              // display
+$font-body:  'Inter', sans-serif;               // UI / body
+$font-sub:   'Cormorant Garamond', serif;       // editorial serif
+$font-mono:  'IBM Plex Mono', monospace;         // technical / data
+
+// ---- Spacing ----
+$spacing-xs:  0.5rem;
+$spacing-sm:  1rem;
+$spacing-md:  1.5rem;
+$spacing-lg:  2rem;
+$spacing-xl:  3rem;
+$spacing-2xl: 4rem;
+$spacing-3xl: 6rem;

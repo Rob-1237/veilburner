@@ -20,7 +20,7 @@
 </section>
 
 <style lang="scss">
-  @import "../styles/global.scss";
+  @import "../styles/tokens";
 
   .hero {
     position: relative;
@@ -38,7 +38,7 @@
     &__background {
       position: absolute;
       inset: 0;
-      background-image: url('/images/both-members-9.jpg');
+      background-image: url('/images/home-page/home-bg-top.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -196,7 +196,7 @@
     }
 
     &__tagline {
-      font-family: 'Cormorant Garamond', sans-serif;
+      font-family: $font-sub;
       font-size: 1.5rem;
       font-weight: 600;
       margin-top: $spacing-md;

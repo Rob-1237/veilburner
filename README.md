@@ -1,46 +1,48 @@
-# Astro Starter Kit: Basics
+# Veilburner — Unofficial Fan Site
+
+An unofficial fan site for the avant-garde metal duo **Veilburner**. Built as a
+fast, static, atmosphere-first showcase of the band's discography, press, and
+media, refreshed ahead of the October 2026 album *All That Glimmers Is Gloam*.
+
+> Unofficial fan site. Not affiliated with Veilburner or Transcending Obscurity Records.
+
+## Tech stack
+
+- **[Astro](https://astro.build)** — static site generation, view transitions
+- **SCSS** — styling, with design tokens exposed as CSS custom properties
+- **Self-hosted fonts** — Oswald, Inter, Cormorant Garamond, IBM Plex Mono (WOFF2, latin-subset)
+
+## Getting started
 
 ```sh
-npm create astro@latest -- --template basics
+npm install      # install dependencies
+npm run dev      # local dev server at http://localhost:4321
+npm run build    # production build to ./dist/
+npm run preview  # preview the production build locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+public/            Static assets (images, fonts, favicons, videos, SVGs)
+src/
+├── components/    Reusable UI (Hero, Discography, Footer, …)
+├── data/          Content as data (albums, reviews, interviews, media)
+├── layouts/       Base Layout (head/meta, nav, view transitions)
+├── pages/         Routes — index, listen, listen/[slug], archive
+└── styles/
+    ├── _tokens.scss   Variables-only partial (imported by components)
+    ├── global.scss    Global CSS: :root tokens, reset, type scale, utilities
+    └── fonts.css      @font-face declarations
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Design tokens
 
-## 🧞 Commands
+Colors, the type scale, and spacing are defined once as CSS custom properties in
+`src/styles/global.scss` (`:root`) and aliased for SCSS in `src/styles/_tokens.scss`.
+Change a value in `:root` and it propagates site-wide — components should reference
+tokens (`var(--color-rust)`, `$color-rust`) rather than raw hex.
 
-All commands are run from the root of the project, from a terminal:
+## Deployment
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Production site: **https://veilburner.band**

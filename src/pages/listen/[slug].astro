@@ -17,8 +17,14 @@ if (!album) {
   return Astro.redirect('/listen');
 }
 
-// Build Bandcamp embed URL
-const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/size=large/bgcol=000000/linkcol=8b7355/tracklist=true/artwork=none/transparent=true/t=1/`;
+// Build Bandcamp embed URL (only when we have a numeric album id)
+const isUpcoming = album.status === 'upcoming';
+const embedUrl = album.bandcampId
+  ? `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/size=large/bgcol=000000/linkcol=8b7355/tracklist=true/artwork=none/transparent=true/t=1/`
+  : null;
+const releaseDateFmt = album.releaseDate
+  ? new Date(album.releaseDate + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  : null;
 ---
 
 <Layout title={`${album.title} - VEILBURNER`}>
@@ -57,13 +63,23 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
           <img src={album.cover} alt={`${album.title} album cover`} />
         </div>
 
-        <!-- Bandcamp Player -->
+        <!-- Bandcamp Player (or pre-order block for upcoming releases) -->
         <div class="album-player">
-          <iframe
-            style="border: 0; width: 350px; height: 470px;"
-            src={embedUrl}
-            seamless
-          ></iframe>
+          {embedUrl ? (
+            <iframe
+              style="border: 0; width: 350px; height: 470px;"
+              src={embedUrl}
+              seamless
+            ></iframe>
+          ) : (
+            <div class="album-preorder">
+              <p class="album-preorder__label">Upcoming release</p>
+              {releaseDateFmt && <p class="album-preorder__date">Out {releaseDateFmt}</p>}
+              <a href={album.bandcampLink} target="_blank" rel="noopener noreferrer" class="btn album-preorder__cta">
+                Pre-order on Bandcamp
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
@@ -87,10 +103,12 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
             <dt class="credits-list__label">Production</dt>
             <dd class="credits-list__value">{album.credits.production}</dd>
           </div>
-          <div class="credits-list__item">
-            <dt class="credits-list__label">Artwork</dt>
-            <dd class="credits-list__value">{album.credits.artwork}</dd>
-          </div>
+          {album.credits.artwork && (
+            <div class="credits-list__item">
+              <dt class="credits-list__label">Artwork</dt>
+              <dd class="credits-list__value">{album.credits.artwork}</dd>
+            </div>
+          )}
           <div class="credits-list__item">
             <dt class="credits-list__label">Label</dt>
             <dd class="credits-list__value">{album.credits.label}</dd>
@@ -134,7 +152,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       font-family: 'Inter', sans-serif;
       font-size: 1.25rem;
       text-align: center;
-      color: #666666;
+      color: var(--color-gray-medium);
       letter-spacing: 0.1em;
     }
   }
@@ -160,7 +178,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: #8b7355;
+      color: var(--color-bone);
       text-decoration: none;
       transition: color 0.3s ease;
       font-family: 'Oswald', sans-serif;
@@ -184,7 +202,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       }
 
       &:hover {
-        color: #5a3a2a;
+        color: var(--color-rust);
       }
 
       @media (max-width: 968px) {
@@ -258,7 +276,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       width: 100%;
       height: auto;
       display: block;
-      border: 2px solid rgba(139, 0, 0, 0.5);
+      border: 2px solid var(--edge);
       clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
     }
   }
@@ -280,6 +298,34 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
     }
   }
 
+  .album-preorder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border: 2px solid var(--edge);
+    border-left: 6px solid var(--color-blood);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+    background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
+
+    &__label {
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.8rem;
+      color: var(--color-bone);
+    }
+
+    &__date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--color-gray-light);
+    }
+  }
+
   // Section Titles
   .album-section__title {
     font-family: 'Oswald', sans-serif;
@@ -288,7 +334,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: 700;
-    color: #8b7355;
+    color: var(--color-bone);
 
     @media (max-width: 768px) {
       font-size: 1.5rem;
@@ -304,10 +350,10 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       font-family: 'IBM Plex Mono', monospace;
       font-size: 1rem;
       line-height: 1.8;
-      color: #cccccc;
+      color: var(--color-gray-light);
       padding: 2rem;
-      border: 2px solid rgba(139, 0, 0, 0.5);
-      border-left: 6px solid rgba(139, 0, 0, 0.5);
+      border: 2px solid var(--edge);
+      border-left: 6px solid var(--color-blood);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
       background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
     }
@@ -326,20 +372,20 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
 
     &__item {
       padding: 1.5rem;
-      border: 2px solid rgba(139, 0, 0, 0.5);
-      border-left: 6px solid rgba(139, 0, 0, 0.5);
+      border: 2px solid var(--edge);
+      border-left: 6px solid var(--color-blood);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
       background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
     }
 
     &__item:hover {
-      border: 2px solid #8b7355;
-      border-left: 6px solid #8b7355;
+      border: 2px solid var(--color-bone);
+      border-left: 6px solid var(--color-bone);
     }
 
     &__label {
       font-size: 0.8rem;
-      color: #666666;
+      color: var(--color-gray-medium);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 0.5rem;
@@ -347,7 +393,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
 
     &__value {
       font-size: 1rem;
-      color: #e8e8e8;
+      color: var(--color-white);
       line-height: 1.6;
       margin: 0;
     }
@@ -359,14 +405,14 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
   }
 
   .lyrics-details {
-    border: 2px solid rgba(139, 0, 0, 0.5);
-    border-left: 6px solid rgba(139, 0, 0, 0.5);
+    border: 2px solid var(--edge);
+    border-left: 6px solid var(--color-blood);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
     background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
 
     &:hover {
-        border: 2px solid #8b7355;
-        border-left: 6px solid #8b7355;
+        border: 2px solid var(--color-bone);
+        border-left: 6px solid var(--color-bone);
     }
 
     &__summary {
@@ -377,11 +423,11 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
       list-style: none;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #8b7355;
+      color: var(--color-bone);
       transition: color 0.3s ease;
 
       &:hover {
-        color: #5a3a2a;
+        color: var(--color-rust);
       }
 
       &::-webkit-details-marker {
@@ -396,7 +442,7 @@ const embedUrl = `https://bandcamp.com/EmbeddedPlayer/album=${album.bandcampId}/
 
   .lyrics-placeholder {
     font-family: 'IBM Plex Mono', monospace;
-    color: #666666;
+    color: var(--color-gray-medium);
     font-size: 1rem;
     font-style: italic;
   }

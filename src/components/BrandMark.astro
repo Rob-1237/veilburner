@@ -1,0 +1,68 @@
+---
+// Persistent brand mark — fixed top-left animated-gradient VB monogram.
+// Used on interior pages (About / Listen / Archive); Home uses the hero logo.
+---
+
+<div class="vb-logo-gradient">
+  <a href="/" aria-label="Veilburner — home">
+    <img src="/images/logo-vb-white-no-bg.png" alt="Veilburner logo" />
+  </a>
+</div>
+
+<style lang="scss">
+  .vb-logo-gradient {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    width: 175px;
+    height: 175px;
+    z-index: 10000;
+
+    @media (max-width: 768px) {
+      top: 1rem;
+      left: 1rem;
+      width: 80px;
+      height: 80px;
+    }
+
+    a {
+      pointer-events: auto;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgb(125, 125, 125, .6), rgb(139, 0, 0, .4), rgb(56, 91, 56, .6), rgb(90, 58, 42, .6));
+      background-size: 200% 200%;
+      animation: vb-logo-gradient 32s ease infinite;
+      mask-image: url('/images/logo-vb-white-no-bg.png');
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+
+    img {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @keyframes vb-logo-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>

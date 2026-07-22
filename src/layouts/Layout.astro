@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Icon from "../components/Icon.astro";
 import "../styles/fonts.css";
 
 export interface Props {
@@ -22,6 +23,7 @@ const siteTitle = "VEILBURNER";
 
 // Determine active page
 const isHome = currentPath === "/";
+const isAbout = currentPath.startsWith("/about");
 const isListen = currentPath.startsWith("/listen");
 const isArchive = currentPath.startsWith("/archive");
 
@@ -87,76 +89,49 @@ const bgImage = isListen
     <meta name="theme-color" content="#000000" />
     <meta name="msapplication-TileColor" content="#000000" />
 
-    <!-- Self-hosted fonts — preload critical faces -->
-    <link rel="preload" href="/fonts/oswald-400-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <!-- Self-hosted fonts — preload only faces used above the fold:
+         Oswald 700 (display/nav), Inter 400 (body), Cormorant 400 (home tagline / album titles) -->
     <link rel="preload" href="/fonts/oswald-700-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/cormorant-garamond-400-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 
     <!-- Global Styles -->
     <ViewTransitions />
   </head>
   <body class:list={[{ "home-page": isHome }, bgImage]}>
-    <!-- Navigation Dots -->
-    <nav class="nav-dots" aria-label="Main navigation">
+    <!-- Sigil Spine — vertical nav rail pinned to the right edge -->
+    <nav class="spine" aria-label="Main navigation">
       <a
         href="/"
-        class:list={["nav-dots__dot", { "nav-dots__dot--active": isHome }]}
-        aria-label="Home"
+        class:list={["spine__link", { "spine__link--active": isHome }]}
         aria-current={isHome ? "page" : undefined}
       >
-        <img
-          src={isHome
-            ? "/images/icon-home-active.svg"
-            : "/images/icon-home-static.svg"}
-          alt=""
-          class="nav-dots__symbol nav-dots__symbol--home"
-        />
-        <img
-          src="/images/icon-home-hover.svg"
-          alt=""
-          class="nav-dots__symbol-hover nav-dots__symbol-hover--home"
-        />
-        <span class="sr-only">Home</span>
+        <span class="spine__label">Home</span>
+        <Icon name="home" title="Home" />
+      </a>
+      <a
+        href="/about"
+        class:list={["spine__link", { "spine__link--active": isAbout }]}
+        aria-current={isAbout ? "page" : undefined}
+      >
+        <span class="spine__label">About</span>
+        <Icon name="about" title="About" />
       </a>
       <a
         href="/listen"
-        class:list={["nav-dots__dot", { "nav-dots__dot--active": isListen }]}
-        aria-label="Listen"
+        class:list={["spine__link", { "spine__link--active": isListen }]}
         aria-current={isListen ? "page" : undefined}
       >
-        <img
-          src={isListen
-            ? "/images/icon-listen-active.svg"
-            : "/images/icon-listen-static.svg"}
-          alt=""
-          class="nav-dots__symbol nav-dots__symbol--listen"
-        />
-        <img
-          src="/images/icon-listen-hover.svg"
-          alt=""
-          class="nav-dots__symbol-hover nav-dots__symbol-hover--listen"
-        />
-        <span class="sr-only">Listen</span>
+        <span class="spine__label">Listen</span>
+        <Icon name="listen" title="Listen" />
       </a>
       <a
         href="/archive"
-        class:list={["nav-dots__dot", { "nav-dots__dot--active": isArchive }]}
-        aria-label="Archive"
+        class:list={["spine__link", { "spine__link--active": isArchive }]}
         aria-current={isArchive ? "page" : undefined}
       >
-        <img
-          src={isArchive
-            ? "/images/icon-archive-active.svg"
-            : "/images/icon-archive-static.svg"}
-          alt=""
-          class="nav-dots__symbol nav-dots__symbol--archive"
-        />
-        <img
-          src="/images/icon-archive-hover.svg"
-          alt=""
-          class="nav-dots__symbol-hover nav-dots__symbol-hover--archive"
-        />
-        <span class="sr-only">Archive</span>
+        <span class="spine__label">Archive</span>
+        <Icon name="archive" title="Archive" />
       </a>
     </nav>
 
@@ -180,7 +155,7 @@ const bgImage = isListen
 
       // Ensure navigation stays fixed by moving it to body if needed
       function ensureNavFixed() {
-        const nav = document.querySelector(".nav-dots");
+        const nav = document.querySelector(".spine");
         if (nav && nav.parentElement !== document.body) {
           document.body.appendChild(nav);
         }
@@ -202,7 +177,7 @@ const bgImage = isListen
     background-repeat: no-repeat;
 
     &.body__home {
-      background-image: url("/images/bg-1.png");
+      background-image: url("/images/occult-bgs/bg-1.png");
       background-position: center;
       background-size: cover;
 
@@ -212,7 +187,7 @@ const bgImage = isListen
     }
 
     &.body__listen {
-      background-image: url("/images/bg-2.png");
+      background-image: url("/images/occult-bgs/bg-2.png");
       background-position: top;
       background-size: cover;
 
@@ -227,7 +202,7 @@ const bgImage = isListen
     }
 
     &.body__archive {
-      background-image: url("/images/bg-5.png");
+      background-image: url("/images/occult-bgs/bg-5.png");
       background-position: top;
       background-size: 175%;
       background-blend-mode: multiply;
@@ -253,127 +228,103 @@ const bgImage = isListen
     border-width: 0;
   }
 
-  // Navigation Dots
-  .nav-dots {
+  // Sigil Spine — vertical nav rail, right edge, glyphs threaded by a hairline
+  .spine {
     position: fixed;
-    top: 30px;
-    right: 50px;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
     z-index: 10000;
     display: flex;
-    flex-direction: row;
-    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    // the "spine" — a faint vertical line running behind the glyph column
+    &::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      bottom: -6px;
+      left: 50%;
+      width: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--color-rust) 12%,
+        var(--color-rust) 88%,
+        transparent
+      );
+      opacity: 0.5;
+      z-index: -1;
+    }
 
     @media (max-width: 768px) {
-      top: 30px;
-      right: 30px;
-      gap: 30px;
+      right: 22px;
+      gap: 24px;
     }
   }
 
-  .nav-dots__dot {
-    cursor: pointer;
+  .spine__link {
+    position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     text-decoration: none;
-    position: relative;
-  }
+    color: var(--color-gray-medium);
+    transition: color 0.3s ease;
+    --icon-size: 26px;
 
-  .nav-dots__symbol {
-    display: block;
-    transition: opacity 0.3s ease;
-    position: relative;
-    z-index: 2;
-
-    // Individual icon size adjustments
-    &--home {
-      width: 30px;
-      height: 30px;
-
-      @media (max-width: 768px) {
-        width: 23px;
-        height: 23px;
-      }
+    @media (max-width: 768px) {
+      --icon-size: 21px;
     }
 
-    &--listen {
-      width: 30px;
-      height: 28px;
-
-      @media (max-width: 768px) {
-        width: 20px;
-        height: 20px;
-      }
+    &:hover,
+    &:focus-visible {
+      color: var(--color-bone);
     }
 
-    &--archive {
-      width: 29px;
-      height: 29px;
+    &:focus-visible {
+      outline: 2px solid var(--color-bone);
+      outline-offset: 6px;
+      border-radius: 2px;
+    }
 
-      @media (max-width: 768px) {
-        width: 21px;
-        height: 21px;
-      }
+    &--active {
+      color: var(--color-rust);
     }
   }
 
-  .nav-dots__symbol-hover {
-    display: block;
+  // Label slides out to the LEFT of the glyph on hover/focus (glyphs stay put)
+  .spine__label {
     position: absolute;
-    top: 0;
-    left: 0;
+    right: calc(100% + 0.85rem);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    font-family: "Oswald", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+    color: var(--color-bone);
     opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
     pointer-events: none;
-
-    // Individual icon size adjustments (must match symbol sizes)
-    &--home {
-      width: 30px;
-      height: 30px;
-
-      @media (max-width: 768px) {
-        width: 23px;
-        height: 23px;
-      }
-    }
-
-    &--listen {
-      width: 30px;
-      height: 28px;
-
-      @media (max-width: 768px) {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
-    &--archive {
-      width: 28px;
-      height: 28px;
-
-      @media (max-width: 768px) {
-        width: 20px;
-        height: 20px;
-      }
-    }
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  .nav-dots__dot:hover .nav-dots__symbol {
-    opacity: 0;
-  }
-
-  .nav-dots__dot:hover .nav-dots__symbol-hover {
+  .spine__link:hover .spine__label,
+  .spine__link:focus-visible .spine__label {
     opacity: 1;
+    transform: translateY(-50%) translateX(0);
   }
 
-  // Disable hover effect on active pages
-  .nav-dots__dot--active:hover .nav-dots__symbol {
-    opacity: 1;
-  }
-
-  .nav-dots__dot--active:hover .nav-dots__symbol-hover {
-    opacity: 0;
+  @media (prefers-reduced-motion: reduce) {
+    .spine__label {
+      transition: opacity 0.01ms;
+      transform: translateY(-50%);
+    }
   }
 
   // Page Content Area

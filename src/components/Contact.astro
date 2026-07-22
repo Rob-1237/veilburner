@@ -1,28 +1,32 @@
 ---
-// Contact information
-const contact = {
-  email: "burningtheveil@gmail.com",
-  bandcamp: "https://veilburner.bandcamp.com/",
-  bandcampAlt: "https://veilburnerband.bandcamp.com/",
-};
+// Latest / upcoming release feature (shown at the foot of the Home page).
+// NOTE: "Contact" is a legacy name — this holds no contact info. Slated to be
+// renamed <ReleaseFeature> and folded into index.astro in Phase 3.
 ---
 
 <section class="contact">
-  <img src="/images/band-and-logo-2.webp" alt="Veilburner" />
+  <img src="/images/home-page/home-bg-bottom.jpg" alt="Veilburner" />
 
   <div class="album-overlay">
-    <a href="/listen" class="album-overlay__art-link">
-      <img src="/images/album-art-2025.jpg" alt="Longing for Triumph, Reeking of Tragedy" class="album-overlay__art" />
+    <a
+      href="https://veilburnerband.bandcamp.com/album/all-that-glimmers-is-gloam"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="album-overlay__art-link"
+      aria-label="All That Glimmers Is Gloam on Bandcamp"
+    >
+      <img src="/images/album-art/album-art-2026.jpg" alt="All That Glimmers Is Gloam album cover" class="album-overlay__art" />
     </a>
     <div class="album-overlay__text">
-      <p class="album-overlay__new">Their latest release <span class="album-overlay__title">Longing for Triumph, Reeking of Tragedy</span></p>
-      <p class="album-overlay__release">Out now on <a href="https://transcendingobscurity.com/artist/veilburner/" target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
+      <p class="album-overlay__new">Their upcoming release</p>
+      <p class="album-overlay__title">All That Glimmers is Gloam</p>
+      <p class="album-overlay__release">Out 10/16/26 on <a href="https://tometal.com/?s=veilburner" target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
     </div>
   </div>
 </section>
 
 <style lang="scss">
-  @import "../styles/global.scss";
+  @import "../styles/tokens";
 
   .contact {
     padding: 0;
@@ -49,8 +53,6 @@ const contact = {
     @media (max-width: 768px) {
       bottom: .5rem;
       left: .5rem;
-      // gap: .5rem;
-      // flex-direction: column;
       align-items: flex-end;
     }
 
@@ -58,10 +60,6 @@ const contact = {
       display: block;
       flex-shrink: 0;
       transition: transform 0.3s ease;
-
-      &:hover {
-        // transform: scale(1.05);
-      }
     }
 
     &__art {
@@ -74,7 +72,6 @@ const contact = {
       @media (max-width: 768px) {
         width: 20vw;
         border: 1px solid $color-blood-solid;
-
       }
     }
 
@@ -82,8 +79,6 @@ const contact = {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      // gap: 0.5rem;
-      // max-width: 700px;
 
       @media (max-width: 768px) {
         max-width: 350px;
@@ -95,10 +90,9 @@ const contact = {
     }
 
     &__new {
-      font-family: 'Inter', sans-serif;
+      font-family: $font-body;
       font-size: 0.9rem;
-      color: #666666;
-      // text-transform: uppercase;
+      color: var(--color-gray-medium);
       letter-spacing: 0.1em;
       line-height: 1.4;
       font-weight: 300;
@@ -123,10 +117,9 @@ const contact = {
     }
 
     &__release {
-      font-family: 'Inter', sans-serif;
+      font-family: $font-body;
       font-size: 0.9rem;
-      color: #666666;
-      // text-transform: uppercase;
+      color: var(--color-gray-medium);
       letter-spacing: 0.1em;
       line-height: 1.4;
       font-weight: 300;
@@ -137,7 +130,7 @@ const contact = {
     }
 
     &__label-link {
-      color: #666666;
+      color: var(--color-gray-medium);
       text-decoration: none;
       transition: color 0.3s ease;
 
@@ -146,587 +139,4 @@ const contact = {
       }
     }
   }
-
-  .occult-icons {
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    &__title {
-      font-family: $font-metal;
-      font-size: 4rem;
-      margin-bottom: $spacing-2xl;
-      text-align: center;
-
-      @media (max-width: 768px) {
-        font-size: 3rem;
-      }
-    }
-
-    &__content {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-xl;
-    }
-
-    &__item {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-sm;
-      padding: $spacing-lg;
-      border: 2px solid $color-blood-solid;
-      border-left: 6px solid $color-blood-solid;
-      clip-path: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - 12px),
-        calc(100% - 12px) 100%,
-        0 100%
-      );
-      background: linear-gradient(
-        90deg,
-        rgba($color-blood, 0.05) 0%,
-        transparent 100%
-      );
-      transition: all 0.4s ease;
-
-      &:hover {
-        border-color: $color-bone;
-        transform: translateX(4px);
-        box-shadow: -4px 0 0 $color-rust;
-      }
-    }
-
-    &__label {
-      font-size: 0.8rem;
-      color: $color-gray-medium;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    &__link {
-      font-family: $font-metal;
-      font-size: 1.25rem;
-      color: $color-rust;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      transition: color 0.4s ease;
-
-      &:hover {
-        color: $color-bone;
-      }
-    }
-  }
-
-  // Occult Social Icons
-  .occult-icons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    margin: 2rem 0;
-
-    @media (max-width: 768px) {
-      gap: 2rem;
-    }
-
-    &__group {
-      display: flex;
-      flex-direction: row;
-      gap: 10rem;
-
-      @media (max-width: 768px) {
-        gap: 2rem;
-      }
-    }
-
-    &__link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        // transform: scale(1.1);
-      }
-
-      &--rotated {
-        transform: rotate(90deg);
-
-        &:hover {
-          transform: rotate(90deg) scale(1.1);
-        }
-      }
-
-      &--enlarged {
-        .occult-icon {
-          width: 187.5px;
-          height: 187.5px;
-
-          @media (max-width: 768px) {
-            width: 150px;
-            height: 150px;
-          }
-        }
-      }
-
-      &--extra-large {
-        .occult-icon {
-          width: 450px;
-          height: 450px;
-
-          @media (max-width: 768px) {
-            width: 360px;
-            height: 360px;
-          }
-        }
-
-        &.occult-icon--logo {
-          width: 540px;
-          height: 540px;
-
-          @media (max-width: 768px) {
-            width: 420px;
-            height: 420px;
-          }
-        }
-      }
-
-      &--mega {
-        .occult-icon {
-          width: 675px;
-          height: 675px;
-
-          @media (max-width: 768px) {
-            width: 540px;
-            height: 540px;
-          }
-        }
-
-        .occult-icon--logo {
-          width: 810px;
-          height: 810px;
-
-          @media (max-width: 768px) {
-            width: 630px;
-            height: 630px;
-          }
-        }
-      }
-    }
-  }
-
-  .occult-icon {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    filter: grayscale(100%) contrast(90%) brightness(70%);
-    opacity: 0.75;
-    transition: all 0.3s ease;
-
-    @media (max-width: 768px) {
-      width: 120px;
-      height: 120px;
-    }
-
-    &--logo {
-      width: 180px;
-      height: 180px;
-
-      @media (max-width: 768px) {
-        width: 140px;
-        height: 140px;
-      }
-    }
-
-    &:hover {
-      filter: grayscale(100%) contrast(100%) brightness(90%);
-      opacity: 1;
-    }
-  }
-
-  // Occult Stack Container
-  .occult-stack-container {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .occult-stack-base {
-    position: relative;
-    z-index: 2;
-    transition: opacity 250ms ease, transform 250ms ease;
-
-    &:hover {
-      opacity: 0;
-      transform: scale(0.8) rotate(-15deg);
-
-      ~ .occult-stack-underneath {
-        opacity: 1;
-        transform: translate(-50%, -50%) rotate(90deg) scale(1);
-      }
-    }
-  }
-
-  .occult-stack-underneath {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg) scale(0.8);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 250ms ease, transform 250ms ease;
-    pointer-events: none;
-    filter: blur(2px);
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% 50%, rgb(0, 180, 191, 0.1), rgb(191, 0, 143, 0.1), rgb(191, 191, 0, 0.25), #000000);
-      // background: radial-gradient(circle at 50% 50%, #5a3a2a, #8b7355, #cccccc, #000000);
-      background-size: 200% 200%;
-      animation: shakuzu-gradient 16s ease infinite;
-      mask-image: url('/images/Shakuzu.svg');
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      z-index: -1;
-    }
-
-    img {
-      opacity: 0;
-    }
-  }
-
-  @keyframes shakuzu-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  // Occult Glitch Container
-  .occult-glitch-container {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .occult-glitch-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-
-    &.occult-glitch-base {
-      z-index: 5;
-      opacity: 1;
-      pointer-events: auto;
-      transition: fill 0.3s ease;
-
-      svg {
-        transition:
-          fill 0.3s ease,
-          filter 0.3s ease;
-        filter: grayscale(100%) contrast(90%) brightness(70%);
-      }
-
-      // HOVER STATE
-      &:hover:not(.glitching) {
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(circle at 50% 50%, rgb(0, 180, 191, 0.05), rgb(191, 0, 143, 0.05), rgb(191, 191, 0, 0.05), #000000);
-          background-size: 200% 200%;
-          animation: shakuzu-gradient 16s ease infinite;
-          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'/%3E%3C/svg%3E");
-          mask-size: contain;
-          mask-repeat: no-repeat;
-          mask-position: center;
-          z-index: 2;
-          pointer-events: none;
-          filter: blur(1px);
-        }
-
-        svg {
-          opacity: 0;
-        }
-      }
-
-      // GLITCHING STATE
-      &.glitching {
-        animation: signal-corruption 400ms steps(8) forwards;
-
-        svg {
-          filter: drop-shadow(4px 0 0 rgba(255, 0, 0, 0.2))
-            drop-shadow(-2px 0 0 rgba(0, 255, 255, 0.2))
-            drop-shadow(0 2px 0 rgba(255, 0, 255, 0.2));
-        }
-      }
-    }
-
-    &.occult-glitch-cyan {
-      z-index: 4;
-      mix-blend-mode: screen;
-      opacity: 0; // Hidden by default, shown during glitch
-
-      svg {
-        fill: rgb(0, 180, 191, 0.05); // Muted cyan (75% saturation)
-        filter: brightness(1.5) saturate(2);
-      }
-    }
-
-    &.occult-glitch-magenta {
-      z-index: 3;
-      mix-blend-mode: screen;
-      opacity: 0; // Hidden by default, shown during glitch
-
-      svg {
-        fill: rgb(191, 0, 143, 0.05); // Muted magenta (75% saturation)
-        filter: brightness(1.5) saturate(2);
-      }
-    }
-
-    &.occult-glitch-yellow {
-      z-index: 2;
-      mix-blend-mode: screen;
-      opacity: 0; // Hidden by default, shown during glitch
-
-      svg {
-        fill: rgb(191, 191, 0, 0.075); // Muted yellow (75% saturation)
-        filter: brightness(1.5) saturate(2);
-      }
-    }
-
-    &.occult-glitch-key {
-      z-index: 1;
-      mix-blend-mode: multiply;
-      // mix-blend-mode: darken;
-      opacity: 0; // Hidden by default, shown during glitch
-
-      svg {
-        fill: #000000; // Pure black for key channel
-        filter: brightness(0.3);
-      }
-    }
-
-    &.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    &.fading-in {
-      opacity: 1;
-    }
-  }
-
-  .occult-reveal-icon {
-    color: yellow;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.8s ease;
-
-    &.revealed {
-      opacity: 0.75;
-      pointer-events: auto;
-    }
-
-    &.fading-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-  }
-
-  // ELECTRONIC VIOLENCE - Signal Corruption
-  @keyframes signal-corruption {
-    0% {
-      transform: translate(-50%, -50%);
-      filter: grayscale(100%) contrast(90%) brightness(70%) opacity(0.015);
-    }
-    12% {
-      transform: translate(calc(-50% - 4px), calc(-50% + 1.5px));
-      filter: grayscale(100%) contrast(300%) brightness(30%) hue-rotate(90deg)
-        opacity(0.1);
-    }
-    25% {
-      transform: translate(calc(-50% + 6px), calc(-50% - 1px));
-      filter: grayscale(0%) contrast(50%) brightness(150%) hue-rotate(180deg)
-        saturate(300%) opacity(0.1);
-    }
-    37% {
-      transform: translate(calc(-50% - 2.5px), calc(-50% + 4px));
-      filter: grayscale(100%) contrast(200%) brightness(20%) hue-rotate(270deg)
-        opacity(0.1);
-    }
-    50% {
-      transform: translate(calc(-50% + 7.5px), -50%);
-      filter: grayscale(0%) contrast(400%) brightness(80%) hue-rotate(0deg)
-        saturate(500%) opacity(0.015);
-    }
-    62% {
-      transform: translate(calc(-50% - 5px), calc(-50% - 2.5px));
-      filter: grayscale(100%) contrast(150%) brightness(40%) hue-rotate(135deg)
-        opacity(0.1);
-    }
-    75% {
-      transform: translate(calc(-50% + 3px), calc(-50% + 5px));
-      filter: grayscale(0%) contrast(250%) brightness(120%) hue-rotate(225deg)
-        saturate(400%) opacity(0.5);
-    }
-    87% {
-      transform: translate(calc(-50% - 1.5px), calc(-50% - 4px));
-      filter: grayscale(100%) contrast(180%) brightness(60%) hue-rotate(315deg)
-        opacity(0.1);
-    }
-    100% {
-      transform: translate(-50%, -50%);
-      filter: grayscale(100%) contrast(90%) brightness(70%) opacity(0.015);
-    }
-  }
-
-  // RED CHANNEL TEAR - Horizontal displacement
-  @keyframes red-channel-tear {
-    0% {
-      transform: translate(0, 0) scaleX(1);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    16% {
-      transform: translate(18px, -1px) scaleX(0.94);
-      clip-path: polygon(0 35%, 100% 0, 100% 45%, 0 80%);
-    }
-    33% {
-      transform: translate(-22px, 2px) scaleX(1.04);
-      clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%);
-    }
-    50% {
-      transform: translate(15px, -2px) scaleX(0.92);
-      clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
-    }
-    66% {
-      transform: translate(-18px, 3px) scaleX(1.06);
-      clip-path: polygon(0 0, 100% 40%, 100% 60%, 0 100%);
-    }
-    83% {
-      transform: translate(12px, -1px) scaleX(0.97);
-      clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
-    }
-    100% {
-      transform: translate(0, 0) scaleX(1);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-  }
-
-  // CYAN CHANNEL TEAR - Opposing force
-  @keyframes cyan-channel-tear {
-    0% {
-      transform: translate(0, 0) scaleY(1);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    16% {
-      transform: translate(-20px, 4px) scaleY(0.96);
-      clip-path: polygon(0 55%, 100% 100%, 100% 65%, 0 20%);
-    }
-    33% {
-      transform: translate(25px, -6px) scaleY(1.07);
-      clip-path: polygon(0 100%, 100% 70%, 100% 30%, 0 0);
-    }
-    50% {
-      transform: translate(-17px, 9px) scaleY(0.94);
-      clip-path: polygon(0 80%, 100% 100%, 100% 20%, 0 0);
-    }
-    66% {
-      transform: translate(20px, -5px) scaleY(1.05);
-      clip-path: polygon(0 100%, 100% 60%, 100% 40%, 0 0);
-    }
-    83% {
-      transform: translate(-14px, 3px) scaleY(0.97);
-      clip-path: polygon(0 85%, 100% 100%, 100% 15%, 0 0);
-    }
-    100% {
-      transform: translate(0, 0) scaleY(1);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-  }
 </style>
-
-<script>
-  // ELECTRONIC VIOLENCE - Glitch Effect
-  function initOccultGlitch() {
-    const baseIcon = document.querySelector('[data-glitch-target="facebook"]');
-    const revealIcon = document.querySelector(
-      '[data-glitch-reveal="facebook"]',
-    );
-
-    if (!baseIcon || !revealIcon) return;
-
-    function randomBetween(min: number, max: number): number {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function triggerGlitch() {
-      // CORRUPT THE SIGNAL
-      baseIcon.classList.add("glitching");
-
-      setTimeout(() => {
-        // SIGNAL DESTROYED
-        baseIcon.classList.remove("glitching");
-        baseIcon.style.opacity = ".5";
-
-        // REVEAL THE DEMON
-        revealIcon.classList.add("revealed");
-
-        // HOLD THE HORROR
-        const disappearDuration = randomBetween(500, 1500);
-
-        setTimeout(() => {
-          // CROSSFADE BACK
-          const crossfadeDuration = randomBetween(800, 1600);
-
-          baseIcon.style.transition = `opacity ${crossfadeDuration}ms ease`;
-          revealIcon.style.transition = `opacity ${crossfadeDuration}ms ease`;
-
-          baseIcon.style.opacity = "1";
-          revealIcon.classList.remove("revealed");
-          revealIcon.classList.add("fading-out");
-
-          setTimeout(() => {
-            revealIcon.classList.remove("fading-out");
-            baseIcon.style.transition = "";
-            revealIcon.style.transition = "";
-
-            // REPEAT THE NIGHTMARE
-            const nextGlitchDelay = randomBetween(8000, 16000);
-            setTimeout(triggerGlitch, nextGlitchDelay);
-          }, crossfadeDuration);
-        }, disappearDuration);
-      }, 400); // Match animation duration
-    }
-
-    // BEGIN THE CORRUPTION
-    const initialDelay = randomBetween(8000, 16000);
-    setTimeout(triggerGlitch, initialDelay);
-  }
-
-  document.addEventListener("DOMContentLoaded", initOccultGlitch);
-  document.addEventListener("astro:after-swap", initOccultGlitch);
-</script>

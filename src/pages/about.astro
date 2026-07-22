@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BrandMark from '../components/BrandMark.astro';
+import Footer from '../components/Footer.astro';
+
+// Body rows — alternate left/right. Text is placeholder lorem ipsum for now
+// (swap in the real bio / mystical statements later).
+const rows = [
+  {
+    img: '/images/about-page/about-body-bg-1.jpg',
+    heading: 'Placeholder Heading One',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.',
+  },
+  {
+    img: '/images/about-page/about-body-bg-2.jpg',
+    heading: 'Placeholder Heading Two',
+    text: 'Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie enim est.',
+  },
+  {
+    img: '/images/about-page/about-body-bg-3.jpg',
+    heading: 'Placeholder Heading Three',
+    text: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.',
+  },
+  {
+    img: '/images/about-page/about-body-bg-4.jpg',
+    heading: 'Placeholder Heading Four',
+    text: 'Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci.',
+  },
+];
+---
+
+<Layout title="VEILBURNER - About">
+  <BrandMark />
+
+  <h1 class="about__title">ABOUT</h1>
+
+  <!-- Full-width top banner -->
+  <img class="about__band" src="/images/about-page/about-bg-top.jpg" alt="Veilburner" />
+
+  <section class="about-rows">
+    <div class="container">
+      {rows.map((row, i) => (
+        <article class:list={['about-row', { 'about-row--reverse': i % 2 === 1 }]}>
+          <div class="about-row__image">
+            <img src={row.img} alt="" loading="lazy" />
+          </div>
+          <div class="about-row__text">
+            <h2 class="about-row__heading">{row.heading}</h2>
+            <p class="about-row__body">{row.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Full-width bottom banner -->
+  <img class="about__band" src="/images/about-page/about-bg-bottom.webp" alt="Veilburner" />
+
+  <Footer />
+</Layout>
+
+<style lang="scss">
+  @import '../styles/tokens';
+
+  .about__title {
+    font-family: $font-metal;
+    color: var(--color-rust);
+    font-size: 2.25rem;
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: $spacing-xl;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+  }
+
+  .about__band {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(30%) contrast(110%);
+  }
+
+  .about-rows {
+    padding: $spacing-3xl 0;
+  }
+
+  .about-row {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2xl;
+    margin-bottom: $spacing-3xl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: $spacing-lg;
+
+      &--reverse {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .about-row__image {
+    flex: 1;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 2px solid var(--edge);
+      clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+      filter: grayscale(30%) contrast(110%);
+    }
+  }
+
+  .about-row__text {
+    flex: 1;
+  }
+
+  .about-row__heading {
+    font-family: $font-sub;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-bone);
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-md;
+  }
+
+  .about-row__body {
+    font-family: $font-mono;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: $color-gray-light;
+  }
+</style>
