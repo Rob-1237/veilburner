@@ -1,5 +1,8 @@
 ---
 // Upcoming/latest release feature shown at the foot of the Home page.
+import ReleaseCta from './ReleaseCta.astro';
+const bandcamp = 'https://veilburnerband.bandcamp.com/album/all-that-glimmers-is-gloam';
+const label = 'https://tometal.com/?s=veilburner';
 ---
 
 <section class="contact">
@@ -7,19 +10,19 @@
 
   <div class="album-overlay">
     <div class="album-overlay__text">
-      <p class="album-overlay__new">Their upcoming release</p>
+      <p class="album-overlay__new">The upcoming release</p>
       <p class="album-overlay__title">All That Glimmers is Gloam</p>
-      <p class="album-overlay__release">Out 10/16/26 on <a href="https://tometal.com/?s=veilburner" target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
+      <p class="album-overlay__release">Out 10/16/26 on <a href={label} target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
     </div>
-    <a
-      href="https://veilburnerband.bandcamp.com/album/all-that-glimmers-is-gloam"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="album-overlay__art-link"
-      aria-label="All That Glimmers Is Gloam on Bandcamp"
-    >
-      <img src="/images/album-art/album-art-2026.jpg" alt="All That Glimmers Is Gloam album cover" class="album-overlay__art" />
-    </a>
+
+    <div class="album-overlay__media" data-reveal>
+      <img src="/images/about-page/vinyl-record-2026.png" alt="" aria-hidden="true" class="album-overlay__vinyl" />
+      <a href={bandcamp} target="_blank" rel="noopener noreferrer" class="album-overlay__art-link" aria-label="All That Glimmers Is Gloam on Bandcamp">
+        <img src="/images/album-art/album-art-2026.jpg" alt="All That Glimmers Is Gloam album cover" class="album-overlay__art" />
+      </a>
+    </div>
+
+    <ReleaseCta />
   </div>
 </section>
 
@@ -41,43 +44,81 @@
 
   .album-overlay {
     position: absolute;
-    top: 50%;
-    right: 3rem;
+    top: 15%;
+    right: 8rem;
     transform: translateY(-50%);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 1.5rem;
     z-index: 10;
+    text-align: right;
 
     @media (max-width: 768px) {
       right: 1rem;
       gap: .75rem;
     }
 
+    // ---- Cover + vinyl slide-out ----
+    &__media {
+      position: relative;
+      width: 15vw;
+      max-width: 260px;
+
+      @media (max-width: 768px) {
+        width: 30vw;
+      }
+    }
+
     &__art-link {
+      position: relative;
+      z-index: 2;
       display: block;
-      flex-shrink: 0;
       transition: transform 0.3s ease;
     }
 
     &__art {
-      width: 15vw;
+      width: 100%;
       height: auto;
       display: block;
       border: 2px solid $color-blood-solid;
       clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
 
       @media (max-width: 768px) {
-        width: 20vw;
         border: 1px solid $color-blood-solid;
       }
     }
 
+    // The record sits hidden behind the cover, then slides out to the left
+    // when the feature scrolls into view (or on hover).
+    &__vinyl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      z-index: 1;
+      transform: translateX(0) rotate(0deg);
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    &__media.is-revealed &__vinyl,
+    &__media:hover &__vinyl {
+      transform: translateX(-46%) rotate(-8deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &__vinyl { transition: none; }
+    }
+
+    // ---- Copy (preserved) ----
     &__text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      text-align: right;
 
       @media (max-width: 768px) {
         max-width: 350px;
@@ -91,7 +132,7 @@
     &__new {
       font-family: $font-body;
       font-size: 0.9rem;
-      color: var(--color-gray-medium);
+      color: $color-gray-light;
       letter-spacing: 0.1em;
       line-height: 1.4;
       font-weight: 300;
@@ -103,12 +144,14 @@
 
     &__title {
       font-family: $font-sub;
-      font-size: 1.25rem;
-      color: $color-gray-light;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: $color-bone;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       letter-spacing: 0.1em;
       text-transform: none;
       display: block;
-      margin-top: 0.25rem;
+      margin: 0.3rem 0;
 
       @media (max-width: 768px) {
         font-size: .9rem;
@@ -117,8 +160,8 @@
 
     &__release {
       font-family: $font-body;
-      font-size: 0.9rem;
-      color: var(--color-gray-medium);
+      font-size: 1.1rem;
+      color: $color-gray-light;
       letter-spacing: 0.1em;
       line-height: 1.4;
       font-weight: 300;
@@ -129,7 +172,7 @@
     }
 
     &__label-link {
-      color: var(--color-gray-medium);
+      color: $color-gray-light;
       text-decoration: none;
       transition: color 0.3s ease;
 
@@ -139,3 +182,31 @@
     }
   }
 </style>
+
+<script>
+  // Slide the vinyl out whenever the feature is >=25% in view, and back in when
+  // it isn't — so it re-triggers every time it enters/leaves the viewport.
+  function initReleaseReveal() {
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (!targets.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach((t) => t.classList.add('is-revealed'));
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('is-revealed', entry.intersectionRatio >= 0.25);
+        });
+      },
+      { threshold: [0, 0.25, 0.5] },
+    );
+
+    targets.forEach((t) => io.observe(t));
+  }
+
+  document.addEventListener('DOMContentLoaded', initReleaseReveal);
+  document.addEventListener('astro:after-swap', initReleaseReveal);
+</script>

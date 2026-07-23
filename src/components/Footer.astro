@@ -15,17 +15,19 @@ const socials = [
   { href: 'https://veilburnerband.bandcamp.com/', label: 'Bandcamp', brand: 'bandcamp', sigil: 'shakuzu' },
   { href: 'https://www.facebook.com/veilburner', label: 'Facebook', brand: 'facebook', sigil: 'belial' },
   { href: 'https://www.instagram.com/veilburner_official/', label: 'Instagram', brand: 'instagram', sigil: 'saturn' },
-  { href: 'https://tometal.com/?s=veilburner', label: 'Transcending Obscurity Records', brand: 'tometal', sigil: 'lilith' },
+  { href: 'https://tometal.com/?s=veilburner', label: 'Transcending Obscurity Records', brand: 'vinyl', sigil: 'lilith' },
 ];
 ---
 
 <footer class="colophon">
   <div class="colophon__inner">
     <div class="colophon__col colophon__identity">
-      <p class="colophon__disclaimer">
-        Unofficial fan site.<br />Not affiliated with Veilburner<br />or Transcending Obscurity Records.
-      </p>
-      <p class="colophon__copyright">&copy; 2026 Garfish Digital</p>
+      <h2 class="colophon__heading">Developer</h2>
+      
+      <p class="colophon__copyright">
+        <span class="colophon__disclaimer">An unofficial fan site.</span><br />
+        &copy; 2026 <a href="https://garfishdigital.com" target="_blank" rel="noopener noreferrer" class="colophon__dev-link">Garfish Digital</a>
+        </p>
     </div>
 
     <nav class="colophon__col colophon__nav" aria-label="Footer">
@@ -48,12 +50,10 @@ const socials = [
             class="colophon__social"
             aria-label={s.label}
           >
-            {s.brand === 'tometal' ? (
-              <img src="/images/tometal-logo-web-tint.jpg" alt="" class="colophon__brand colophon__brand--logo" />
-            ) : (
-              <Icon name={s.brand} class="colophon__brand" />
-            )}
+            <Icon name={s.brand} class="colophon__brand" />
+            {/* Sigil-reveal concept on hold — uncomment to restore the hover reveal
             <Icon name={s.sigil} class="colophon__reveal" />
+            */}
           </a>
         ))}
       </div>
@@ -71,17 +71,25 @@ const socials = [
   }
 
   .colophon__inner {
-    max-width: 1600px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: $spacing-xl;
     align-items: start;
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      gap: $spacing-xl;
+      gap: $spacing-2xl;
     }
+  }
+
+  // Each column: heading on top, content centred beneath — consistent across all three
+  .colophon__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $spacing-md;
   }
 
   .colophon__heading {
@@ -91,14 +99,12 @@ const socials = [
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--color-bone);
-    margin-bottom: $spacing-md;
   }
 
   .colophon__disclaimer {
     font-size: 0.8rem;
     line-height: 1.7;
     color: var(--color-gray-medium);
-    margin-bottom: $spacing-md;
   }
 
   .colophon__copyright {
@@ -108,11 +114,23 @@ const socials = [
     color: var(--color-rust);
   }
 
+  .colophon__dev-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-bone);
+    }
+  }
+
   .colophon__links {
     list-style: none;
     display: flex;
-    flex-direction: column;
-    gap: $spacing-xs;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $spacing-md;
 
     a {
       font-family: $font-body;
@@ -133,22 +151,29 @@ const socials = [
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: $spacing-lg;
   }
 
-  // Each link rests on its brand icon and reveals the matching sigil on hover/focus.
+  // Social links — conventional static/hover/active colouring (mirrors the spine nav).
   .colophon__social {
     position: relative;
     display: inline-flex;
     align-items: center;
-    height: 40px;
-    color: var(--color-bone);
-    transition: color 0.3s ease, transform 0.3s ease;
+    // Set --icon-size on the <a> (this component's scope) so it INHERITS into the
+    // child <Icon> span. Setting it on .colophon__brand fails: that span carries the
+    // Icon component's scope, not the footer's, so the footer rule never matches it.
+    --icon-size: 24px;
+    color: var(--color-gray-medium); // static
+    transition: color 0.3s ease;
 
     &:hover,
     &:focus-visible {
-      color: var(--color-rust);
-      transform: translateY(-2px);
+      color: var(--color-rust); // hover
+    }
+
+    &:active {
+      color: var(--color-bone); // pressed
     }
 
     &:focus-visible {
@@ -156,30 +181,11 @@ const socials = [
       outline-offset: 6px;
       border-radius: 2px;
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: color 0.3s ease;
-
-      &:hover,
-      &:focus-visible {
-        transform: none;
-      }
-    }
   }
 
-  // Resting brand icon (in-flow — defines each link's width)
-  .colophon__brand {
-    --icon-size: 34px;
-    transition: opacity 0.3s ease;
+  // .colophon__brand icon size is inherited from .colophon__social's --icon-size (see note above).
 
-    &--logo {
-      height: 40px;
-      width: auto;
-      display: block;
-    }
-  }
-
-  // Matching sigil, revealed on hover/focus (overlay, centred, hidden at rest)
+  /* Sigil-reveal concept on hold — uncomment with the markup above to restore.
   .colophon__reveal {
     --icon-size: 40px;
     position: absolute;
@@ -191,14 +197,9 @@ const socials = [
     pointer-events: none;
     transition: opacity 0.3s ease;
   }
-
   .colophon__social:hover .colophon__brand,
-  .colophon__social:focus-visible .colophon__brand {
-    opacity: 0;
-  }
-
+  .colophon__social:focus-visible .colophon__brand { opacity: 0; }
   .colophon__social:hover .colophon__reveal,
-  .colophon__social:focus-visible .colophon__reveal {
-    opacity: 1;
-  }
+  .colophon__social:focus-visible .colophon__reveal { opacity: 1; }
+  */
 </style>

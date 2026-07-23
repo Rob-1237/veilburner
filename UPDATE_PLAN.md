@@ -365,15 +365,6 @@ Build green, 12 pages. **Open:** the two `vinyl-record-*.png` images are unplace
 
 =====
 
-The changes have been committed and pushed to the repo. Below are the standouts I am noticing on the UI at this time that need to be addressed. Please ask any necessary clarifying questions: "General:"
-  - The label of the active page that appears on hover would look better if it was present on active too. It should be --color-bone (along with the changed glyph color) when active, and --color-rust when hovered. The non-active glyphs will still show their labels on hover while the active label is showing, but they will be hover colored.
-  - The sigils in the footer are not operating correctly because they have no social icons (they only appear as sigils, whether static, hovered, or active). Lilith (the tometal link) should be the tometal-logo-web-tint-jpg when static. Saturn should be Instagram, Belial sould be FB, and Shakuzu should be Bandcamp. Let's field these icons from the most sensible source.
-  - The spacing in the colophon footer leaves too much emptiness on the far right and far left. It looks like colophon__inner has considerable margin left and right.
 
-  "Home page:"
-  - The home-bg-top image runs past the top of the viewport. We will want it positioned so that its top edge meets the top edge of the load viewport.
-  - We are going to want to remove the img on line 16 of Hero.astro, but we want to keep the hero__tagline. The logo in the img on line 16 is now built into the BG image itself, which is why the above-mentioned top alignment is crucial.
-  - The content on lines 10-25 of Contact.astro (that name should probably be changed also) needs repositioned dur to the content of the new BG image. It is currently located in the lower left corner, and we will now need it repositioned to the right center. Also, we will want to swap the <a> with the album-overlay__text div so that the text sits to the link's left.
-
-  "About page:"
-  - The about-bg-top does not meet the top of the viewport because of the "ABOUT" h1. I commented it out for now and it looks better. I will sleep on it before deleting completely.
+- Yes, it would be good to auto-hide the floating CTA when the footer scrolls into view (for a clean handoff).
+- 

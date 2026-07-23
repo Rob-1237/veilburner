@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BrandMark from '../components/BrandMark.astro';
+import ReleaseCta from '../components/ReleaseCta.astro';
 import Footer from '../components/Footer.astro';
 import { reviews } from '../data/reviews.js';
 import { interviewsWritten } from '../data/interviews-written.js';
@@ -10,6 +11,7 @@ import { media } from '../data/media.js';
 
 <Layout title="VEILBURNER - Archive">
   <BrandMark />
+  <ReleaseCta floating />
   <h1 class="archive-page__title">ARCHIVE</h1>
   <section class="archive-page">
     <div class="container">

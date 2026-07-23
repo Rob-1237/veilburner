@@ -18,7 +18,12 @@
   --color-gray-dark:    #1a1a1a;
   --color-gray-medium:  #666666;
   --color-gray-light:   #cccccc;
-  --color-sickly-green: #385b38;
+  --color-sickly-green: #478447;
+//   --color-sickly-green: #385b38;
+
+    --color-test-nuts1: rgb(139, 115, 85);
+    --color-test-nuts2: rgb(71, 132, 71);
+    --color-test-nuts3: rgb(90, 58, 42);
 
   // Semantic (what things mean — rust-forward for "All That Glimmers Is Gloam")
   --edge:         var(--color-rust);              // default structural border
@@ -230,7 +235,8 @@ body {
   &:hover {
     color: $color-white;
     border-color: $edge-strong;
-    transform: translate(2px, 2px);
+    transform: translate(0px, 1px);
+    // transform: translate(.5px, .5px);
 
     &::before {
       opacity: 0.8;
