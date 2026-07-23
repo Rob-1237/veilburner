@@ -12,8 +12,9 @@
 
   <!-- Content -->
   <div class="hero__content">
+    <!-- Logo overlay: mobile only (desktop bg has the logo baked in) -->
     <div class="hero__logo">
-      <img src="/images/logo-entire-red-no-bg.png" alt="Veilburner" />
+      <img src="/images/mobile-images/vb-logo-green.png" alt="Veilburner" />
     </div>
     <p class="hero__tagline">AVANT-GARDE METAL</p>
   </div>
@@ -40,7 +41,7 @@
       inset: 0;
       background-image: url('/images/home-page/home-bg-top.jpg');
       background-size: cover;
-      background-position: center center;
+      background-position: center top;
       background-repeat: no-repeat;
 
       @media (max-width: 540px) {
@@ -96,7 +97,7 @@
 
       &--1 {
         @media (max-width: 540px) {
-          background-image: url('/images/hero-mobile.jpg');
+          background-image: url('/images/mobile-images/mobile-home-top-1.jpg');
           animation: deckShuffle 60s ease infinite;
           animation-delay: 0s;
           z-index: 2;
@@ -106,7 +107,7 @@
 
       &--2 {
         @media (max-width: 540px) {
-          background-image: url('/images/both-members-1.jpg');
+          background-image: url('/images/mobile-images/mobile-home-top-2.jpg');
           animation: deckShuffle 60s ease infinite;
           animation-delay: 30s;
           z-index: 1;
@@ -174,24 +175,23 @@
       }
     }
 
+    // Green VB logo — shown only on mobile, where the deck-shuffle
+    // background images don't carry the logo (desktop bg does).
     &__logo {
-      max-width: 800px;
-      width: 90%;
-      margin: 0 auto;
-      filter: drop-shadow(0 0 20px rgba(139, 0, 0, 0.5));
+      display: none;
 
-      img {
-        width: 100%;
-        height: auto;
+      @media (max-width: 540px) {
         display: block;
-      }
+        width: 70%;
+        max-width: 360px;
+        margin: 0 auto;
+        filter: drop-shadow(0 0 20px rgba(56, 91, 56, 0.5));
 
-      @media (max-width: 768px) {
-        max-width: 600px;
-      }
-
-      @media (max-width: 480px) {
-        max-width: 400px;
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
       }
     }
 

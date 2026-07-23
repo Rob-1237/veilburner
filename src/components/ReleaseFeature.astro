@@ -1,13 +1,16 @@
 ---
-// Latest / upcoming release feature (shown at the foot of the Home page).
-// NOTE: "Contact" is a legacy name — this holds no contact info. Slated to be
-// renamed <ReleaseFeature> and folded into index.astro in Phase 3.
+// Upcoming/latest release feature shown at the foot of the Home page.
 ---
 
 <section class="contact">
   <img src="/images/home-page/home-bg-bottom.jpg" alt="Veilburner" />
 
   <div class="album-overlay">
+    <div class="album-overlay__text">
+      <p class="album-overlay__new">Their upcoming release</p>
+      <p class="album-overlay__title">All That Glimmers is Gloam</p>
+      <p class="album-overlay__release">Out 10/16/26 on <a href="https://tometal.com/?s=veilburner" target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
+    </div>
     <a
       href="https://veilburnerband.bandcamp.com/album/all-that-glimmers-is-gloam"
       target="_blank"
@@ -17,11 +20,6 @@
     >
       <img src="/images/album-art/album-art-2026.jpg" alt="All That Glimmers Is Gloam album cover" class="album-overlay__art" />
     </a>
-    <div class="album-overlay__text">
-      <p class="album-overlay__new">Their upcoming release</p>
-      <p class="album-overlay__title">All That Glimmers is Gloam</p>
-      <p class="album-overlay__release">Out 10/16/26 on <a href="https://tometal.com/?s=veilburner" target="_blank" rel="noopener noreferrer" class="album-overlay__label-link">Transcending Obscurity Records</a></p>
-    </div>
   </div>
 </section>
 
@@ -43,17 +41,17 @@
 
   .album-overlay {
     position: absolute;
-    bottom: 2rem;
-    left: 2rem;
+    top: 50%;
+    right: 3rem;
+    transform: translateY(-50%);
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 1.5rem;
     z-index: 10;
 
     @media (max-width: 768px) {
-      bottom: .5rem;
-      left: .5rem;
-      align-items: flex-end;
+      right: 1rem;
+      gap: .75rem;
     }
 
     &__art-link {
@@ -78,7 +76,8 @@
     &__text {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
+      text-align: right;
 
       @media (max-width: 768px) {
         max-width: 350px;

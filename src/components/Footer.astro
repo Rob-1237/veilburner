@@ -9,12 +9,13 @@ const nav = [
   { href: '/archive', label: 'Archive' },
 ];
 
-// Sigil ↔ destination mapping (preserved from the original footer)
+// Each link rests on its brand icon and reveals the matching sigil on hover/focus.
+// (tometal uses its logo image; the others use brand-icon SVGs.)
 const socials = [
-  { href: 'https://veilburnerband.bandcamp.com/', label: 'Bandcamp', sigil: 'shakuzu' },
-  { href: 'https://www.facebook.com/veilburner', label: 'Facebook', sigil: 'belial' },
-  { href: 'https://www.instagram.com/veilburner_official/', label: 'Instagram', sigil: 'saturn' },
-  { href: 'https://tometal.com/?s=veilburner', label: 'Transcending Obscurity Records', sigil: 'lilith' },
+  { href: 'https://veilburnerband.bandcamp.com/', label: 'Bandcamp', brand: 'bandcamp', sigil: 'shakuzu' },
+  { href: 'https://www.facebook.com/veilburner', label: 'Facebook', brand: 'facebook', sigil: 'belial' },
+  { href: 'https://www.instagram.com/veilburner_official/', label: 'Instagram', brand: 'instagram', sigil: 'saturn' },
+  { href: 'https://tometal.com/?s=veilburner', label: 'Transcending Obscurity Records', brand: 'tometal', sigil: 'lilith' },
 ];
 ---
 
@@ -44,10 +45,15 @@ const socials = [
             href={s.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="colophon__sigil"
+            class="colophon__social"
             aria-label={s.label}
           >
-            <Icon name={s.sigil} />
+            {s.brand === 'tometal' ? (
+              <img src="/images/tometal-logo-web-tint.jpg" alt="" class="colophon__brand colophon__brand--logo" />
+            ) : (
+              <Icon name={s.brand} class="colophon__brand" />
+            )}
+            <Icon name={s.sigil} class="colophon__reveal" />
           </a>
         ))}
       </div>
@@ -61,15 +67,15 @@ const socials = [
   .colophon {
     border-top: 1px solid var(--color-gray-dark);
     background: var(--color-void);
-    padding: $spacing-2xl $spacing-lg $spacing-xl;
+    padding: $spacing-2xl clamp(1.5rem, 5vw, 5rem) $spacing-xl;
   }
 
   .colophon__inner {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: $spacing-2xl;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: $spacing-xl;
     align-items: start;
 
     @media (max-width: 768px) {
@@ -126,25 +132,28 @@ const socials = [
   .colophon__sigils {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-md;
+    align-items: center;
+    gap: $spacing-lg;
   }
 
-  .colophon__sigil {
-    --icon-size: 44px;
+  // Each link rests on its brand icon and reveals the matching sigil on hover/focus.
+  .colophon__social {
+    position: relative;
     display: inline-flex;
-    color: var(--color-rust);
-    transition: color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+    align-items: center;
+    height: 40px;
+    color: var(--color-bone);
+    transition: color 0.3s ease, transform 0.3s ease;
 
     &:hover,
     &:focus-visible {
-      color: var(--color-bone);
-      filter: drop-shadow(0 0 6px rgba(139, 0, 0, 0.55));
+      color: var(--color-rust);
       transform: translateY(-2px);
     }
 
     &:focus-visible {
       outline: 2px solid var(--color-bone);
-      outline-offset: 4px;
+      outline-offset: 6px;
       border-radius: 2px;
     }
 
@@ -156,5 +165,40 @@ const socials = [
         transform: none;
       }
     }
+  }
+
+  // Resting brand icon (in-flow — defines each link's width)
+  .colophon__brand {
+    --icon-size: 34px;
+    transition: opacity 0.3s ease;
+
+    &--logo {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+  }
+
+  // Matching sigil, revealed on hover/focus (overlay, centred, hidden at rest)
+  .colophon__reveal {
+    --icon-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-rust);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .colophon__social:hover .colophon__brand,
+  .colophon__social:focus-visible .colophon__brand {
+    opacity: 0;
+  }
+
+  .colophon__social:hover .colophon__reveal,
+  .colophon__social:focus-visible .colophon__reveal {
+    opacity: 1;
   }
 </style>

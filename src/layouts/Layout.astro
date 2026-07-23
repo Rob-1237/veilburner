@@ -280,9 +280,14 @@ const bgImage = isListen
       --icon-size: 21px;
     }
 
+    // Active page → bone glyph. (hover, declared after, intentionally wins.)
+    &--active {
+      color: var(--color-bone);
+    }
+
     &:hover,
     &:focus-visible {
-      color: var(--color-bone);
+      color: var(--color-rust);
     }
 
     &:focus-visible {
@@ -290,13 +295,10 @@ const bgImage = isListen
       outline-offset: 6px;
       border-radius: 2px;
     }
-
-    &--active {
-      color: var(--color-rust);
-    }
   }
 
-  // Label slides out to the LEFT of the glyph on hover/focus (glyphs stay put)
+  // Label sits to the LEFT of the glyph; colour follows the link
+  // (bone when active, rust when hovered/focused).
   .spine__label {
     position: absolute;
     right: calc(100% + 0.85rem);
@@ -308,12 +310,14 @@ const bgImage = isListen
     text-transform: uppercase;
     letter-spacing: 0.2em;
     white-space: nowrap;
-    color: var(--color-bone);
+    color: inherit;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
+  // Active label stays visible; hover/focus reveals any link's label too.
+  .spine__link--active .spine__label,
   .spine__link:hover .spine__label,
   .spine__link:focus-visible .spine__label {
     opacity: 1;
