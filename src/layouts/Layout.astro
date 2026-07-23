@@ -261,6 +261,7 @@ const bgImage = isListen
     }
 
     @media (max-width: 768px) {
+      top: 30%;
       right: 22px;
       gap: 24px;
     }
@@ -272,7 +273,7 @@ const bgImage = isListen
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--color-gray-medium);
+    color: var(--color-bone);
     transition: color 0.3s ease;
     --icon-size: 26px;
 
@@ -282,12 +283,12 @@ const bgImage = isListen
 
     // Active page → bone glyph. (hover, declared after, intentionally wins.)
     &--active {
-      color: var(--color-bone);
+      color: var(--color-white);
     }
 
     &:hover,
     &:focus-visible {
-      color: var(--color-rust);
+      color: var(--color-gray-light);
     }
 
     &:focus-visible {
@@ -305,7 +306,7 @@ const bgImage = isListen
     top: 50%;
     transform: translateY(-50%) translateX(6px);
     font-family: "Oswald", sans-serif;
-    font-size: 0.7rem;
+    font-size: .85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.2em;

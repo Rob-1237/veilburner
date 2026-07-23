@@ -1,7 +1,9 @@
 ---
 // The two release CTAs: Hear (Bandcamp) and Buy (Transcending Obscurity),
 // each carrying the same icon used in the footer for consistency.
-// Pass `floating` to pin it to the bottom-right of the viewport (About/Listen/Archive).
+// Pass `floating` to pin it to the bottom-right of the viewport (About/Listen/Archive);
+// the floating variant also shows the VB logo above the buttons and auto-hides when
+// the footer scrolls into view.
 import Icon from './Icon.astro';
 
 interface Props {
@@ -14,16 +16,21 @@ const label = 'https://tometal.com/?s=veilburner';
 ---
 
 <div class:list={['release-cta', { 'release-cta--floating': floating }]}>
-  <a href={bandcamp} target="_blank" rel="noopener noreferrer" class="btn release-cta__btn" aria-label="Hear on Bandcamp">
-    <span>Hear</span>
-    <span class="release-cta__dot" aria-hidden="true">&middot;</span>
-    <Icon name="bandcamp" class="release-cta__icon" />
-  </a>
-  <a href={label} target="_blank" rel="noopener noreferrer" class="btn release-cta__btn" aria-label="Buy from Transcending Obscurity">
-    <span>Buy</span>
-    <span class="release-cta__dot" aria-hidden="true">&middot;</span>
-    <Icon name="vinyl" class="release-cta__icon" />
-  </a>
+    <div class="release-cta__buttons">
+      <a href={bandcamp} target="_blank" rel="noopener noreferrer" class="btn release-cta__btn" aria-label="Hear on Bandcamp">
+        <span>Hear</span>
+        <span class="release-cta__dot" aria-hidden="true">&middot;</span>
+        <Icon name="bandcamp" class="release-cta__icon" />
+      </a>
+      <a href={label} target="_blank" rel="noopener noreferrer" class="btn release-cta__btn" aria-label="Buy from Transcending Obscurity">
+        <span>Buy</span>
+        <span class="release-cta__dot" aria-hidden="true">&middot;</span>
+        <Icon name="vinyl" class="release-cta__icon" />
+      </a>
+    </div>
+  {floating && (
+    <img src="/images/mobile-images/vb-logo-green.png" alt="Veilburner" class="release-cta__logo" />
+  )}
 </div>
 
 <style lang="scss">
@@ -31,8 +38,8 @@ const label = 'https://tometal.com/?s=veilburner';
 
   .release-cta {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 0.75rem;
 
     &--floating {
@@ -40,6 +47,7 @@ const label = 'https://tometal.com/?s=veilburner';
       bottom: 1.5rem;
       right: 1.5rem;
       z-index: 9000;
+      transition: opacity 0.4s ease, transform 0.4s ease;
 
       @media (max-width: 768px) {
         bottom: 1rem;
@@ -47,16 +55,43 @@ const label = 'https://tometal.com/?s=veilburner';
         gap: 0.5rem;
       }
     }
+
+    // Auto-hidden when the footer scrolls into view (clean handoff)
+    &--floating.is-hidden {
+      opacity: 0;
+      transform: translateY(1.5rem);
+      pointer-events: none;
+    }
+  }
+
+  // VB logo above the buttons (floating variant only)
+  .release-cta__logo {
+    display: block;
+    align-self: center;
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(0 0 12px rgba(71, 132, 71, 0.4));
+
+    @media (max-width: 768px) {
+      width: 90px;
+    }
+  }
+
+  .release-cta__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
   }
 
   .release-cta__btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.72rem;
-    padding: 0.6rem 1.1rem;
+    font-size: 1rem;
+    padding: 0.3rem 1.1rem;
     // Icon size set on the <a> so it inherits into the child <Icon> span.
-    --icon-size: 1.25em;
+    --icon-size: 1.5em;
 
     @media (max-width: 768px) {
       font-size: 0.62rem;
@@ -66,5 +101,38 @@ const label = 'https://tometal.com/?s=veilburner';
 
   .release-cta__dot {
     opacity: 0.65;
+    color: var(--color-gray-light);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .release-cta--floating {
+      transition: opacity 0.4s ease;
+    }
+    .release-cta--floating.is-hidden {
+      transform: none;
+    }
   }
 </style>
+
+<script>
+  // Hide the floating CTA once the footer scrolls into view (and restore it after).
+  function initCtaFooterHide() {
+    const ctas = document.querySelectorAll('.release-cta--floating');
+    const footer = document.querySelector('.colophon');
+    if (!ctas.length || !footer) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          ctas.forEach((cta) => cta.classList.toggle('is-hidden', entry.isIntersecting));
+        });
+      },
+      { threshold: 0 },
+    );
+
+    io.observe(footer);
+  }
+
+  document.addEventListener('DOMContentLoaded', initCtaFooterHide);
+  document.addEventListener('astro:after-swap', initCtaFooterHide);
+</script>

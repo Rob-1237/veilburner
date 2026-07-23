@@ -365,6 +365,3 @@ Build green, 12 pages. **Open:** the two `vinyl-record-*.png` images are unplace
 
 =====
 
-
-- Yes, it would be good to auto-hide the floating CTA when the footer scrolls into view (for a clean handoff).
-- 

@@ -207,6 +207,7 @@ body {
   border: 2px solid $edge;
   border-right: 4px solid $edge;
   border-bottom: 4px solid $edge;
+//   color: $color-gray-light;
   color: $color-bone;
   background: transparent;
   font-family: $font-metal;
@@ -233,7 +234,7 @@ body {
   }
 
   &:hover {
-    color: $color-white;
+    color: $color-gray-light;
     border-color: $edge-strong;
     transform: translate(0px, 1px);
     // transform: translate(.5px, .5px);
