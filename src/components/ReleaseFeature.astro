@@ -35,10 +35,22 @@ const label = 'https://tometal.com/?s=veilburner';
     width: 100%;
     position: relative;
 
+    // Mobile: black stage — release content first, atmospheric image second.
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      background: #000;
+    }
+
     > img {
       width: 100%;
       height: auto;
       display: block;
+
+      // Mobile: full-bleed atmospheric closer, ordered AFTER the content.
+      @media (max-width: 768px) {
+        order: 2;
+      }
     }
   }
 
@@ -54,9 +66,19 @@ const label = 'https://tometal.com/?s=veilburner';
     z-index: 10;
     text-align: right;
 
+    // Mobile: drop out of the absolute overlay and flow FIRST (before the image),
+    // centered on the black stage with its own padding.
     @media (max-width: 768px) {
-      right: 1rem;
-      gap: .75rem;
+      order: 1;
+      position: static;
+      transform: none;
+      top: auto;
+      right: auto;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      gap: 1rem;
+      padding: 2rem 1rem 2.5rem;
     }
 
     // ---- Cover + vinyl slide-out ----
@@ -66,7 +88,8 @@ const label = 'https://tometal.com/?s=veilburner';
       max-width: 260px;
 
       @media (max-width: 768px) {
-        width: 30vw;
+        width: 45vw;
+        max-width: 220px;
       }
     }
 

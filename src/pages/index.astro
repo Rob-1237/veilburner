@@ -7,20 +7,6 @@ import Footer from '../components/Footer.astro';
 
 <Layout title="VEILBURNER - Unofficial Fan Site">
   <Hero />
-  <div class="home-release">
-    <ReleaseFeature />
-  </div>
+  <ReleaseFeature />
   <Footer />
 </Layout>
-
-<style>
-  /* Rough-in: give the release feature a solid black stage on mobile */
-  @media (max-width: 768px) {
-    .home-release {
-      background: #000;
-      min-height: 33vh;
-      display: flex;
-      align-items: center;
-    }
-  }
-</style>
