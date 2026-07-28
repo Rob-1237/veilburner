@@ -87,6 +87,32 @@ body {
   display: none;
 }
 
+// Visually-hidden (screen-reader only) — global utility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Respect reduced-motion globally: neutralize animations, transitions, and smooth
+// scroll for anyone who's asked their OS to reduce motion.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 // ============================================================
 //  TYPE SCALE — role = fixed treatment.
 //  Apply these classes so a heading's LEVEL is what sets its look,
@@ -207,7 +233,7 @@ body {
   border: 2px solid $edge;
   border-right: 2px solid $edge;
   border-bottom: 2px solid $edge;
-//   color: $color-gray-light;
+//   color: $color-gray-medium;
   color: $color-bone;
   background: transparent;
   font-family: $font-metal;

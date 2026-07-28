@@ -20,7 +20,7 @@ import { media } from '../data/media.js';
       <section class="archive-section collapsed" data-section="interviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">INTERVIEWS</h2>
-          <button class="archive-section__toggle" aria-label="Toggle Interviews section">
+          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Interviews section">
             <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
@@ -32,7 +32,7 @@ import { media } from '../data/media.js';
                 <blockquote class="review-card__quote">"{interview.quote}"</blockquote>
                 <div class="review-card__attribution">
                   <span>— {interview.publication}, {interview.date}</span>
-                  <button class="review-card__toggle" aria-label="Expand interview">
+                  <button class="review-card__toggle" aria-expanded="false" aria-label="Expand interview">
                     <span class="toggle-icon">🜁</span>
                   </button>
                 </div>
@@ -59,7 +59,7 @@ import { media } from '../data/media.js';
       <section class="archive-section collapsed" data-section="reviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">ALBUM REVIEWS</h2>
-          <button class="archive-section__toggle" aria-label="Toggle Reviews section">
+          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Reviews section">
             <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
@@ -71,7 +71,7 @@ import { media } from '../data/media.js';
                 <blockquote class="review-card__quote">"{review.quote}"</blockquote>
                 <div class="review-card__attribution">
                   <span>— {review.publication}, {review.date}<span class="review-author">&nbsp;{review.author}</span></span>
-                  <button class="review-card__toggle" aria-label="Expand review">
+                  <button class="review-card__toggle" aria-expanded="false" aria-label="Expand review">
                     <span class="toggle-icon">🜁</span>
                   </button>
                 </div>
@@ -104,7 +104,7 @@ import { media } from '../data/media.js';
       <section class="archive-section collapsed" data-section="video-interviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO INTERVIEWS</h2>
-          <button class="archive-section__toggle" aria-label="Toggle Video Interviews section">
+          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Video Interviews section">
             <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
@@ -135,7 +135,7 @@ import { media } from '../data/media.js';
       <section class="archive-section collapsed" data-section="video-reviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO REVIEWS</h2>
-          <button class="archive-section__toggle" aria-label="Toggle Video Reviews section">
+          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Video Reviews section">
             <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
@@ -166,7 +166,7 @@ import { media } from '../data/media.js';
       <section class="archive-section collapsed" data-section="video-misc">
         <div class="archive-section__header">
           <h2 class="archive-section__title">VIDEO MISC</h2>
-          <button class="archive-section__toggle" aria-label="Toggle Video Misc section">
+          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Video Misc section">
             <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
@@ -197,7 +197,7 @@ import { media } from '../data/media.js';
       <section class="archive-section collapsed" data-section="reels">
         <div class="archive-section__header">
           <h2 class="archive-section__title">REELS</h2>
-          <button class="archive-section__toggle" aria-label="Toggle Reels section">
+          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Reels section">
             <span class="section-toggle-icon">🜃</span>
           </button>
         </div>
@@ -268,6 +268,11 @@ import { media } from '../data/media.js';
       margin-bottom: 1.5rem;
       cursor: pointer;
       user-select: none;
+
+      // Keep the toggle glyph clear of the fixed Sigil Spine column on mobile
+      @media (max-width: 768px) {
+        padding-right: 1.8rem;
+      }
 
       &:hover .archive-section__title {
         color: var(--color-rust); // Rust on hover
@@ -638,60 +643,67 @@ import { media } from '../data/media.js';
     display: block;
   }
 
+  // A11y: keep collapsed content out of the keyboard tab order. Visibility flips
+  // to hidden only after the 0.4s collapse animation, so the motion stays smooth.
+  .archive-section__content-wrapper,
+  .review-card__expandable {
+    visibility: hidden;
+    transition: grid-template-rows 0.4s ease, visibility 0s linear 0.4s;
+  }
+  .archive-section:not(.collapsed) .archive-section__content-wrapper,
+  .review-card.expanded .review-card__expandable {
+    visibility: visible;
+    transition: grid-template-rows 0.4s ease, visibility 0s;
+  }
+
 </style>
 
 <script>
-  // Accordion behavior for all expandable cards
+  // Review-card accordion (one open at a time). The toggle <button> keeps
+  // aria-expanded in sync so assistive tech announces the state.
   function initAccordion() {
-    const cards = document.querySelectorAll('.review-card');
+    const cards = document.querySelectorAll<HTMLElement>('.review-card');
 
-    cards.forEach(card => {
+    cards.forEach((card) => {
+      const toggle = card.querySelector('.review-card__toggle');
+
       card.addEventListener('click', (e) => {
-        // Don't toggle if clicking on the link
-        if (e.target.closest('.review-card__link')) return;
+        // Let the "Read full…" link behave normally
+        if ((e.target as Element)?.closest('.review-card__link')) return;
 
-        const isExpanded = card.classList.contains('expanded');
+        const willExpand = !card.classList.contains('expanded');
 
-        // Close all other cards (accordion behavior)
-        cards.forEach(otherCard => {
-          if (otherCard !== card) {
-            otherCard.classList.remove('expanded');
+        // Accordion: close the others
+        cards.forEach((other) => {
+          if (other !== card) {
+            other.classList.remove('expanded');
+            other.querySelector('.review-card__toggle')?.setAttribute('aria-expanded', 'false');
           }
         });
 
-        // Toggle current card
-        if (isExpanded) {
-          card.classList.remove('expanded');
-        } else {
-          card.classList.add('expanded');
-        }
+        card.classList.toggle('expanded', willExpand);
+        toggle?.setAttribute('aria-expanded', String(willExpand));
       });
     });
   }
-
-  // Initialize on page load and after transitions
   document.addEventListener('astro:page-load', initAccordion);
 
-  // Section accordion behavior (separate from review card accordions)
+  // Section accordion (each opens/closes independently).
   function initSectionAccordion() {
-    const sections = document.querySelectorAll('.archive-section');
+    const sections = document.querySelectorAll<HTMLElement>('.archive-section');
 
-    sections.forEach(section => {
+    sections.forEach((section) => {
       const header = section.querySelector('.archive-section__header');
       const toggle = section.querySelector('.archive-section__toggle');
+      if (!header || !toggle) return;
 
-      if (header && toggle) {
-        // Click on header or toggle button
-        const handleToggle = (e) => {
-          e.stopPropagation(); // Prevent event bubbling
-          section.classList.toggle('collapsed');
-        };
-
-        header.addEventListener('click', handleToggle);
-      }
+      header.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const willOpen = section.classList.contains('collapsed'); // collapsed → will open
+        section.classList.toggle('collapsed');
+        toggle.setAttribute('aria-expanded', String(willOpen));
+      });
     });
   }
-
-  // Initialize section accordions on page load and after transitions
   document.addEventListener('astro:page-load', initSectionAccordion);
 </script>

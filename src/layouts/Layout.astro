@@ -29,6 +29,11 @@ const isAbout = currentPath.startsWith("/about");
 const isListen = currentPath.startsWith("/listen");
 const isArchive = currentPath.startsWith("/archive");
 
+// Vignette rides everywhere; static grain only on pages without media embeds
+// (Home / About / Discography grid) so it never crawls over a YouTube/Bandcamp iframe.
+const isDiscographyGrid = currentPath === "/listen" || currentPath === "/listen/";
+const showGrain = isHome || isAbout || isDiscographyGrid;
+
 const bgImage = isListen
   ? "body__listen"
   : isArchive
@@ -55,6 +60,7 @@ const bgImage = isListen
     <meta property="og:image" content={fullOgImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Veilburner — avant-garde black metal" />
     <meta property="og:site_name" content={siteTitle} />
 
     <!-- Twitter Card -->
@@ -63,6 +69,7 @@ const bgImage = isListen
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullOgImageURL} />
+    <meta name="twitter:image:alt" content="Veilburner — avant-garde black metal" />
 
     <!-- Standard favicons -->
     <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
@@ -146,6 +153,10 @@ const bgImage = isListen
     <main class="page-content">
       <slot />
     </main>
+
+    <!-- Atmosphere: vignette everywhere + static film grain on non-embed pages -->
+    <div class="vignette" aria-hidden="true"></div>
+    {showGrain && <div class="grain" aria-hidden="true"></div>}
 
     <script>
       // Disable scroll during transition
@@ -338,6 +349,30 @@ const bgImage = isListen
   // Page Content Area
   .page-content {
     min-height: 100vh;
+  }
+
+  // ---- Atmosphere overlays (pointer-events: none so they never block input) ----
+  .vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+
+  // Static grayscale film grain (SVG feTurbulence, no image asset)
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
   }
 </style>
 
