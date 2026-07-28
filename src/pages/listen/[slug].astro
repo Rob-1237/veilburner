@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { albums, getAlbumBySlug, getNextAlbum, getPrevAlbum } from '../../data/albums.js';
+import { albumJsonLd } from '../../data/band.js';
 
 export async function getStaticPaths() {
   return albums.map(album => ({
@@ -27,7 +28,12 @@ const releaseDateFmt = album.releaseDate
   : null;
 ---
 
-<Layout title={`${album.title} - VEILBURNER`}>
+<Layout
+  title={`${album.title} - VEILBURNER`}
+  description={album.description}
+  ogImage={album.cover}
+  structuredData={albumJsonLd(album)}
+>
   <div class="album-page">
     <div class="container">
       <!-- Navigation Arrows -->
@@ -117,14 +123,14 @@ const releaseDateFmt = album.releaseDate
       </div>
 
       <!-- Lyrics (Expandable Placeholder) -->
-      <div class="album-lyrics">
+      <!-- <div class="album-lyrics">
         <details class="lyrics-details">
           <summary class="lyrics-details__summary">Lyrics</summary>
           <div class="lyrics-details__content">
             <p class="lyrics-placeholder">[Lyrics coming soon]</p>
           </div>
         </details>
-      </div>
+      </div> -->
     </div>
   </div>
 </Layout>

@@ -8,11 +8,11 @@ export const albums = [
     releaseDate: "2026-10-16",
     bandcampId: null,
     bandcampLink: "https://veilburnerband.bandcamp.com/album/all-that-glimmers-is-gloam",
-    description: "The ninth invocation. All That Glimmers Is Gloam gilds ruin in tarnished light — a dusk-lit sermon where every glimmer curdles into gloam. Out 16 October 2026 on Transcending Obscurity Records.",
+    description: "The ninth invocation. All That Glimmers is Gloam gilds ruin in tarnished light — a dusk-lit sermon where every glimmer curdles into gloam. Out 16 October 2026 on Transcending Obscurity Records.",
     credits: {
       personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals",
       production: "Mephisto Deleterio",
-      artwork: "",
+      artwork: "Luciana Nedelea",
       label: "Transcending Obscurity Records"
     },
     lyrics: {

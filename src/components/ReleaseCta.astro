@@ -90,9 +90,19 @@ const label = 'https://tometal.com/?s=veilburner';
     gap: 0.5rem;
     font-size: 1rem;
     padding: 0.3rem 1.1rem;
+    background: rgb(71, 132, 71, .3);
     // Icon size set on the <a> so it inherits into the child <Icon> span.
     --icon-size: 1.5em;
 
+    // The global .btn paints a rust ::before overlay that fades in on hover and was
+    // covering this green background. Disable it so the green treatment shows through.
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      background: rgb(71, 132, 71, .5);
+    }
     @media (max-width: 768px) {
       font-size: 0.62rem;
       padding: 0.5rem 0.85rem;

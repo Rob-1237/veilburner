@@ -3,9 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ReleaseFeature from '../components/ReleaseFeature.astro';
 import Footer from '../components/Footer.astro';
+import { bandJsonLd } from '../data/band.js';
 ---
 
-<Layout title="VEILBURNER - Unofficial Fan Site">
+<Layout title="VEILBURNER - Unofficial Fan Site" structuredData={bandJsonLd}>
   <Hero />
   <ReleaseFeature />
   <Footer />

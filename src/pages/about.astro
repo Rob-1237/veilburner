@@ -1,66 +1,83 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BrandMark from '../components/BrandMark.astro';
-import ReleaseCta from '../components/ReleaseCta.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import BrandMark from "../components/BrandMark.astro";
+import ReleaseCta from "../components/ReleaseCta.astro";
+import Footer from "../components/Footer.astro";
+import { bandJsonLd } from "../data/band.js";
 
 // Body rows — alternate left/right. Text is placeholder lorem ipsum for now
 // (swap in the real bio / mystical statements later).
 const rows = [
   {
-    img: '/images/about-page/about-body-bg-1.jpg',
-    heading: 'Placeholder Heading One',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.',
+    img: "/images/about-page/about-body-bg-2.jpg",
+    heading: "The Band",
+    text: `Comprised of Mephisto Deleterio (David Moody) and Chrisom Infernium (Chris Sheppard), Veilburner is a Pennsylvania duo who have released studio metal albums since 2014. Deleterio handles all instrumentation and production; Infernium delivers the vocals, writes the lyrics, and shapes the band's visual identity.`,
   },
   {
-    img: '/images/about-page/about-body-bg-2.jpg',
-    heading: 'Placeholder Heading Two',
-    text: 'Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie enim est.',
+    img: "/images/about-page/about-body-bg-1.jpg",
+    heading: "The Sound",
+    text: "Poised at the intersection of avant-garde, black, and death metal with dissonant riffs, warped song structures, and vocal performances that swing between guttural growls and unhinged calls to dark armies.",
   },
   {
-    img: '/images/about-page/about-body-bg-3.jpg',
-    heading: 'Placeholder Heading Three',
-    text: 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.',
+    img: "/images/about-page/about-body-bg-4.jpg",
+    heading: "Gnosis & Ruin",
+    text: "An ongoing narrative built from cryptic mysticism, cosmic horror, and esoteric philosophy. Recurring themes include gnosticism, nihilism, and occultism, channeled through two men chasing transcendence past the limits of mortal existence, and finding only deeper labyrinths.",
   },
   {
-    img: '/images/about-page/about-body-bg-4.jpg',
-    heading: 'Placeholder Heading Four',
-    text: 'Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci.',
+    img: "/images/about-page/about-body-bg-3.jpg",
+    heading: "Nine Albums & Counting",
+    text: "Since the 2014 debut The Three Lightbearers, Veilburner have released nine full-length albums with no EPs, demos, or splits — just studio records, six of them through Transcending Obscurity Records. The ninth, All That Glimmers is Gloam, arrives October 16, 2026, with more cover artwork by Luciana Nedelea.",
   },
 ];
 ---
 
-<Layout title="VEILBURNER - About">
+<Layout
+  title="VEILBURNER - About"
+  description="The story of Veilburner — the two-man avant-garde black metal project of Mephisto Deleterio and Chrisom Infernium, originating from Pennsylvania in 2014."
+  structuredData={bandJsonLd}
+>
   <BrandMark />
   <ReleaseCta floating />
 
   <!-- Full-width top banner -->
-  <img class="about__band" src="/images/about-page/about-bg-top.jpg" alt="Veilburner" />
+  <img
+    class="about__band"
+    src="/images/about-page/about-bg-top.jpg"
+    alt="Veilburner"
+  />
 
   <section class="about-rows">
     <div class="container">
-      {rows.map((row, i) => (
-        <article class:list={['about-row', { 'about-row--reverse': i % 2 === 1 }]}>
-          <div class="about-row__image">
-            <img src={row.img} alt="" loading="lazy" />
-          </div>
-          <div class="about-row__text">
-            <h2 class="about-row__heading">{row.heading}</h2>
-            <p class="about-row__body">{row.text}</p>
-          </div>
-        </article>
-      ))}
+      {
+        rows.map((row, i) => (
+          <article
+            class:list={["about-row", { "about-row--reverse": i % 2 === 1 }]}
+          >
+            <div class="about-row__image">
+              <img src={row.img} alt="" loading="lazy" />
+            </div>
+            <div class="about-row__text">
+              <h2 class="about-row__heading">{row.heading}</h2>
+              <p class="about-row__body">{row.text}</p>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 
   <!-- Full-width bottom banner -->
-  <img class="about__band" src="/images/about-page/about-bg-bottom.webp" alt="Veilburner" />
+  <img
+    class="about__band"
+    src="/images/about-page/about-bg-bottom.webp"
+    alt="Veilburner"
+  />
 
   <Footer />
 </Layout>
 
 <style lang="scss">
-  @import '../styles/tokens';
+  @import "../styles/tokens";
 
   .about__title {
     font-family: $font-metal;
@@ -117,7 +134,14 @@ const rows = [
       height: auto;
       display: block;
       border: 2px solid var(--edge);
-      clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+      clip-path: polygon(
+        20px 0,
+        100% 0,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        0 100%,
+        0 20px
+      );
       filter: grayscale(30%) contrast(110%);
     }
   }

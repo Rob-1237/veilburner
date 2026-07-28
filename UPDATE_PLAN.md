@@ -365,3 +365,47 @@ Build green, 12 pages. **Open:** the two `vinyl-record-*.png` images are unplace
 
 =====
 
+Veilburner is a two-man metal project that emerged from the underground with a sound that eludes classification. Their strain of avant-garde metal has carved a unique path through the extreme music landscape.
+
+Comprised of Mephisto Deleterio (David Moody) and Chrisom Infernium (Chris Sheppard), the duo has released eight full-length albums since 2014. Their boundary-pushing approach to songwriting and relentless experimentation have earned them a dedicated cult following within the global metal scene.
+
+Veilburner's music delves into themes of occult mysticism, cosmic horror, and esoteric philosophy, channeled through dissonant riffs, atmospheric layers, and visceral vocal performances that pull metal toward a beautifully nightmarish terrain.
+          
+```text
+     Formed: 2014
+     Location: Pennsylvania, USA
+     Genre: Metal
+     Label: Transcending Obscurity Records
+```
+
+```txt
+"written Interviews:"
+- link: "https://tomosman.substack.com/p/episode-42-veilburner"
+- link: "https://blessedaltarzine.com/2022/12/01/veilburner-interview-3/"
+- link: "https://www.moshpitnation.com/interview-veilburner/"
+- link: "https://blessedaltarzine.com/2021/09/06/veilburner-interview-2/"
+- link: "https://toiletovhell.com/veilburner-the-toilet-ov-hell-interview/"
+"YouTube Interviews:"
+- link: "https://www.youtube.com/watch?v=youb-Q3vQ_E"
+- link: "https://www.youtube.com/watch?v=QWY3IcCJQP4"
+- link: "https://www.youtube.com/watch?v=xXlgGIjj1As"
+- link: "https://www.youtube.com/watch?v=_DjeLiSJ7_k"
+- link: "https://www.youtube.com/watch?v=5LtBcCJZWlI"
+- link: "https://www.youtube.com/watch?v=HZSJUQ6p4xY"
+"Reviews:"
+- link: "https://metal.academy/reviews/42679/64467?fbclid=IwY2xjawOSYaBleHRuA2FlbQIxMABicmlkETFabVBaZzBsNHpibzZPQTE0c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpl4ei8mAW6WdysKejRDnCW_CzRjYdRJIVj5QoNFiTeFM7dmA68tOB2ZFHXF_aem_3IiaFvlN5vl5NP3en6lj9w"
+- link: "https://www.sputnikmusic.com/review/90318/Veilburner-Longing-for-Triumph-Reeking-of-Tragedy/?fbclid=IwY2xjawOO265leHRuA2FlbQIxMABicmlkETFnbGlQOUlxcmxJc2VacHFoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvYIk6Q0CJRKgP7xiNEO7CzjsLj7Ecr5hwI2XRysFyU5txHm9JNI3q0vFlwc_aem_kRxH6veVl_YYec7M-L40BA"
+- link: "https://musipediaofmetal.blogspot.com/2025/11/reviews-veilburner-chairmaker-asira.html?m=1&fbclid=IwY2xjawOO1gBleHRuA2FlbQIxMABicmlkETFnbGlQOUlxcmxJc2VacHFoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuuVhREr0f2VcSExSbs9k90oNKogpwHEBVFgIHEe6QemnBRQIXIj7pW7q6NG_aem_7NvX849YO__kJDugIbp30w"
+- link: "https://zwaremetalen.com/albumrecensies/veilburner-longing-for-triumph-reeking-of-tragedy"
+- link: "https://therazorsedge.rocks/2025-11-album-review-veilburner/?fbclid=IwY2xjawODTGpleHRuA2FlbQIxMQBicmlkETFxcVFsc3d2amY4N3ZnTFN5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqx3-iBW1tOHqxXfsLY_O2-eZsmAvkYxt9mXBo5Jiz04dw4BIuubOFp6zcYg_aem_UNY7GW7NqFMTco05JzXYjQ"
+- link: "https://www.metalepidemic.com/veilburner-longing-for-triumph-reeking-of-tragedy/?fbclid=IwY2xjawODS0NleHRuA2FlbQIxMABicmlkETF1WkNhQW5JTmZua0VhSUFGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkQyWKMYmnl3SJsd7RfzHaJABv9JRyEzFuInwEBiGYQKJ8gitGlaykHwz11T_aem_E8rg6qlu6VvOwHphav3nSA"
+- link: "https://www.deafsparrow.com/2025/11/11/veilburner-longing-for-triumph-reeking-of-tragedy-gnostic-nihilistic-experimental-black-metal/"
+"Misc. Video Media:"
+- link: "https://www.facebook.com/reel/601553250275501"
+- link: "https://www.youtube.com/shorts/frrVnKG1IUY"
+- link: "https://www.youtube.com/watch?v=XjwAeU1jMig"
+- link: "https://www.youtube.com/watch?v=lW0hQhjTabU"
+- link: "https://www.youtube.com/watch?v=92X72x5Dt8k"
+- link: "https://www.youtube.com/watch?v=rLiCCeNS4h4"
+```
+
