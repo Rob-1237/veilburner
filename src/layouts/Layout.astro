@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import Icon from "../components/Icon.astro";
 import "../styles/fonts.css";
 
@@ -110,7 +110,7 @@ const bgImage = isListen
     )}
 
     <!-- Global Styles -->
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class:list={[{ "home-page": isHome }, bgImage]}>
     <!-- Sigil Spine — vertical nav rail pinned to the right edge -->

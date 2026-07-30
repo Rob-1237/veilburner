@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "optimize:icons": "svgo -f public/images/nav-glyphs"
+    "optimize:icons": "svgo -f src/icons"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
