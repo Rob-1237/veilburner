@@ -9,11 +9,12 @@
 // link: "",
 // },
 
-
 export const reviews = [
   {
-    quote: "This is perhaps too hard for me to explain in words for some readers.",
-    fullText: "The more I listen to the album the more I find it veering away from pretty much all the territory I have called it out for inhabiting already.",
+    quote:
+      "This is perhaps too hard for me to explain in words for some readers.",
+    fullText:
+      "The more I listen to the album the more I find it veering away from pretty much all the territory I have called it out for inhabiting already.",
     publication: "Metal Academy",
     date: "November 21, 2025",
     author: "Vinny",
@@ -22,38 +23,33 @@ export const reviews = [
     link: "https://metal.academy/reviews/42679/64467?fbclid=IwY2xjawOSYaBleHRuA2FlbQIxMABicmlkETFabVBaZzBsNHpibzZPQTE0c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpl4ei8mAW6WdysKejRDnCW_CzRjYdRJIVj5QoNFiTeFM7dmA68tOB2ZFHXF_aem_3IiaFvlN5vl5NP3en6lj9w",
   },
   {
-    quote: "It's almost as if these riffs were transported back from 100 years in the future.",
-    fullText: "Chrisom Infernium and Mephisto Deleterio are proving themselves to be top-notch black metal musicians, and the scary thing is, they just keep getting better and better.",
+    quote:
+      "It's almost as if these riffs were transported back from 100 years in the future.",
+    fullText:
+      "Chrisom Infernium and Mephisto Deleterio are proving themselves to be top-notch black metal musicians, and the scary thing is, they just keep getting better and better.",
     publication: "Sputnik Music",
-    date: "November 14, 2025",
+    date: "November 15, 2025",
     author: "Ryan P",
     album: "Longing for Triumph, Reeking of Tragedy",
     rating: "4.8 Classic",
     link: "https://www.sputnikmusic.com/review/90318/Veilburner-Longing-for-Triumph-Reeking-of-Tragedy/?fbclid=IwY2xjawOO265leHRuA2FlbQIxMABicmlkETFnbGlQOUlxcmxJc2VacHFoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvYIk6Q0CJRKgP7xiNEO7CzjsLj7Ecr5hwI2XRysFyU5txHm9JNI3q0vFlwc_aem_kRxH6veVl_YYec7M-L40BA",
   },
   {
-    quote: "It has to be one of the most singular unique listening experiences I’ve had this year.",
-    fullText: "They operate outside of traditional norms, yes, they have riffs and double bass but you have to really give them your full attention in order to absorb what they are doing.",
-    publication: "Musipedia of Metal",
-    date: "November 14, 2025",
-    author: "Mark Young",
+    quote:
+      "Once again Veilburner has proven to be well above any of their peers in songwriting as well as storytelling.",
+    fullText: `Longing for Triumph, Reeking of Tragedy, while just as heavy, if not heavier, is a much more musical evolved record than the previous one. Meaning, it’s a whirlwind of inspiration that drifts around several emotive sparks outside of just pure savagery.`,
+    publication: "Metal Epidemic",
+    date: "December 11, 2025",
+    author: "Rick Farley",
     album: "Longing for Triumph, Reeking of Tragedy",
-    rating: "9/10",
-    link: "https://musipediaofmetal.blogspot.com/2025/11/reviews-veilburner-chairmaker-asira.html?m=1&fbclid=IwY2xjawOO1gBleHRuA2FlbQIxMABicmlkETFnbGlQOUlxcmxJc2VacHFoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuuVhREr0f2VcSExSbs9k90oNKogpwHEBVFgIHEe6QemnBRQIXIj7pW7q6NG_aem_7NvX849YO__kJDugIbp30w",
+    rating: "5/5",
+    link: "https://www.metalepidemic.com/veilburner-longing-for-triumph-reeking-of-tragedy/",
   },
   {
-    quote: "Dit is gewoon weer een klasse plaat; Veilburner blijft hard timmeren aan de weg naar glorie.",
-    fullText: "Veilburner levert opnieuw een indrukwekkende, diepgaande en prachtig coherente plaat af; de unieke mix van furie, experiment en emotie maakt dit album bijzonder krachtig en volledig meeslepend.",
-    publication: "Zware Metalen",
-    date: "November 13, 2025",
-    author: "JohannesV",
-    album: "Longing for Triumph, Reeking of Tragedy",
-    rating: "88/100",
-    link: "https://zwaremetalen.com/albumrecensies/veilburner-longing-for-triumph-reeking-of-tragedy",
-  },
-  {
-    quote: "Veilburner rip your psyche from its mortal cradle for another round of face melting black/death metal in the vein only Veilburner can deliver.",
-    fullText: "I think this record will certainly push listeners to the brink of what they think they enjoy, and this applies to their established fanbase too.",
+    quote:
+      "Veilburner rip your psyche from its mortal cradle for another round of face melting black/death metal in the vein only Veilburner can deliver.",
+    fullText:
+      "I think this record will certainly push listeners to the brink of what they think they enjoy, and this applies to their established fanbase too.",
     publication: "The Razor's Edge",
     date: "November 12, 2025",
     author: "Sam Jones",
@@ -62,8 +58,10 @@ export const reviews = [
     link: "https://therazorsedge.rocks/2025-11-album-review-veilburner/?fbclid=IwY2xjawODTGpleHRuA2FlbQIxMQBicmlkETFxcVFsc3d2amY4N3ZnTFN5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqx3-iBW1tOHqxXfsLY_O2-eZsmAvkYxt9mXBo5Jiz04dw4BIuubOFp6zcYg_aem_UNY7GW7NqFMTco05JzXYjQ",
   },
   {
-    quote: "This is another masterpiece full of high level song crafting, albeit a nightmarish one.",
-    fullText: " Pennsylvania’s two piece avant-garde extreme metal band Veilburner return with another off kilter, but highly engaging look into a world that’s mysterious, brutal, disturbing and grotesquely dissonant.",
+    quote:
+      "This is another masterpiece full of high level song crafting, albeit a nightmarish one.",
+    fullText:
+      "Pennsylvania’s two piece avant-garde extreme metal band Veilburner return with another off kilter, but highly engaging look into a world that’s mysterious, brutal, disturbing and grotesquely dissonant.",
     publication: "Metal Epidemic",
     date: "November 12, 2025",
     author: "themetalepidemic",
@@ -72,8 +70,10 @@ export const reviews = [
     link: "https://www.metalepidemic.com/veilburner-longing-for-triumph-reeking-of-tragedy/?fbclid=IwY2xjawODS0NleHRuA2FlbQIxMABicmlkETF1WkNhQW5JTmZua0VhSUFGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHkQyWKMYmnl3SJsd7RfzHaJABv9JRyEzFuInwEBiGYQKJ8gitGlaykHwz11T_aem_E8rg6qlu6VvOwHphav3nSA",
   },
   {
-    quote: "You think that everything’s been done until you come across an act like Pennsylvania’s Veilburner",
-    fullText: "The core spirit of rebellion that is at the heart of all metal is here, but finally in a form that demands of the listener more than you’ve likely experienced prior. Genuinely innovative.",
+    quote:
+      "You think that everything’s been done until you come across an act like Pennsylvania’s Veilburner.",
+    fullText:
+      "The core spirit of rebellion that is at the heart of all metal is here, but finally in a form that demands of the listener more than you’ve likely experienced prior. Genuinely innovative.",
     publication: "Deaf Sparrow",
     date: "November 11, 2025",
     author: "Stanley, Devourer of Souls",
@@ -82,59 +82,10 @@ export const reviews = [
     link: "https://www.deafsparrow.com/2025/11/11/veilburner-longing-for-triumph-reeking-of-tragedy-gnostic-nihilistic-experimental-black-metal/",
   },
   {
-    quote: "Once again, it seems we won’t be able to ignore Veilburner this year.",
-    fullText: `We know exactly what we’re getting — interdimensional evil music — when these guys are in charge of "Longing for Triumph, Reeking of Tragedy". So sit back and prepare yourself for dissonance!`,
-    publication: "Metal Eclipse Reviews",
-    date: "October 5, 2025",
-    author: "Metalcatto",
-    album: "Longing for Triumph, Reeking of Tragedy",
-    rating: "4/5",
-    link: "https://metaleclipsereviews.com/2025/10/05/veilburner-longing-for-triumph-reeking-of-tragedy/?fbclid=IwY2xjawNfBNNleHRuA2FlbQIxMABicmlkETEzcWJjZ2tqd1BxbU9QeWNyAR6YV70T6CrPW5zhhzYFzMvEACJ6RTP0x-KfRPgIhL6daMeaPhW1f0cWw4cEGQ_aem_K0pLlUsAh0wD1IFOGpQ_oQ#more-14026",
-  },
-  {
-    quote: "Dense but intensely frenetic, Veilburner’s dark magic still has yet to wane in its ever-shifting menace!",
-    fullText: "It’s with everything about this record that Veilburner cements itself as one of the premier acts of the mirky underworld that demands to be experienced.",
-    publication: "Head-Banger Reviews",
-    date: "September 26, 2025",
-    author: "VinterD",
-    album: "Longing for Triumph, Reeking of Tragedy",
-    rating: null,
-    link: "https://headbangerreviews.com/2025/09/26/veilburner-longing-for-triumph-reeking-of-tragedy/",
-  },
-  {
-    quote: "La música es difícil de describir, ya que si bien es cierto que tocan sobre una base de black/death metal en la línea americana",
-    fullText: `"Longing for Triumph, Reeking of Tragedy" es otro gran disco de Veilburner, una banda que ha sabido trazar su propio camino experimentando sin llegar al ridículo, al sin sentido y demás, material totalmente recomendable.`,
-    publication: "Metallerium",
-    date: "September 11, 2025",
-    author: "Gocho",
-    album: "Longing for Triumph, Reeking of Tragedy",
-    rating: "9.3 / 10",
-    link: "https://www.metallerium.com/veilburner-longing-for-triumph-reeking-of-tragedy-2025",
-  },
-  {
-    quote: "The Duality of Decapitation and Wisdom is another triumph from Veilburner.",
-    fullText: "The duo continues to find new ways to challenge extreme metal norms and come up with something that is sonically and intellectually compelling, while also raising the bar for which they have already set rather high.",
-    publication: "Metal Rules",
-    date: "December 2024",
-    author: "Peter Atkinson",
-    album: "The Duality of Decapitation and Wisdom",
-    rating: "4/5",
-    link: "https://www.metal-rules.com/2024/12/01/veilburner-the-duality-of-decapitation-and-wisdom/",
-  },
-  {
-    quote: "The Duality of Decapitation and Wisdom turned into one of the best Dissonant Metal pieces on our roster.",
-    fullText: "Veilburner are master storytellers, delivering grotesque yet stellar riffs and solos in a finely tuned production.",
-    publication: "Rock Music Raider",
-    date: "November 24, 2024",
-    author: "RMR",
-    album: "The Duality of Decapitation and Wisdom",
-    rating: "8/10",
-    link: "https://www.rockmusicraider.com/veilburner-the-duality-of-decapitation-and-wisdom-review/"
-  },
-
-  {
-    quote: "Mephisto Deleterio and Chrisom Infernom follow up 2022’s VLBRNR with their seventh and arguably most potent conjuring yet.",
-    fullText: "Veilburner are increasingly carving a path wholly their own with each release. Even after this album—arguably the pinnacle of its discography—there is still much to discover within the Veilburnerverse.",
+    quote:
+      "Mephisto Deleterio and Chrisom Infernium follow up 2022’s VLBRNR with their seventh and arguably most potent conjuring yet.",
+    fullText:
+      "Veilburner are increasingly carving a path wholly their own with each release. Even after this album—arguably the pinnacle of its discography—there is still much to discover within the Veilburnerverse.",
     publication: "Metal Eclipse Reviews",
     date: "November 15, 2024",
     author: "SonikGoat",
@@ -144,8 +95,10 @@ export const reviews = [
   },
 
   {
-    quote: "The Duality of Decapitation and Wisdom is a masterclass in not only unorthodox music, but it’s also thematically and lyrically strong.",
-    fullText: "This is a record that some will find deeply disturbing, not understanding its true beauty, but those of us who already know or those that are open to nerve wrecking extremes will be rewarded with a legitimate masterpiece.",
+    quote:
+      "The Duality of Decapitation and Wisdom is a masterclass in not only unorthodox music, but it’s also thematically and lyrically strong.",
+    fullText:
+      "This is a record that some will find deeply disturbing, not understanding its true beauty, but those of us who already know or those that are open to nerve wrecking extremes will be rewarded with a legitimate masterpiece.",
     publication: "Metal Epidemic",
     date: "November 14, 2024",
     author: "Rick Farley",
@@ -154,38 +107,10 @@ export const reviews = [
     link: "https://www.metalepidemic.com/veilburner-the-duality-of-decapitation-and-wisdom/",
   },
   {
-    quote: "...listeners can rest assured that Duality reinforces Veilburner’s reputation for reliability and creativity in an extremely challenging field. ",
-    fullText: "Duality contains an otherworldly, eerie, and distinctly ethereal character (even when compared to previous efforts); a laminar flow that allows forty-nine minutes of oddball blackened death to travel through a mere mortal’s nervous system like tea through a perfectly rendered clay kettle",
-    publication: "Angry Metal Guy",
-    date: "November 12, 2024",
-    author: "Kenstrosity",
-    album: "The Duality of Decapitation and Wisdom",
-    rating: "Very Good!",
-    link: "https://www.angrymetalguy.com/veilburner-the-duality-of-decapitation-and-wisdom-review/",
-  },
-  {
-    quote: "Veilburner's eclecticism isn't scattershot. They do have their anchor-points in death and black metal.",
-    fullText: "At speed, the drums spit bullets and hack at our necks, pierced by shimmering cymbal-strikes, while the ragged-edged riffing manically skitters and spasms, pierced by wordless howls and demented, strangling snarls.",
-    publication: "No Clean Singing",
-    date: "October 29, 2024",
-    author: "Islander",
-    album: "The Duality of Decapitation and Wisdom",
-    rating: null,
-    link: "https://www.nocleansinging.com/2024/10/29/an-ncs-premiere-veilburner-woe-ye-who-build-these-crosses-are-those-who-will-serve-us-death/"
-  },
-  {
-    quote: "The twisted compositions only get better as the album is played more and more. This is a trip down a rabbit hole that I'll happily get lost in.",
-    fullText: "Although this album is insane with a lot to comprehend, it's presented with a firm foundation. Yes, it crosses a lot of lines, totally erased with chaos but it's a controlled chaos. None of the songs feel too floaty, convoluted, or pretentious. After a few trips to the other side, an odd sort of flow emerges and it certainly helps that the songs flow into each other well.",
-    publication: "Metal Temple",
-    date: "October 7, 2024",
-    author: `Justin "Witty City" Wittenmeier`,
-    album: "The Duality of Decapitation and Wisdom",
-    rating: "9/10",
-    link: "https://metal-temple.com/review/veilburner-the-duality-of-decapitation-and-wisdom/"
-  },
-  {
-    quote: " For their seventh creation, Veilburner seeks to deepen their ever-evolving sound of madness and intricacies.",
-    fullText: "Having been an act that’s more than worthy of attention for years now, “The Duality of Decapitation and Wisdom” sees Veilburner at an undeniable peak.",
+    quote:
+      "For their seventh creation, Veilburner seeks to deepen their ever-evolving sound of madness and intricacies.",
+    fullText:
+      "Having been an act that’s more than worthy of attention for years now, “The Duality of Decapitation and Wisdom” sees Veilburner at an undeniable peak.",
     publication: "Head-Banger Reviews",
     date: "September 15, 2024",
     author: "VinterD",
@@ -194,58 +119,22 @@ export const reviews = [
     link: "https://headbangerreviews.com/2024/09/15/veilburner-the-duality-of-decapitation-and-wisdom/",
   },
   {
-    quote: "Veilburner are a force to be reckoned with, and VLBRNR is yet another strong exhibit of proof to that end.",
-    fullText: "Sick and twisted are Veilburner's bread and butter, and off‑kilter and occasionally dissonant blackened death metal is their vessel.",
-    publication: "Angry Metal Guy",
-    date: "December 3, 2022",
-    author: "Kenstrosity",
-    album: "VLBRNR",
-    rating: "3.5/5",
-    link: "https://www.angrymetalguy.com/veilburner-vlbrnr-review/"
-  },
-  {
-    quote: `Whatever itches for you, scratch it with "VLBRNR."`,
-    fullText: "There is a reason why the album cover is made up of intense shades of red. Red signifies fire, passion, love, and even anger. All these qualities are present on the album.",
-    publication: "Metal Temple",
-    date: "November 14, 2022",
-    author: `Dave "That Metal Guy" Campbell`,
-    album: "VLBRNR",
-    rating: "8/10",
-    link: "https://metal-temple.com/review/veilburner-vlbrnr/",
-  },
-  {
-    quote: "Veilburner have followed up last year's career highlight with something darker, louder, and more dyspeptic.",
-    fullText: "With VLBRNR, Veilburner shows us that, six albums deep, they can still pull several infernal tricks from up their sleeves.",
+    quote:
+      "Veilburner have followed up last year's career highlight with something darker, louder, and more dyspeptic.",
+    fullText:
+      "With VLBRNR, Veilburner shows us that, six albums deep, they can still pull several infernal tricks from up their sleeves.",
     publication: "No Clean Singing",
     date: "September 30, 2022",
     author: "Rob Tamplin",
     album: "VLBRNR",
     rating: null,
-    link: "https://www.nocleansinging.com/2022/09/30/veilburner-a-review-of-vlbrnr-and-the-premiere-of-repulsed-by-the-light/"
+    link: "https://www.nocleansinging.com/2022/09/30/veilburner-a-review-of-vlbrnr-and-the-premiere-of-repulsed-by-the-light/",
   },
   {
-    quote: "Veilburner's latest offering is a complex and challenging listen, but one that rewards repeated plays.",
-    fullText: "The album showcases the duo's ability to blend dissonant melodies with aggressive rhythms, creating a unique and immersive listening experience.",
-    publication: "Metal Epidemic",
-    date: "November 29, 2022",
-    author: "Andy Spoon",
-    album: "VLBRNR",
-    rating: "3.5/5",
-    link: "https://www.metalepidemic.com/veilburner-vlbrnr/"
-  },
-  {
-    quote: "Veilburner's VLBRNR is a chaotic yet cohesive album that showcases the band's evolution.",
-    fullText: "The album's dissonant tones and complex structures make for a challenging listen, but one that is ultimately rewarding for those willing to delve into its depths.",
-    publication: "Teeth of the Divine",
-    date: "December 19, 2022",
-    author: "J Mays",
-    album: "VLBRNR",
-    rating: null,
-    link: "https://www.teethofthedivine.com/reviews/veilburner-vlbrnr/"
-  },
-  {
-    quote: "Words can only barely begin to truly penetrate the monolithic presence that makes its home within the confines of “VLBRNR”.",
-    fullText: "Veilburner, whose crusade upon the very light and sanity of our world has made them a need-to-know act in their increasingly abnormal corner of black/death metal where even still, after all they’ve done, they continue to raise the bar with each release.",
+    quote:
+      "Words can only barely begin to truly penetrate the monolithic presence that makes its home within the confines of “VLBRNR”.",
+    fullText:
+      "Veilburner, whose crusade upon the very light and sanity of our world has made them a need-to-know act in their increasingly abnormal corner of black/death metal where even still, after all they’ve done, they continue to raise the bar with each release.",
     publication: "Head-Banger Reviews",
     date: "October 2, 2022",
     author: "VinterD",
@@ -254,58 +143,22 @@ export const reviews = [
     link: "https://headbangerreviews.com/2022/10/02/veilburner-vlbrnr/",
   },
   {
-    quote: "Creatively linked to its predecessor, yet with a soul of its own, Lurkers in the Capsule of Skull is a tasty slab of blackened experimentalism just waiting to be discovered.",
-    fullText: "This gloomy hybrid capsule thus stands as a must-listen for anyone who likes to venture across the boundaries of black and death metal, unafraid of stepping off the beaten track.",
-    publication: "Encyclopaedia Metallum",
-    date: "October 14, 2021",
-    author: "TheNotrap",
-    album: "Lurkers in the Capsule of Skull",
-    rating: null,
-    link: "https://www.metal-archives.com/reviews/Veilburner/Lurkers_in_the_Capsule_of_Skull/957172/TheNotrap/736025",
-  },
-  {
-    quote: "Everything you hear is distorted through a curved lens, and when it’s over, the real world might feel a little too linear to be trusted.",
-    fullText: "Fine-tuned though [Veilburner's songwriting] may be, I think it’s a little bit above my reading level to try and track the internal order of this material rather than the grotesque, yet enticing, contours that ripple away from it.",
+    quote:
+      "Everything you hear is distorted through a curved lens, and when it’s over, the real world might feel a little too linear to be trusted.",
+    fullText:
+      "Fine-tuned though [Veilburner's songwriting] may be, I think it’s a little bit above my reading level to try and track the internal order of this material rather than the grotesque, yet enticing, contours that ripple away from it.",
     publication: "Toilet ov Hell",
     date: "September 10, 2021",
     author: "A Spooky Mansion",
     album: "Lurkers in the Capsule of Skull",
     rating: null,
-    link: "https://toiletovhell.com/review-veilburner-lurkers-in-the-capsule-of-skull/"
+    link: "https://toiletovhell.com/review-veilburner-lurkers-in-the-capsule-of-skull/",
   },
   {
-    quote: "It blasts in with borderline Grindcore aggression mixed with Symphonic Black Metal and Death Metal spew. Overall, a pretty stunning mix...",
-    fullText: `As a Metalhead I’m used to Blackened Death Metal and the moments where this album pushes that genre are the most exciting.`,
-    publication: "Ave Noctum",
-    date: "September 23, 2021",
-    author: "George Caley",
-    album: "Lurkers in the Capsule of Skull",
-    rating: "7/10",
-    link: "https://avenoctum.com/2021/09/23/veilburner-lurkers-in-the-capsule-of-the-skull-transcending-obscurity/",
-  },
-  {
-    quote: "This isn't a journey for everyone but I highly suggest everyone takes it anyway.",
-    fullText: "I can tell someone all day this album is dissonant but until the music is actually heard, then the description won't do much good to most people.",
-    publication: "Metal Temple",
-    date: "August 23, 2021",
-    author: `Justin "Witty City" Wittenmeier`,
-    album: "Lurkers In The Capsule Of Skull",
-    rating: "9/10",
-    link: "https://metal-temple.com/review/veilburner-lurkers-in-the-capsule-of-skull/",
-  },
-  {
-    quote: "This is heavy, oppressive, feral, unhinged, and yet somehow musical. To me, it’s the most musical album I’ve heard of this death metal sub-genre.",
-    fullText: "[Veilburner] tend to weave odd bits of melody into their music. While it may sound oppressive at first, and it certainly is, it begins to bore its way into your head little by little. Friends, this isn’t a “first listen and you’ll get it” experience.",
-    publication: "Teeth of the Divine",
-    date: "August 12th, 2021",
-    author: "J Mays",
-    album: "Lurkers in the Capsule of Skull",
-    rating: null,
-    link: "https://www.teethofthedivine.com/reviews/veilburner-lurkers-in-the-capsule-of-skull/",
-  },
-  {
-    quote: "You cannot deny the otherworldly superiority that Lurkers in the Capsule of Skull commands at every given moment.",
-    fullText: "Veilburner defies all expectations to the point that I’m tempted to call this a work that’s sure to be considered one of the biggest and most well-executed of its kind that 2021.",
+    quote:
+      "You cannot deny the otherworldly superiority that Lurkers in the Capsule of Skull commands at every given moment.",
+    fullText:
+      "Veilburner defies all expectations to the point that I’m tempted to call this a work that’s sure to be considered one of the biggest and most well-executed of its kind that 2021.",
     publication: "Head-Banger Reviews",
     date: "July 24, 2021",
     author: "VinterD",
@@ -314,18 +167,10 @@ export const reviews = [
     link: "https://headbangerreviews.com/2021/07/24/veilburner-lurkers-in-the-capsule-of-skull/",
   },
   {
-    quote: "It's not so easy to describe this chaotic and aggressive form of music, but it's good in the way it is.",
-    fullText: `Where insanity reigns, creative power is endless. So VEILBURNER's tendency is become greater and greater, for "A Sire to the Ghouls of Lunacy" really points to a shining future.`,
-    publication: "Metal Temple",
-    date: "January 12, 2019",
-    author: `"Metal Mark" Garcia`,
-    album: "A Sire to the Ghouls of Lunacy",
-    rating: "8/10",
-    link: "https://metal-temple.com/review/veilburner-a-sire-to-the-ghouls-of-lunacy/",
-  },
-  {
-    quote: "A Sire to the Ghouls of Lunacy is yet another example of Veilburner at their mind-bending, genre-blending best.",
-    fullText: "The inclusion of ever-darker, ever-more compelling splashes of melody and moody ambience, soaring lead lines and, wouldn’t you know it, some honest-to-god clean vocals (on the Anaal Nathrakh-esque “Panoramic Phantoms”) definitely qualifies this album as their most melodic yet.",
+    quote:
+      "A Sire to the Ghouls of Lunacy is yet another example of Veilburner at their mind-bending, genre-blending best.",
+    fullText:
+      "The inclusion of ever-darker, ever-more compelling splashes of melody and moody ambience, soaring lead lines and, wouldn’t you know it, some honest-to-god clean vocals (on the Anaal Nathrakh-esque “Panoramic Phantoms”) definitely qualifies this album as their most melodic yet.",
     publication: "No Clean Singing",
     date: "December 28, 2018",
     author: "Andy Synn",
@@ -334,8 +179,10 @@ export const reviews = [
     link: "https://www.nocleansinging.com/2018/12/28/the-synn-report-part-104-veilburner/",
   },
   {
-    quote: "It’s with Veilburner that I’m lucky enough to go into next year with yet another top-tier sample of the genre fresh on my lips and still ringing in my ears!",
-    fullText: "There’s not a single dull moment to be had as Veilburner clearly understands the mammoth task of keeping the attention of the listener while still bringing a great level of complexity to the mix that can’t be ignored.",
+    quote:
+      "It’s with Veilburner that I’m lucky enough to go into next year with yet another top-tier sample of the genre fresh on my lips and still ringing in my ears!",
+    fullText:
+      "There’s not a single dull moment to be had as Veilburner clearly understands the mammoth task of keeping the attention of the listener while still bringing a great level of complexity to the mix that can’t be ignored.",
     publication: "Head-Banger Reviews",
     date: "October 30, 2018",
     author: "Vinterd",
@@ -344,18 +191,22 @@ export const reviews = [
     link: "https://headbangerreviews.com/2018/10/30/veilburner-a-sire-to-the-ghouls-of-lunacy/",
   },
   {
-    quote: "It is beauty and ugliness, heaviness and levity, and it will absolutely set your mind ablaze.",
-    fullText: "...there’s ever an elusive, transcendent element to the music. You hear it in the dim corners of Mephisto Deleterio’s scabrous solos and feel it in the airy heights of the track’s main riff.",
+    quote:
+      "It is beauty and ugliness, heaviness and levity, and it will absolutely set your mind ablaze.",
+    fullText:
+      "...there’s ever an elusive, transcendent element to the music. You hear it in the dim corners of Mephisto Deleterio’s scabrous solos and feel it in the airy heights of the track’s main riff.",
     publication: "Toilet ov Hell",
     date: "2017",
     author: "W.",
     album: "A Sire to the Ghouls of Lunacy",
     rating: null,
-    link: "https://toiletovhell.com/premiere-embrace-veilburners-glory-glory-grotesque/"
+    link: "https://toiletovhell.com/premiere-embrace-veilburners-glory-glory-grotesque/",
   },
   {
-    quote: "The Obscene Rite is a majestic, intricate spectacle of an album that manages to be both disturbing and uplifting.",
-    fullText: "VEILBURNER manages to squeeze in elements of industrial, psychedelia, progressive metal, black metal and dissonant death metal, and for the most part they pull it off well.",
+    quote:
+      "The Obscene Rite is a majestic, intricate spectacle of an album that manages to be both disturbing and uplifting.",
+    fullText:
+      "VEILBURNER manages to squeeze in elements of industrial, psychedelia, progressive metal, black metal and dissonant death metal, and for the most part they pull it off well.",
     publication: "Metal Temple",
     date: "January 12, 2017",
     author: "By Lauren Fonto",
@@ -364,8 +215,10 @@ export const reviews = [
     link: "https://metal-temple.com/review/veilburner-the-obscene-rite/",
   },
   {
-    quote: "A solid choice for more adventurous-leaning extreme metal fans or fans of the bands’ previous work.",
-    fullText: "A strong series of discordant, jangly patterns that are strongly technical with near-progressive tendencies within the arrangements and maneuver within the utterly off-kilter tempos which give the tracks a highly offbeat appearance that’s quite intriguing.",
+    quote:
+      "A solid choice for more adventurous-leaning extreme metal fans or fans of the bands’ previous work.",
+    fullText:
+      "A strong series of discordant, jangly patterns that are strongly technical with near-progressive tendencies within the arrangements and maneuver within the utterly off-kilter tempos which give the tracks a highly offbeat appearance that’s quite intriguing.",
     publication: "Encyclopaedia Metallum",
     date: "November 3, 2016",
     author: "slayrrr666",
@@ -374,8 +227,10 @@ export const reviews = [
     link: "https://www.metal-archives.com/reviews/Veilburner/The_Obscene_Rite/601145/slayrrr666/280147",
   },
   {
-    quote: "...for all of its quirks, and mystifying story line, Rite is an utterly fascinating work.",
-    fullText: "Its tornadic, ever-shifting time signatures; elliptical, frantic, almost jangly guitaring; limber, jazz-like bottom end; and penchant for curious tangents make for quite a musical shitstorm, but it definitely grabs your attention.",
+    quote:
+      "...for all of its quirks, and mystifying story line, Rite is an utterly fascinating work.",
+    fullText:
+      "Its tornadic, ever-shifting time signatures; elliptical, frantic, almost jangly guitaring; limber, jazz-like bottom end; and penchant for curious tangents make for quite a musical shitstorm, but it definitely grabs your attention.",
     publication: "Metal Rules",
     date: "October 2016",
     author: "Peter Atkinson",
@@ -383,25 +238,18 @@ export const reviews = [
     rating: "4/5",
     link: "https://www.metal-rules.com/2016/10/01/veilburner-the-obscene-rite/",
   },
+  
   {
-    quote: "Veilburner once again proves they have the songwriting ability and conceptual prowess to deliver a cohesive, yet bizarrely far-reaching album.",
-    fullText: "[The Obscene Rite] completes a conceptual trilogy exploring transhumanism, ghastly experimentation, nihilism, and an unholy quest for immortality, and the music sounds every bit like the subject matter. ",
-    publication: "Toilet ov Hell",
-    date: "October 5, 2016",
-    author: "Stockhausen",
-    album: "The Obscene Rite",
-    rating: "4/5",
-    link: "https://toiletovhell.com/veilburner-triumph-with-the-obscene-rite/"
-  },
-  {
-    quote: "Veilburner's Noumenon is a sophisticated and dynamic metal album that transcends traditional brutality.",
-    fullText: "An uncompromisingly bright album, its effervescent synths and heavily effected clean guitars give tracks like first single 'Ever Relapsing Fever' a brilliant, almost garish shade.",
+    quote:
+      "Veilburner's Noumenon is a sophisticated and dynamic metal album that transcends traditional brutality.",
+    fullText:
+      "An uncompromisingly bright album, its effervescent synths and heavily effected clean guitars give tracks like first single 'Ever Relapsing Fever' a brilliant, almost garish shade.",
     publication: "Toilet ov Hell",
     date: "July 31, 2015",
     author: "Christian Molenaar",
     album: "Noumenon",
     rating: null,
-    link: "https://toiletovhell.com/premier-veilburners-noumenon/"
+    link: "https://toiletovhell.com/premier-veilburners-noumenon/",
   },
   {
     quote: `Veilburner’s debut album is packed with chaotic, technical death/black and brimming with crushing riffage that could flatten cities, yet it’s so much more`,
@@ -412,5 +260,5 @@ export const reviews = [
     album: "The Three Lightbearers",
     rating: "7/10",
     link: "https://avenoctum.com/2014/12/15/veilburner-the-three-lightbearers-obscure-divinity/",
-  }
+  },
 ];

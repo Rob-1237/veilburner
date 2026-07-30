@@ -6,11 +6,11 @@ export const albums = [
     cover: "/images/album-art/album-art-2026.jpg",
     status: "upcoming",
     releaseDate: "2026-10-16",
-    bandcampId: null,
+    bandcampId: "919398334", // singles live now; embed auto-updates to the full album on release
     bandcampLink: "https://veilburnerband.bandcamp.com/album/all-that-glimmers-is-gloam",
     description: "The ninth invocation. All That Glimmers is Gloam gilds ruin in tarnished light — a dusk-lit sermon where every glimmer curdles into gloam. Out 16 October 2026 on Transcending Obscurity Records.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals",
       production: "Mephisto Deleterio",
       artwork: "Luciana Nedelea",
       label: "Transcending Obscurity Records"
@@ -29,7 +29,7 @@ export const albums = [
     bandcampLink: "https://veilburnerband.bandcamp.com/album/longing-for-triumph-reeking-of-tragedy",
     description: "A cosmic requiem for every victory doomed to rot. Longing for Triumph, Reeking of Tragedy closes the circle with grandeur and despair, its sound both celebratory and terminal — the last sermon before silence devours the light.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals",
       production: "Mephisto Deleterio",
       artwork: "Luciana Nedelea",
       label: "Transcending Obscurity Records"
@@ -57,7 +57,7 @@ export const albums = [
     bandcampLink: "https://veilburnerband.bandcamp.com/album/the-duality-of-decapitation-and-wisdom",
     description: "The blade and the oracle are one. The Duality of Decapitation and Wisdom is a study in ecstatic violence and transcendental logic — an alchemical paradox that finds revelation in ruin and divinity in dismemberment.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals",
       production: "Mephisto Deleterio",
       artwork: "Luciana Nedelea",
       label: "Transcending Obscurity Records"
@@ -84,7 +84,7 @@ export const albums = [
     bandcampLink: "https://veilburnerband.bandcamp.com/album/vlbrnr",
     description: "A summoning and a culmination. VLBRNR wields blackened industrial fury like a ritual fire, consuming every prior incarnation of the band and reconstituting it into something unholy, triumphant, and vividly self-aware.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals and album design",
       production: "Mephisto Deleterio",
       artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
@@ -114,7 +114,7 @@ export const albums = [
     bandcampLink: "https://veilburnerband.bandcamp.com/album/lurkers-in-the-capsule-of-skull",
     description: "The mind becomes a mausoleum — each track a reflection echoing within its decaying architecture. Lurkers in the Capsule of Skull blurs dream and delusion, using progressive dissonance and industrial grime to explore the spaces between sentience and sickness.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals and album design",
       production: "Mephisto Deleterio",
       artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
@@ -141,7 +141,7 @@ export const albums = [
     bandcampLink: "https://veilburner.bandcamp.com/album/a-sire-to-the-ghouls-of-lunacy",
     description: "An ascent through lunacy and dream logic. A Sire to the Ghouls of Lunacy paints its horrors in surreal technicolor — an operatic study in transformation, obsession, and the beauty of psychological ruin.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals and album design",
       production: "Mephisto Deleterio",
       artwork: "Chrisom Infernium",
       label: "Transcending Obscurity Records"
@@ -167,7 +167,7 @@ export const albums = [
     bandcampLink: "https://veilburner.bandcamp.com/album/the-obscene-rite",
     description: "Here the ceremony turns inward — a self-inflicted exorcism drenched in delirium and sacrilege. The Obscene Rite channels dissonant fervor and ritualistic pulse, as the veil between body and spirit fractures under the weight of its own revelation.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals and album design",
       production: "Mephisto Deleterio",
       artwork: "Chrisom Infernium",
       label: "Veilburner"
@@ -196,7 +196,7 @@ export const albums = [
     bandcampLink: "https://veilburner.bandcamp.com/album/noumenon",
     description: "A descent into psychic fever and metaphysical decay. Noumenon expands the band’s twisted lexicon, layering philosophical terror with grotesque melody, where the material and immaterial grind against each other until both are unrecognizable.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals and album design",
       production: "Mephisto Deleterio",
       artwork: "Chrisom Infernium",
       label: "Veilburner"
@@ -225,7 +225,7 @@ export const albums = [
     bandcampLink: "https://veilburner.bandcamp.com/album/the-three-lightbearers",
     description: "The genesis of Veilburner’s labyrinthine doctrine — an invocation through warped blackened death and deranged ritual. The Three Lightbearers summons chaos from the cosmic void, binding flesh and philosophy in the first movement of the duo’s alchemical ascent.",
     credits: {
-      personnel: "Mephisto Deleterio – Music and production | Chrisom Infernium – Vocals and album design",
+      personnel: "Mephisto Deleterio – Music | Chrisom Infernium – Vocals and album design",
       production: "Mephisto Deleterio",
       artwork: "Chrisom Infernium",
       label: "Veilburner"

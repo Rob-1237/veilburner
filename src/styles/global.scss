@@ -19,7 +19,6 @@
   --color-gray-medium:  #666666;
   --color-gray-light:   #cccccc;
   --color-sickly-green: #478447;
-//   --color-sickly-green: #385b38;
 
     --color-test-nuts1: rgb(139, 115, 85);
     --color-test-nuts2: rgb(71, 132, 71);
@@ -233,7 +232,6 @@ body {
   border: 2px solid $edge;
   border-right: 2px solid $edge;
   border-bottom: 2px solid $edge;
-//   color: $color-gray-medium;
   color: $color-bone;
   background: transparent;
   font-family: $font-metal;
@@ -263,7 +261,7 @@ body {
     color: $color-gray-light;
     border-color: $edge-strong;
     transform: translate(0px, 1px);
-    // transform: translate(.5px, .5px);
+    //   background: rgb(71, 132, 71, .6);
 
     &::before {
       opacity: 0.8;

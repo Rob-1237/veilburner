@@ -44,15 +44,33 @@ export const media = {
       link: "https://www.youtube.com/watch?v=XjwAeU1jMig"
     }
   ],
+  // Reel display: `videoSrc` (self-hosted mp4) plays inline; else YouTube → embed;
+  // else Instagram/Facebook link → link-card fallback.
   reels: [
     {
+      title: "Veilburner: Luciana Nedelea Artwork Reveal #veilburner #luciananedelea #blackmetal",
+      videoSrc: "/videos/veilburner-reel-ig.mp4",
+      link: "https://www.instagram.com/reel/Dax4Pe8KGFe/?igsh=MWQwYXkzZ3V2czY5Mg=="
+    },
+    {
+      title: "Veilburner: How a Song is Built #veilburner #avantgarde #blackmetal",
+      link: "https://www.youtube.com/shorts/8eetPYKFAQ4"
+    },
+    {
+      title: "Veilburner: The Secret Software That Transforms Vocals, Guitars, Synths... #veilburner #avantgarde #blackmetal",
+      link: "https://www.youtube.com/shorts/Oe72Y2b_CCQ"
+    },
+    {
+      title: "Veilburner: Avant-Garde Gnostic Black Metal #veilburner #avantgarde #blackmetal",
+      link: "https://www.youtube.com/shorts/UAc3v_xSagQ"
+    },
+    {
       title: "Veilburner: Metal You Might Like #metal #beastmetalreview #blackmetal",
-      videoSrc: "/videos/veilburner-reel-1.mp4",
       link: "https://www.youtube.com/shorts/frrVnKG1IUY"
     },
     {
       title: "Veilburner #abattoirnoir #masktestvideo #entities #blackmetal",
-      videoSrc: "/videos/veilburner-reel-2.mp4",
+      videoSrc: "/videos/veilburner-reel-fb.mp4",
       link: "https://www.facebook.com/reel/601553250275501"
     }
   ]

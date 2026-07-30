@@ -2,11 +2,37 @@
 import Layout from '../layouts/Layout.astro';
 import BrandMark from '../components/BrandMark.astro';
 import ReleaseCta from '../components/ReleaseCta.astro';
+import Icon from '../components/Icon.astro';
 import Footer from '../components/Footer.astro';
+import { albums } from '../data/albums.js';
 import { reviews } from '../data/reviews.js';
 import { interviewsWritten } from '../data/interviews-written.js';
 import { interviews } from '../data/interviews.js';
 import { media } from '../data/media.js';
+
+// Album reviews grouped by album, newest release first (matches recency conventions
+// and surfaces current-era press before the back catalogue).
+const albumOrder = albums; // albums.js is already newest-first
+const reviewsByAlbum = albumOrder
+  .map((a) => ({ album: a, items: reviews.filter((r) => r.album === a.title) }))
+  .filter((g) => g.items.length > 0);
+
+// Reels: self-hosted mp4 plays inline; else YouTube embeds; else a platform link-card.
+const reelType = (reel) => {
+  if (reel.videoSrc) return 'mp4';
+  const l = reel.link || '';
+  if (l.includes('youtube.com') || l.includes('youtu.be')) return 'youtube';
+  if (l.includes('instagram.com')) return 'instagram';
+  if (l.includes('facebook.com')) return 'facebook';
+  return 'link';
+};
+const youtubeId = (link = '') => {
+  const m =
+    link.match(/shorts\/([\w-]+)/) ||
+    link.match(/[?&]v=([\w-]+)/) ||
+    link.match(/youtu\.be\/([\w-]+)/);
+  return m ? m[1] : '';
+};
 ---
 
 <Layout title="VEILBURNER - Archive">
@@ -16,7 +42,54 @@ import { media } from '../data/media.js';
   <section class="archive-page">
     <div class="container">
 
-      <!-- 1. Interviews (Written) Section -->
+      <!-- 1. Reviews (Written) Section -->
+      <section class="archive-section collapsed" data-section="reviews">
+        <div class="archive-section__header">
+          <h2 class="archive-section__title">ALBUM REVIEWS</h2>
+          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Reviews section">
+            <span class="section-toggle-icon">🜃</span>
+          </button>
+        </div>
+        <div class="archive-section__content-wrapper">
+          <div class="archive-section__content">
+            {reviewsByAlbum.map((group) => (
+            <div class="review-group">
+              <h3 class="review-group__album">{group.album.title} <span class="review-group__year">{group.album.year}</span></h3>
+              {group.items.map((review) => (
+              <div class="review-card">
+                <div class="review-card__content">
+                  <blockquote class="review-card__quote">"{review.quote}"</blockquote>
+                  <div class="review-card__attribution">
+                    <span>— {review.publication}, {review.date}<span class="review-author">&nbsp;{review.author}</span></span>
+                    <button class="review-card__toggle" aria-expanded="false" aria-label="Expand review">
+                      <span class="toggle-icon">🜁</span>
+                    </button>
+                  </div>
+                  <div class="review-card__expandable">
+                    <div class="review-card__expandable-content">
+                      <div class="review-card__full-text">
+                        <p>{review.fullText}</p>
+                        {review.rating && (
+                          <p class="review-card__meta"><strong>Rating:</strong> {review.rating}</p>
+                        )}
+                      </div>
+                      {review.link && (
+                        <a href={review.link} target="_blank" rel="noopener noreferrer" class="review-card__link">
+                          Read Full Review →
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              ))}
+            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Interviews (Written) Section -->
       <section class="archive-section collapsed" data-section="interviews">
         <div class="archive-section__header">
           <h2 class="archive-section__title">INTERVIEWS</h2>
@@ -44,51 +117,6 @@ import { media } from '../data/media.js';
                     {interview.link && (
                       <a href={interview.link} target="_blank" rel="noopener noreferrer" class="review-card__link">
                         Read Full Interview →
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. Reviews (Written) Section -->
-      <section class="archive-section collapsed" data-section="reviews">
-        <div class="archive-section__header">
-          <h2 class="archive-section__title">ALBUM REVIEWS</h2>
-          <button class="archive-section__toggle" aria-expanded="false" aria-label="Toggle Reviews section">
-            <span class="section-toggle-icon">🜃</span>
-          </button>
-        </div>
-        <div class="archive-section__content-wrapper">
-          <div class="archive-section__content">
-            {reviews.map((review, index) => (
-            <div class="review-card" data-item-id={index}>
-              <div class="review-card__content">
-                <blockquote class="review-card__quote">"{review.quote}"</blockquote>
-                <div class="review-card__attribution">
-                  <span>— {review.publication}, {review.date}<span class="review-author">&nbsp;{review.author}</span></span>
-                  <button class="review-card__toggle" aria-expanded="false" aria-label="Expand review">
-                    <span class="toggle-icon">🜁</span>
-                  </button>
-                </div>
-                <div class="review-card__expandable">
-                  <div class="review-card__expandable-content">
-                    <div class="review-card__full-text">
-                      <p>{review.fullText}</p>
-                      {review.album && (
-                        <p class="review-card__meta"><strong>Album:</strong> {review.album}</p>
-                      )}
-                      {review.rating && (
-                        <p class="review-card__meta"><strong>Rating:</strong> {review.rating}</p>
-                      )}
-                    </div>
-                    {review.link && (
-                      <a href={review.link} target="_blank" rel="noopener noreferrer" class="review-card__link">
-                        Read Full Review →
                       </a>
                     )}
                   </div>
@@ -207,19 +235,34 @@ import { media } from '../data/media.js';
               {media.reels.map((reel) => (
               <div class="reel-container">
                 <h3 class="reel-container__title">{reel.title}</h3>
-                <div class="reel-container__wrapper">
-                  <video
-                    class="reel-video"
-                    controls
-                    playsinline
-                    preload="metadata"
-                    poster=""
-                  >
-                    <source src={reel.videoSrc} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                {reel.link && (
+                {reelType(reel) === 'mp4' && (
+                  <div class="reel-container__wrapper">
+                    <video class="reel-embed" controls playsinline loop preload="metadata">
+                      <source src={reel.videoSrc} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
+                {reelType(reel) === 'youtube' && (
+                  <div class="reel-container__wrapper">
+                    <iframe
+                      class="reel-embed"
+                      src={`https://www.youtube.com/embed/${youtubeId(reel.link)}`}
+                      title={reel.title}
+                      loading="lazy"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                )}
+                {(reelType(reel) === 'instagram' || reelType(reel) === 'facebook') && (
+                  <a href={reel.link} target="_blank" rel="noopener noreferrer" class="reel-container__wrapper reel-card">
+                    <Icon name={reelType(reel)} class="reel-card__icon" />
+                    <span class="reel-card__label">Watch on {reelType(reel) === 'instagram' ? 'Instagram' : 'Facebook'} →</span>
+                  </a>
+                )}
+                {(reelType(reel) === 'youtube' || reelType(reel) === 'mp4') && reel.link && (
                   <a href={reel.link} target="_blank" rel="noopener noreferrer" class="reel-container__link">
                     View Original →
                   </a>
@@ -362,6 +405,34 @@ import { media } from '../data/media.js';
       max-width: 675px;
       margin: 0 auto;
       overflow: hidden;
+    }
+  }
+
+  // Chronological album grouping for the reviews section
+  .review-group {
+    margin-bottom: 2.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__album {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-bone);
+      letter-spacing: 0.03em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(139, 115, 85, 0.25);
+    }
+
+    &__year {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--color-gray-medium);
+      letter-spacing: 0.1em;
+      margin-left: 0.5rem;
     }
   }
 
@@ -636,11 +707,41 @@ import { media } from '../data/media.js';
     }
   }
 
-  .reel-video {
+  .reel-embed {
     width: 100%;
     height: 100%;
-    object-fit: cover; // Fill the container while maintaining aspect ratio
     display: block;
+    border: 0;
+    object-fit: cover; // fills the 9:16 frame (applies to the <video>; no-op on <iframe>)
+  }
+
+  // Instagram / Facebook link-card — reuses the 9:16 .reel-container__wrapper box
+  .reel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-bone);
+    --icon-size: 44px;
+    background: linear-gradient(160deg, rgba(90, 58, 42, 0.14), transparent 70%);
+    transition: color 0.3s ease, background 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-rust);
+      background: linear-gradient(160deg, rgba(90, 58, 42, 0.24), transparent 70%);
+    }
+
+    &__label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
   }
 
   // A11y: keep collapsed content out of the keyboard tab order. Visibility flips
@@ -706,4 +807,32 @@ import { media } from '../data/media.js';
     });
   }
   document.addEventListener('astro:page-load', initSectionAccordion);
+
+  // Reels: click/tap to play (loops); pause when scrolled out of view; one at a time.
+  function initReels() {
+    const vids = document.querySelectorAll<HTMLVideoElement>('.reel-embed');
+    if (!vids.length) return;
+
+    vids.forEach((v) => {
+      // Starting one reel pauses the others
+      v.addEventListener('play', () => {
+        vids.forEach((other) => {
+          if (other !== v) other.pause();
+        });
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) (e.target as HTMLVideoElement).pause();
+          });
+        },
+        { threshold: 0.2 },
+      );
+      vids.forEach((v) => io.observe(v));
+    }
+  }
+  document.addEventListener('astro:page-load', initReels);
 </script>

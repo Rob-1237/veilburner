@@ -313,7 +313,7 @@ const releaseDateFmt = album.releaseDate
     text-align: center;
     padding: 2.5rem 2rem;
     border: 2px solid var(--edge);
-    border-left: 6px solid var(--color-blood);
+    border-left: 6px solid var(--color-rust);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
     background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
 
@@ -329,6 +329,20 @@ const releaseDateFmt = album.releaseDate
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem;
       color: var(--color-gray-light);
+    }
+
+    &__cta {
+      background: rgb(90, 58, 42, .8);
+
+      // The global .btn paints a rust ::before overlay on hover that was hiding the
+      // green background change — disable it (same fix as the release CTA buttons).
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+        background: rgb(71, 132, 71, .6);
+      }
     }
   }
 
@@ -359,7 +373,7 @@ const releaseDateFmt = album.releaseDate
       color: var(--color-gray-light);
       padding: 2rem;
       border: 2px solid var(--edge);
-      border-left: 6px solid var(--color-blood);
+      border-left: 6px solid var(--color-rust);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
       background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
     }
@@ -379,7 +393,7 @@ const releaseDateFmt = album.releaseDate
     &__item {
       padding: 1.5rem;
       border: 2px solid var(--edge);
-      border-left: 6px solid var(--color-blood);
+      border-left: 6px solid var(--color-rust);
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
       background: linear-gradient(90deg, rgba(139, 0, 0, 0.05) 0%, transparent 100%);
     }

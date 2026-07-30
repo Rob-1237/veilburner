@@ -365,10 +365,10 @@ Build green, 12 pages. **Open:** the two `vinyl-record-*.png` images are unplace
 
 =====
 
-
-=====
 # Phase 5 — polish reminders (open)
 - MOBILE: reposition the floating ReleaseCta (Hear/Buy + logo) on About/Listen/Archive — it currently competes with the Sigil Spine glyphs for space on small screens.
 - SIGN-OFF must include **rigorous visual inspection** (contrast is judged by eye, not WCAG numbers, per Rob).
+
+=====
 
 
